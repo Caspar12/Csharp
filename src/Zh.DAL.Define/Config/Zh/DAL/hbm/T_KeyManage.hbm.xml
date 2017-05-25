@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_KeyManage, Zh.DAL.Define" table="T_KeyManage">
+		<id name="KeyManageIndex" type="Int32" unsaved-value="null">
+			<column name="KeyManageIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 位置ID -->
+		<property name="PositionID" type="Int32"  >
+			<column name="PositionID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 图片url -->
+		<property name="ImgUrl" type="String"  >
+			<column name="ImgUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 微博 -->
+		<property name="Weibo" type="String"  >
+			<column name="Weibo" length="150" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 链接 -->
+		<property name="Link" type="String"  >
+			<column name="Link" length="150" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        <!-- 是否允许首页显示,0不允许1允许 -->
+		<property name="IsTop" type="Int32"  >
+			<column name="IsTop" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

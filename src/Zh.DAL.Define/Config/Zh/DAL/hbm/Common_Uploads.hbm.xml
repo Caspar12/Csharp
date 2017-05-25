@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define" table="Common_Uploads">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 上传文件名称 -->
+		<property name="FileName" type="String"  >
+			<column name="FileName" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文件Url -->
+		<property name="Url" type="String"  >
+			<column name="Url" length="2048" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ThumbnailUrl" type="String"  >
+			<column name="ThumbnailUrl" length="2048" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+        <one-to-one name="Prestige_PostImage"
+                class="Zh.DAL.Define.Entities.Prestige_PostImage,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Mall_GoodsImg"
+                class="Zh.DAL.Define.Entities.Mall_GoodsImg,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+		<bag name="Car_BrandImage" inverse="true" lazy="true" cascade="all">
+			<key column="ImageId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_BrandImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_DistributorImage" inverse="true" lazy="true" cascade="all">
+			<key column="ImageId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_DistributorImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Display_PhotoAlbumsToPhotos" inverse="true" lazy="true" cascade="all">
+			<key column="UploadFileId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Display_PhotoAlbumsToPhotos, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Article_Main" inverse="true" lazy="true" cascade="all">
+			<key column="ImageID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Article_Main, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Brand" inverse="true" lazy="true" cascade="all">
+			<key column="ImageID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Brand, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Distributor" inverse="true" lazy="true" cascade="all">
+			<key column="ImageID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Distributor, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Image" inverse="true" lazy="true" cascade="all">
+			<key column="UploadID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Image, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_MainItem_Model" inverse="true" lazy="true" cascade="all">
+			<key column="ImageID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainItem_Model, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Video_Main" inverse="true" lazy="true" cascade="all">
+			<key column="ImageID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Video_Main, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Store_MainImage" inverse="true" lazy="true" cascade="all">
+			<key column="ImageId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Store_MainImage, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

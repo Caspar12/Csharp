@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_QRCode, Zh.DAL.Define" table="WeiXin_QRCode">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 场景值ID，临时二维码时为32位非0整型，永久二维码时最大值为100000（目前参数只支持1-100000） -->
+		<property name="SceneId" type="Int32"  >
+			<column name="SceneId" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 该二维码有效时间，以秒为单位。 最大不超过2592000（即30天），此字段如果不填，则默认有效期为30秒。 -->
+		<property name="ExpireSeconds" type="Int32"  >
+			<column name="ExpireSeconds" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 二维码类型，QR_SCENE为临时,QR_LIMIT_SCENE为永久,QR_LIMIT_STR_SCENE为永久的字符串参数值 -->
+		<property name="ActionName" type="String"  >
+			<column name="ActionName" length="32" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 场景值ID（字符串形式的ID），字符串类型，长度限制为1到64，仅永久二维码支持此字段 -->
+		<property name="SceneStr" type="String"  >
+			<column name="SceneStr" length="64" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 微信关联WebAppId -->
+		<property name="WebApplicationId" type="Guid"  >
+			<column name="WebApplicationId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 创建时间 -->
+		<property name="CreatedDate" type="DateTime"  >
+			<column name="CreatedDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 获取二维码Ticket -->
+		<property name="Ticket" type="String"  >
+			<column name="Ticket" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 二维码内容地址 -->
+		<property name="QRCodeUrl" type="String"  >
+			<column name="QRCodeUrl" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+		<bag name="WeiXin_QRCodePromotionActivityAccount" inverse="true" lazy="true" cascade="all">
+			<key column="QRCodeId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityAccount, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

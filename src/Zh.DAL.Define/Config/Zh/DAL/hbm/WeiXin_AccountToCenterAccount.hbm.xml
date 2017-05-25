@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_AccountToCenterAccount, Zh.DAL.Define" table="WeiXin_AccountToCenterAccount">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- WeiXinOpenId -->
+		<property name="WeiXinOpenId" type="String"  >
+			<column name="WeiXinOpenId" length="512" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- CenterAccountId -->
+		<property name="CenterAccountId" type="Guid"  >
+			<column name="CenterAccountId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- AppId -->
+		<property name="AppId" type="String"  >
+			<column name="AppId" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        
+         <!-- 会员账号信息 -->
+        <many-to-one update="false" insert="false" name="Member_Account" class="Zh.DAL.Define.Entities.Member_Account, Zh.DAL.Define">
+			<column name="CenterAccountId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

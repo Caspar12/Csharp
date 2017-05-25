@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem_BodyWork, Zh.DAL.Define" table="Car_MainItem_BodyWork">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 长度(mm) -->
+		<property name="Length" type="String"  >
+			<column name="Length" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 宽度(mm) -->
+		<property name="Width" type="String"  >
+			<column name="Width" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 高度(mm) -->
+		<property name="Heihgt" type="String"  >
+			<column name="Heihgt" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 轴距(mm) -->
+		<property name="WheelBase" type="String"  >
+			<column name="WheelBase" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 前轮距(mm) -->
+		<property name="FrontWheelDistance" type="String"  >
+			<column name="FrontWheelDistance" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 后轮距(mm) -->
+		<property name="BackWheelDistance" type="String"  >
+			<column name="BackWheelDistance" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最小离地间隙(mm) -->
+		<property name="MinFloorDistance" type="String"  >
+			<column name="MinFloorDistance" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 整备质量 -->
+		<property name="WholeKG" type="String"  >
+			<column name="WholeKG" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车身结构 -->
+		<property name="BodyWorkStructure" type="String"  >
+			<column name="BodyWorkStructure" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车门数(个) -->
+		<property name="DoorOfCarCount" type="String"  >
+			<column name="DoorOfCarCount" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 座位数(个) -->
+		<property name="SeatOfCarCount" type="String"  >
+			<column name="SeatOfCarCount" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 油箱容积(L) -->
+		<property name="SpaceOfOilBox" type="String"  >
+			<column name="SpaceOfOilBox" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 行李厢容积(L) -->
+		<property name="SpaceOfTravelBox" type="String"  >
+			<column name="SpaceOfTravelBox" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityMemberFromAccount, Zh.DAL.Define" table="WeiXin_QRCodePromotionActivityMemberFromAccount">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 微信关联WebAppId -->
+		<property name="WebApplicationId" type="Guid"  >
+			<column name="WebApplicationId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 微信参加二维码推广活动用户OpenId -->
+		<property name="ActivityOpenId" type="String"  >
+			<column name="ActivityOpenId" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 关注用户OpenId -->
+		<property name="MemberOpenId" type="String"  >
+			<column name="MemberOpenId" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 微信参加二维码推广活动用户Id -->
+		<property name="WeiXinQRCodePromotionActivityAccountId" type="Guid"  >
+			<column name="WeiXinQRCodePromotionActivityAccountId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        
+         <!-- 微信参加二维码推广活动用户信息表 -->
+        <many-to-one update="false" insert="false" name="WeiXin_QRCodePromotionActivityAccount" class="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityAccount, Zh.DAL.Define">
+			<column name="WeiXinQRCodePromotionActivityAccountId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

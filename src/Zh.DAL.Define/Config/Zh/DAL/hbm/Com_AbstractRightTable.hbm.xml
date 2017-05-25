@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Com_AbstractRightTable, Zh.DAL.Define" table="Com_AbstractRightTable">
+		<id name="Id" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="Id" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        
+        
+		<bag name="Com_AbstractLeftTableToRightTableRef" inverse="true" lazy="true" cascade="all">
+			<key column="RightId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Com_AbstractLeftTableToRightTableRef, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

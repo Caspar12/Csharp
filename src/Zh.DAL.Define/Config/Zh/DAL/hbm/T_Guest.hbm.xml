@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_Guest, Zh.DAL.Define" table="T_Guest">
+		<id name="GuestIndex" type="Int32" unsaved-value="null">
+			<column name="GuestIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 店号 -->
+		<property name="ShopID" type="String"  >
+			<column name="ShopID" length="10" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 客户编号,自动生成(2012-06-11新增) -->
+		<property name="GuestNumber" type="String"  >
+			<column name="GuestNumber" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 注册时间,登记时间 -->
+		<property name="GuestRegTime" type="DateTime"  >
+			<column name="GuestRegTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 客户名称,注册客户最少需要提供邮件或手机号 -->
+		<property name="GuestName" type="String"  >
+			<column name="GuestName" length="30" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 性别 -->
+		<property name="GuestSex" type="String"  >
+			<column name="GuestSex" length="2" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 手机号,很重要,可存储2-3个电话用,分割 -->
+		<property name="GuestHandTel" type="String"  >
+			<column name="GuestHandTel" length="40" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 电子邮件,很重要,可用作ID -->
+		<property name="GuestEmail" type="String"  >
+			<column name="GuestEmail" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- QQ -->
+		<property name="GuestQQ" type="String"  >
+			<column name="GuestQQ" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 通讯地址 -->
+		<property name="GuestAddr" type="String"  >
+			<column name="GuestAddr" length="150" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 决定人 -->
+		<property name="GuestDeciders" type="String"  >
+			<column name="GuestDeciders" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车牌号 -->
+		<property name="CarNumberID" type="String"  >
+			<column name="CarNumberID" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车型,大车型,直接存名字即可 -->
+		<property name="CarTypeBig" type="String"  >
+			<column name="CarTypeBig" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 细车型,直接存名字即可 -->
+		<property name="CarType" type="String"  >
+			<column name="CarType" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 排档(2012-12-26新增) -->
+		<property name="Gears" type="String"  >
+			<column name="Gears" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车身颜色 -->
+		<property name="CarColor" type="String"  >
+			<column name="CarColor" length="18" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户来源，导入或新增(2012-06-11新增) -->
+		<property name="GuestFrom" type="String"  >
+			<column name="GuestFrom" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户状态,正常、删除、战败、订车(潜客未成功)潜客(1.录入 2.审核 3.跟进中  4.成交  5.失败结案)等标志 -->
+		<property name="GuestState" type="String"  >
+			<column name="GuestState" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 会员级别，网站上注册的为普通会员(2012-06-11新增) -->
+		<property name="GuestLevel" type="String"  >
+			<column name="GuestLevel" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进方式 -->
+		<property name="FollowWay" type="String"  >
+			<column name="FollowWay" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进内容(2012-06-12新增) -->
+		<property name="GuestFollow" type="String"  >
+			<column name="GuestFollow" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户登录密码 -->
+		<property name="GuestPSW" type="String"  >
+			<column name="GuestPSW" length="128" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户名称拼音码 -->
+		<property name="GuestSpell" type="String"  >
+			<column name="GuestSpell" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户类别,自定义设置：存量客户、潜在客户、逾期客户、流失客户、恶性客户 -->
+		<property name="GuestClass" type="String"  >
+			<column name="GuestClass" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 潜客热度,可在枚举中定义名称来更直观的显示，如分为H.A.B等,主要用来判断客户的价值 -->
+		<property name="GuestHot" type="Int32"  >
+			<column name="GuestHot" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 客户等级,存量客户的热度,根据需求或情况,表示对待等级,和会员级别不一样，此处主要用来判断客户的价值 -->
+		<property name="GuestLv" type="String"  >
+			<column name="GuestLv" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 卡号默认与客户ID相同，如果是ID卡，则取ID卡内数据,ID卡号仅10位 -->
+		<property name="CardID" type="String"  >
+			<column name="CardID" length="16" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 身份证号,能采集到最好 -->
+		<property name="GuestIdentID" type="String"  >
+			<column name="GuestIdentID" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 驾驶证号,能采集到最好 -->
+		<property name="GuestDriveID" type="String"  >
+			<column name="GuestDriveID" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 会员等级 -->
+		<property name="MemberLv" type="Int32"  >
+			<column name="MemberLv" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 会员有效期,会员到期时间 -->
+		<property name="MemberEnd" type="DateTime"  >
+			<column name="MemberEnd" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 会员余额 -->
+		<property name="GuestMoney" type="Decimal"  >
+			<column name="GuestMoney" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 会员积分 -->
+		<property name="GuestIntegral" type="Decimal"  >
+			<column name="GuestIntegral" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 最后登录时间 -->
+		<property name="LastLoginTime" type="DateTime"  >
+			<column name="LastLoginTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 邮编 -->
+		<property name="GuestCode" type="String"  >
+			<column name="GuestCode" length="7" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 传真 -->
+		<property name="GuestFax" type="String"  >
+			<column name="GuestFax" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 生日 -->
+		<property name="GuestBirthday" type="DateTime"  >
+			<column name="GuestBirthday" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 婚姻状况 -->
+		<property name="GMarriage" type="String"  >
+			<column name="GMarriage" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 分配时间 -->
+		<property name="GBegWorkTime" type="DateTime"  >
+			<column name="GBegWorkTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 驾驶证初登日期 -->
+		<property name="GRace" type="String"  >
+			<column name="GRace" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 资料所有者 -->
+		<property name="Gcokuser" type="String"  >
+			<column name="Gcokuser" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 资料最后修改者 -->
+		<property name="Gcokmodu" type="String"  >
+			<column name="Gcokmodu" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最后修改日期 -->
+		<property name="GCokDate" type="DateTime"  >
+			<column name="GCokDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 联系人 -->
+		<property name="GContact" type="String"  >
+			<column name="GContact" length="40" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系人性别 -->
+		<property name="GConSex" type="String"  >
+			<column name="GConSex" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系人电话,可存储2-3个电话用,分割 -->
+		<property name="GConHandTel" type="String"  >
+			<column name="GConHandTel" length="40" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 兴趣爱好 -->
+		<property name="GuestEnjoy" type="String"  >
+			<column name="GuestEnjoy" length="500" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所在城市 -->
+		<property name="GCity" type="String"  >
+			<column name="GCity" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所在区域 -->
+		<property name="GArea" type="String"  >
+			<column name="GArea" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 介绍人 -->
+		<property name="GIntroducer" type="String"  >
+			<column name="GIntroducer" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 喜好的服务 -->
+		<property name="GuestLoveServe" type="String"  >
+			<column name="GuestLoveServe" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 潜客来源，展厅客户、电销客户,用于销售潜在客户的来源 -->
+		<property name="GuestOrigin" type="String"  >
+			<column name="GuestOrigin" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 存量来源,1、售车，2、配件，3、维修，4、保险，5、理赔，6、其他,用于服务的存量客户的来源 -->
+		<property name="CarFrom" type="String"  >
+			<column name="CarFrom" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车牌拼音码 -->
+		<property name="CarNumberSpell" type="String"  >
+			<column name="CarNumberSpell" length="15" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车架号,或底盘号 -->
+		<property name="CarFrameID" type="String"  >
+			<column name="CarFrameID" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 发动机号 -->
+		<property name="CarEngineID" type="String"  >
+			<column name="CarEngineID" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 购车日期,购车日期或登记日期(新车的订单创建日期) -->
+		<property name="CarBuyDate" type="DateTime"  >
+			<column name="CarBuyDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 车辆上牌时间 -->
+		<property name="CarUpBrandDate" type="DateTime"  >
+			<column name="CarUpBrandDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 行驶证号 -->
+		<property name="CarRunID" type="String"  >
+			<column name="CarRunID" length="25" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 年审日期 -->
+		<property name="CarYearDate" type="DateTime"  >
+			<column name="CarYearDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 保险到期日期 -->
+		<property name="CarInsurerEndDate" type="DateTime"  >
+			<column name="CarInsurerEndDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 最后一次投保的保险公司 -->
+		<property name="CarLastInsurer" type="String"  >
+			<column name="CarLastInsurer" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 行驶里程 -->
+		<property name="CarRunMile" type="Decimal"  >
+			<column name="CarRunMile" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 首次行驶里程 -->
+		<property name="CarFirstRunMile" type="Decimal"  >
+			<column name="CarFirstRunMile" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 保养里程 -->
+		<property name="CarTendMile" type="Decimal"  >
+			<column name="CarTendMile" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 平均公里数 -->
+		<property name="CarAverKilo" type="Decimal"  >
+			<column name="CarAverKilo" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 购车地点 -->
+		<property name="CarBuyPlace" type="String"  >
+			<column name="CarBuyPlace" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 主要用车地,1.本地  2.周边  3.外地 -->
+		<property name="CarUesArea" type="String"  >
+			<column name="CarUesArea" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 主要用途,1.代步  2.商用载人  3.客货两用 -->
+		<property name="CarMethod" type="String"  >
+			<column name="CarMethod" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 进厂习惯,1.频繁 2.正常 3.游离 -->
+		<property name="CarInWay" type="String"  >
+			<column name="CarInWay" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 使用性质,1.公司车  2.个人   3.出租车  4.其他 -->
+		<property name="CarUseProperty" type="String"  >
+			<column name="CarUseProperty" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户备注 -->
+		<property name="GuestRemark" type="String"  >
+			<column name="GuestRemark" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车辆备注 -->
+		<property name="CarRemark" type="String"  >
+			<column name="CarRemark" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 其他的ID，可用"，"分割 -->
+		<property name="OtherUID" type="String"  >
+			<column name="OtherUID" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 会员性质(2012-06-11新增) -->
+		<property name="GuestProperties" type="String"  >
+			<column name="GuestProperties" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 汽车编号,自动生成(2012-06-11新增) -->
+		<property name="CarNumber" type="String"  >
+			<column name="CarNumber" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户描述(2012-06-12新增) -->
+		<property name="GuestDescribe" type="String"  >
+			<column name="GuestDescribe" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 投保日期(2012-06-12新增) -->
+		<property name="InsureDate" type="DateTime"  >
+			<column name="InsureDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 电话号码(2012-06-12新增) -->
+		<property name="GuestPhoneNumber" type="String"  >
+			<column name="GuestPhoneNumber" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 申请日期(2012-06-12新增) -->
+		<property name="AskforDate" type="DateTime"  >
+			<column name="AskforDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 审核人(2012-06-12新增) -->
+		<property name="Auditor" type="String"  >
+			<column name="Auditor" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 审核会员级别(2012-06-12新增) -->
+		<property name="AuditMemberLevel" type="String"  >
+			<column name="AuditMemberLevel" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 审核时间(2012-06-12新增) -->
+		<property name="AuditTime" type="DateTime"  >
+			<column name="AuditTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 跟进后状态,不成功、白金初级、白金中级、白金高级、错误单 -->
+		<property name="FollowState" type="String"  >
+			<column name="FollowState" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="false"/>
+		</property>
+        <!-- 是否删除 -->
+		<property name="IsDelete" type="Boolean"  >
+			<column name="IsDelete" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ValidDateTime" type="DateTime"  >
+			<column name="ValidDateTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        
+        
+		<bag name="Activity_History" inverse="true" lazy="true" cascade="all">
+			<key column="SiteAccount"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Activity_History, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Activity_UserPrize" inverse="true" lazy="true" cascade="all">
+			<key column="SiteAccountId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Activity_UserPrize, Zh.DAL.Define"/>
+		</bag>
+		<bag name="T_GuestContact" inverse="true" lazy="true" cascade="all">
+			<key column="GuestIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_GuestContact, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Repair_Orders" inverse="true" lazy="true" cascade="all">
+			<key column="GuestIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Repair_Orders, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

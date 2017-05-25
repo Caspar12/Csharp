@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Com_Count, Zh.DAL.Define" table="Com_Count">
+		<id name="Id" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="Id" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 计数对象Id -->
+		<property name="TargetId" type="Guid"  >
+			<column name="TargetId" length="16" sql-type="uniqueidentifier" not-null="true" index="IX_TargetId"/>
+		</property>
+        <!-- 创建时间 -->
+		<property name="CreatedDatetime" type="DateTime"  >
+			<column name="CreatedDatetime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 数量 -->
+		<property name="Count" type="Int64"  >
+			<column name="Count" length="8" sql-type="bigint" not-null="true"/>
+		</property>
+        <!-- 分类标记 -->
+		<property name="CategoryId" type="String"  >
+			<column name="CategoryId" length="36" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 记录对象表 -->
+		<property name="TableName" type="String"  >
+			<column name="TableName" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

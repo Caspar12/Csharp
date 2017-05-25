@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7AE60098-4DC6-4D34-B6AE-8C1CCDC13DC9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.DAL.Base.Define</RootNamespace>
+    <AssemblyName>Zh.DAL.Base.Define</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDao.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\PageResult.cs" />
+    <Compile Include="Entities\TestBaseEntity.cs" />
+    <Compile Include="Helpers\LanguageHelper.cs" />
+    <Compile Include="Helpers\QueryHelper.cs" />
+    <Compile Include="IBaseDao.cs" />
+    <Compile Include="IBaseDaoTemplate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\AbstractCompareFilter.cs" />
+    <Compile Include="Query\CollectionFilter.cs" />
+    <Compile Include="Query\ComparePropertyFilter.cs" />
+    <Compile Include="Query\CompareValueFilter.cs" />
+    <Compile Include="Query\ICollectionFilter.cs" />
+    <Compile Include="Query\IOrderByGetter.cs" />
+    <Compile Include="Query\IWhereGetter.cs" />
+    <Compile Include="Query\LogicFilter.cs" />
+    <Compile Include="Query\AbstractFilter.cs" />
+    <Compile Include="Query\LogicFilterMode.cs" />
+    <Compile Include="Query\LikeMatchMode.cs" />
+    <Compile Include="Query\OrderBy.cs" />
+    <Compile Include="Query\OrderByHelper.cs" />
+    <Compile Include="Query\OrderMode.cs" />
+    <Compile Include="Query\CompareFilterMode.cs" />
+    <Compile Include="Query\Where.cs" />
+    <Compile Include="Transactions\ITransaction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\zh.framework\Zh.Framework.csproj">
+      <Project>{BF031EF6-EDB8-4EC4-8F53-455E2F7BAC37}</Project>
+      <Name>Zh.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

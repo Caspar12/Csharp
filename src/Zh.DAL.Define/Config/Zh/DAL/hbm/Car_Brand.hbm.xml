@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_Brand, Zh.DAL.Define" table="Car_Brand">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 介绍 -->
+		<property name="Introduction" type="String"  >
+			<column name="Introduction" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 首字母 -->
+		<property name="FirstChar" type="String"  >
+			<column name="FirstChar" length="1" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 父ID -->
+		<property name="ParentID" type="Guid"  >
+			<column name="ParentID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 是否显示在品牌菜单 -->
+		<property name="IsShowBrandMenu" type="Boolean"  >
+			<column name="IsShowBrandMenu" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!-- 图片ID -->
+		<property name="ImageID" type="Guid"  >
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 欧美(0)或日韩(1) -->
+		<property name="CountryType" type="Int32"  >
+			<column name="CountryType" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 排序 -->
+		<property name="Order" type="Int32"  >
+			<column name="`Order`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 官网 -->
+		<property name="SiteUrl" type="String"  >
+			<column name="SiteUrl" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 国家名称 -->
+		<property name="CountryName" type="String"  >
+			<column name="CountryName" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsShowFront" type="Boolean"  >
+			<column name="IsShowFront" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="IsShowFrontList" type="Boolean"  >
+			<column name="IsShowFrontList" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="FrontOrder" type="Int32"  >
+			<column name="FrontOrder" length="4" sql-type="int" not-null="false"/>
+		</property>
+        
+         <!-- 车辆品牌 -->
+        <many-to-one update="false" insert="false" name="Car_Brand2" class="Zh.DAL.Define.Entities.Car_Brand, Zh.DAL.Define">
+			<column name="ParentID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Common_Uploads" class="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define">
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="Car_BrandImage" inverse="true" lazy="true" cascade="all">
+			<key column="BrandId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_BrandImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Article_MainToBrand" inverse="true" lazy="true" cascade="all">
+			<key column="BrandID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Article_MainToBrand, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Brand3" inverse="true" lazy="true" cascade="all">
+			<key column="ParentID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Brand, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_BrandToDistributor" inverse="true" lazy="true" cascade="all">
+			<key column="BrandID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_BrandToDistributor, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Main" inverse="true" lazy="true" cascade="all">
+			<key column="BrandID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Main, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Member_CarInfo" inverse="true" lazy="true" cascade="all">
+			<key column="BrandID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Member_CarInfo, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Store_MainBrand" inverse="true" lazy="true" cascade="all">
+			<key column="BrandId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Store_MainBrand, Zh.DAL.Define"/>
+		</bag>
+		<bag name="TalkPrice_CategoryConnectCarBrand" inverse="true" lazy="true" cascade="all">
+			<key column="BrandId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.TalkPrice_CategoryConnectCarBrand, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

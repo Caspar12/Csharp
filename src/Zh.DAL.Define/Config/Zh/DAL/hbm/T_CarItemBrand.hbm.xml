@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_CarItemBrand, Zh.DAL.Define" table="T_CarItemBrand">
+		<id name="CarItemBrandIndex" type="Int32" unsaved-value="null">
+			<column name="CarItemBrandIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 品牌名称 -->
+		<property name="BrandName" type="String"  >
+			<column name="BrandName" length="10" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 品牌名称拼音码 -->
+		<property name="BrandSpell" type="String"  >
+			<column name="BrandSpell" length="10" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 品牌图标url -->
+		<property name="BrandIcon" type="String"  >
+			<column name="BrandIcon" length="200" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="BrandStory" type="String"  >
+			<column name="BrandStory" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        
+        
+		<bag name="T_CarItem" inverse="true" lazy="true" cascade="all">
+			<key column="CarItemBrand"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_CarItem, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

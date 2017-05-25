@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Activity_Attention, Zh.DAL.Define" table="Activity_Attention">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 大类，0注意，1冠军竞猜，2胜负竞猜，3参猜大抽奖 -->
+		<property name="BigType" type="Int32"  >
+			<column name="BigType" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 小类，0竞猜规则，1获奖规则 -->
+		<property name="SmallType" type="Int32"  >
+			<column name="SmallType" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ContetText" type="String"  >
+			<column name="ContetText" length="16" sql-type="text" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ShopId" type="String"  >
+			<column name="ShopId" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Pictures, Zh.DAL.Define" table="dt_Pictures">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 图文标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所属类别 -->
+		<property name="ClassId" type="Int32"  >
+			<column name="ClassId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 价格 -->
+		<property name="Price" type="Decimal"  >
+			<column name="Price" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!-- 图片路径 -->
+		<property name="ImgUrl" type="String"  >
+			<column name="ImgUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 详细介绍 -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 点击次数 -->
+		<property name="Click" type="Int32"  >
+			<column name="Click" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否允许评论 -->
+		<property name="IsMsg" type="Int32"  >
+			<column name="IsMsg" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否置顶 -->
+		<property name="IsTop" type="Int32"  >
+			<column name="IsTop" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否推荐 -->
+		<property name="IsRed" type="Int32"  >
+			<column name="IsRed" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否热门 -->
+		<property name="IsHot" type="Int32"  >
+			<column name="IsHot" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否幻灯片 -->
+		<property name="IsSlide" type="Int32"  >
+			<column name="IsSlide" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 排序数字 -->
+		<property name="SortId" type="Int32"  >
+			<column name="SortId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+		<bag name="dt_PicturesAlbum" inverse="true" lazy="true" cascade="all">
+			<key column="PictureId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.dt_PicturesAlbum, Zh.DAL.Define"/>
+		</bag>
+		<bag name="dt_PicturesExtension" inverse="true" lazy="true" cascade="all">
+			<key column="PictureId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.dt_PicturesExtension, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

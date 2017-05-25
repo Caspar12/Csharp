@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_Distributor, Zh.DAL.Define" table="Car_Distributor">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 官网 -->
+		<property name="SiteUrl" type="String"  >
+			<column name="SiteUrl" length="2048" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 固话 -->
+		<property name="TelNum" type="String"  >
+			<column name="TelNum" length="128" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 移动电话 -->
+		<property name="MobilePhonNum" type="String"  >
+			<column name="MobilePhonNum" length="128" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 地址 -->
+		<property name="Address" type="String"  >
+			<column name="Address" length="1024" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 顺序 -->
+		<property name="Order" type="Int32"  >
+			<column name="`Order`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 所在城市ID -->
+		<property name="CityID" type="Int32"  >
+			<column name="CityID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 经度 -->
+		<property name="Longitude" type="String"  >
+			<column name="Longitude" length="32" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 纬度 -->
+		<property name="Latitude" type="String"  >
+			<column name="Latitude" length="32" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 经销商图片 -->
+		<property name="ImageID" type="Guid"  >
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsFlagship" type="Boolean"  >
+			<column name="IsFlagship" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ShortName" type="String"  >
+			<column name="ShortName" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Description" type="String"  >
+			<column name="Description" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        
+         <!-- 市区 -->
+        <many-to-one update="false" insert="false" name="Common_Address_City" class="Zh.DAL.Define.Entities.Common_Address_City, Zh.DAL.Define">
+			<column name="CityID" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Common_Uploads" class="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define">
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="Car_DistributorImage" inverse="true" lazy="true" cascade="all">
+			<key column="DistributorId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_DistributorImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Display_HomePriceChart" inverse="true" lazy="true" cascade="all">
+			<key column="DistributorID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Display_HomePriceChart, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Display_HomePriceChartDistributorAdvert" inverse="true" lazy="true" cascade="all">
+			<key column="DistributorID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Display_HomePriceChartDistributorAdvert, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_BrandToDistributor" inverse="true" lazy="true" cascade="all">
+			<key column="DistributorID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_BrandToDistributor, Zh.DAL.Define"/>
+		</bag>
+		<bag name="WebSite" inverse="true" lazy="true" cascade="all">
+			<key column="DistributorID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7335CBE5-C774-4FF6-99AE-800495F07B30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.WeiXin.BLL</RootNamespace>
+    <AssemblyName>Zh.WeiXin.BLL</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zh.Framework">
+      <HintPath>E:\Caspar\project\4sauto10\RefDLL\Zh.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.Net.Http">
+      <HintPath>E:\Caspar\project\4sauto10\RefDLL\Zh.Net.Http.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\Entities\AbstractQRCodeActionInfo.cs" />
+    <Compile Include="API\Entities\AbstractScene.cs" />
+    <Compile Include="API\Entities\ErrorResultDto.cs" />
+    <Compile Include="API\Entities\ForeverScene.cs" />
+    <Compile Include="API\Entities\GetAccessTokenResult.cs" />
+    <Compile Include="API\Entities\GetBasicAccountInfosParam.cs" />
+    <Compile Include="API\Entities\GetBasicAccountInfosParamUserList.cs" />
+    <Compile Include="API\Entities\GetBasicAccountInfosResultUserInfoList.cs" />
+    <Compile Include="API\Entities\GetJsTickectResultDto.cs" />
+    <Compile Include="API\Entities\GetQRCodeTicketResultDto.cs" />
+    <Compile Include="API\Entities\QRCodeActionInfo.cs" />
+    <Compile Include="API\Entities\QRCodeEnum.cs" />
+    <Compile Include="API\Entities\QRCodePostDataDto.cs" />
+    <Compile Include="API\Entities\SendRedPackResult.cs" />
+    <Compile Include="API\Entities\TemporaryScene.cs" />
+    <Compile Include="API\Entities\WeiXinAccount.cs" />
+    <Compile Include="API\Events\IGetCacheKey.cs" />
+    <Compile Include="API\IAccountAPI.cs" />
+    <Compile Include="API\IBasicAPI.cs" />
+    <Compile Include="API\Entities\JSSDKConfig.cs" />
+    <Compile Include="API\IJSAPI.cs" />
+    <Compile Include="API\Imp\AccountAPI.cs" />
+    <Compile Include="API\Imp\BasicAPI.cs" />
+    <Compile Include="API\Imp\JSAPI.cs" />
+    <Compile Include="API\Imp\PayCashRedPack.cs" />
+    <Compile Include="API\Imp\QRCodeAPI.cs" />
+    <Compile Include="API\IQRCodeAPI.cs" />
+    <Compile Include="API\WeiXinAPIContext.cs" />
+    <Compile Include="API\IPayCashRedPack.cs" />
+    <Compile Include="Caches\IGetAccessTokenCache.cs" />
+    <Compile Include="Caches\Imp\DefaultGetAccessTokeCache.cs" />
+    <Compile Include="Helpers\WeiXinHelper.cs" />
+    <Compile Include="Helpers\WeiXinPayHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Zh\BLL\ApplicationContext\Zh.WeiXin.BLL.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

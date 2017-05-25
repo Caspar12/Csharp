@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItemToModel, Zh.DAL.Define" table="Car_MainItemToModel">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 车辆ID -->
+		<property name="CarItemID" type="Guid"  >
+			<column name="CarItemID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 车型表ID -->
+		<property name="CarModelID" type="Guid"  >
+			<column name="CarModelID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="CarItemID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 车型表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem_Model" class="Zh.DAL.Define.Entities.Car_MainItem_Model, Zh.DAL.Define">
+			<column name="CarModelID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Repair_SetTodt_Feedback, Zh.DAL.Define" table="Repair_SetTodt_Feedback">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 网点ID -->
+		<property name="ShopID" type="String"  >
+			<column name="ShopID" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="RepairSetId" type="Guid"  >
+			<column name="RepairSetId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="FeekBookId" type="Int32"  >
+			<column name="FeekBookId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!-- 维修套餐表 -->
+        <many-to-one update="false" insert="false" name="Repair_Set" class="Zh.DAL.Define.Entities.Repair_Set, Zh.DAL.Define">
+			<column name="RepairSetId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

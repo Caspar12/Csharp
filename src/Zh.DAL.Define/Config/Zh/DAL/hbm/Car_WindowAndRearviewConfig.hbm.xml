@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_WindowAndRearviewConfig, Zh.DAL.Define" table="Car_WindowAndRearviewConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 前电动车窗 -->
+		<property name="IsFrontElectricCarWindow" type="Boolean"  >
+			<column name="IsFrontElectricCarWindow" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后电动车窗 -->
+		<property name="IsBackElectricCarWindow" type="Boolean"  >
+			<column name="IsBackElectricCarWindow" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车窗防夹手功能 -->
+		<property name="HasCarWindowAntitrappingHand" type="Boolean"  >
+			<column name="HasCarWindowAntitrappingHand" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 防紫外线/隔热玻璃 -->
+		<property name="HasAntiUltravioletRadiationWindow" type="Boolean"  >
+			<column name="HasAntiUltravioletRadiationWindow" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后视镜电动调节 -->
+		<property name="HasRearviewMirrorElectricAdjustment" type="Boolean"  >
+			<column name="HasRearviewMirrorElectricAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后视镜加热 -->
+		<property name="HasRearviewHeat" type="Boolean"  >
+			<column name="HasRearviewHeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 内后视镜自动防眩目 -->
+		<property name="HasInsideRearviewMirrorAntiAazzlent" type="Boolean"  >
+			<column name="HasInsideRearviewMirrorAntiAazzlent" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 外后视镜自动防眩目 -->
+		<property name="HasOutsideRearviewMirrorAntiAazzlent" type="Boolean"  >
+			<column name="HasOutsideRearviewMirrorAntiAazzlent" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后视镜电动折叠 -->
+		<property name="HasRearviewElectricFold" type="Boolean"  >
+			<column name="HasRearviewElectricFold" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后视镜记忆 -->
+		<property name="HasRearviewMemory" type="Boolean"  >
+			<column name="HasRearviewMemory" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后风挡遮阳帘 -->
+		<property name="HasRearWindshieldCurtain" type="Boolean"  >
+			<column name="HasRearWindshieldCurtain" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排侧遮阳帘 -->
+		<property name="HasRearSideCurtain" type="Boolean"  >
+			<column name="HasRearSideCurtain" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排侧隐私玻璃 -->
+		<property name="HasRearSidePrivateWindow" type="Boolean"  >
+			<column name="HasRearSidePrivateWindow" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 遮阳板化妆镜 -->
+		<property name="HasCurtainMakeupMirror" type="Boolean"  >
+			<column name="HasCurtainMakeupMirror" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后雨刷 -->
+		<property name="HasRearRainCleaner" type="Boolean"  >
+			<column name="HasRearRainCleaner" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 感应雨刷 -->
+		<property name="HasSensingCleaner" type="Boolean"  >
+			<column name="HasSensingCleaner" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

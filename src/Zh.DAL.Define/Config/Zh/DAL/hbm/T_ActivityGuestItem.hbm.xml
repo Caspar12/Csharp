@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_ActivityGuestItem, Zh.DAL.Define" table="T_ActivityGuestItem">
+		<id name="ActivityGuestItemIndex" type="Decimal" unsaved-value="null">
+			<column name="ActivityGuestItemIndex" length="9" sql-type="numeric" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 活动表ID,用于关联活动主表 -->
+		<property name="ActivityIndex" type="Decimal"  >
+			<column name="ActivityIndex" length="9" sql-type="numeric" not-null="true"/>
+		</property>
+        <!-- 客户名称 -->
+		<property name="GuestName" type="String"  >
+			<column name="GuestName" length="5" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 客户电话,可支持2个电话,用,分割 -->
+		<property name="GuestPhone" type="String"  >
+			<column name="GuestPhone" length="30" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 备注 -->
+		<property name="Remark" type="String"  >
+			<column name="Remark" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进状态,新建（即已分配）、跟进中（即有了跟进记录）、暂不处理、已完成 -->
+		<property name="TraceState" type="String"  >
+			<column name="TraceState" length="12" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 跟进人ID -->
+		<property name="TraceEmployeeID" type="Int32"  >
+			<column name="TraceEmployeeID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 分配时间,分配跟进员工的时间,如果被重新分配则取最后一次被分配的时间 -->
+		<property name="TraceAllotDate" type="DateTime"  >
+			<column name="TraceAllotDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_Activity" class="Zh.DAL.Define.Entities.T_Activity, Zh.DAL.Define">
+			<column name="ActivityIndex" length="9" sql-type="numeric" not-null="true"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_Employee" class="Zh.DAL.Define.Entities.T_Employee, Zh.DAL.Define">
+			<column name="TraceEmployeeID" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

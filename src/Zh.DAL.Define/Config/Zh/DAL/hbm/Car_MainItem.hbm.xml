@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define" table="Car_MainItem">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 售价 -->
+		<property name="SellPrice" type="Decimal"  >
+			<column name="SellPrice" length="9" sql-type="decimal" not-null="false"/>
+		</property>
+        <!-- 指导价 -->
+		<property name="GuidePrice" type="Decimal"  >
+			<column name="GuidePrice" length="9" sql-type="decimal" not-null="false"/>
+		</property>
+        <!-- 车辆主ID -->
+		<property name="MainID" type="Guid"  >
+			<column name="MainID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 车型系列ID -->
+		<property name="SeriesID" type="Guid"  >
+			<column name="SeriesID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsShowFront" type="Boolean"  >
+			<column name="IsShowFront" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!-- 变速箱类型( 1-手动 2-自动 3手自一体 ) -->
+		<property name="GearBoxType" type="Int32"  >
+			<column name="GearBoxType" length="4" sql-type="int" not-null="false"/>
+		</property>
+        
+         <!-- 车辆主表 -->
+        <many-to-one update="false" insert="false" name="Car_Main" class="Zh.DAL.Define.Entities.Car_Main, Zh.DAL.Define">
+			<column name="MainID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 车型系统表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem_Series" class="Zh.DAL.Define.Entities.Car_MainItem_Series, Zh.DAL.Define">
+			<column name="SeriesID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+        <one-to-one name="Car_WindowAndRearviewConfig"
+                class="Zh.DAL.Define.Entities.Car_WindowAndRearviewConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_SecurityEquip"
+                class="Zh.DAL.Define.Entities.Car_SecurityEquip,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_SeatConfig"
+                class="Zh.DAL.Define.Entities.Car_SeatConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MultiMediaConfig"
+                class="Zh.DAL.Define.Entities.Car_MultiMediaConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_lightsConfig"
+                class="Zh.DAL.Define.Entities.Car_lightsConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_InternalConfig"
+                class="Zh.DAL.Define.Entities.Car_InternalConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_HighTechConfig"
+                class="Zh.DAL.Define.Entities.Car_HighTechConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MainItem_GearBox"
+                class="Zh.DAL.Define.Entities.Car_MainItem_GearBox,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_ExternalConfig"
+                class="Zh.DAL.Define.Entities.Car_ExternalConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MainItem_Engine"
+                class="Zh.DAL.Define.Entities.Car_MainItem_Engine,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_ControlConfig"
+                class="Zh.DAL.Define.Entities.Car_ControlConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MainItem_ChassisSteering"
+                class="Zh.DAL.Define.Entities.Car_MainItem_ChassisSteering,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MainItem_BrakingOfWheel"
+                class="Zh.DAL.Define.Entities.Car_MainItem_BrakingOfWheel,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MainItem_BodyWork"
+                class="Zh.DAL.Define.Entities.Car_MainItem_BodyWork,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_MainItem_Base"
+                class="Zh.DAL.Define.Entities.Car_MainItem_Base,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+        <one-to-one name="Car_AirConditionerAndRefrigeratorConfig"
+                class="Zh.DAL.Define.Entities.Car_AirConditionerAndRefrigeratorConfig,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+		<bag name="Car_Enquiry" inverse="true" lazy="true" cascade="all">
+			<key column="Car_MainItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Enquiry, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Exchange" inverse="true" lazy="true" cascade="all">
+			<key column="Car_MainItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Exchange, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Exchange2" inverse="true" lazy="true" cascade="all">
+			<key column="Old_Car_MainItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Exchange, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_MainItemToExColor" inverse="true" lazy="true" cascade="all">
+			<key column="MainItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainItemToExColor, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Image" inverse="true" lazy="true" cascade="all">
+			<key column="CarItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Image, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_MainItemToInColor" inverse="true" lazy="true" cascade="all">
+			<key column="MainItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainItemToInColor, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_MainItemToModel" inverse="true" lazy="true" cascade="all">
+			<key column="CarItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainItemToModel, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Member_CarInfo" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Member_CarInfo, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Prestige_Impression" inverse="true" lazy="true" cascade="all">
+			<key column="CarItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Prestige_Impression, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Prestige_Post" inverse="true" lazy="true" cascade="all">
+			<key column="CarItemID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Prestige_Post, Zh.DAL.Define"/>
+		</bag>
+		<bag name="TalkPrice_Order" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainItemId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.TalkPrice_Order, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

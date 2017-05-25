@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Links, Zh.DAL.Define" table="dt_Links">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 网站标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 用户昵称 -->
+		<property name="UserName" type="String"  >
+			<column name="UserName" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系电话 -->
+		<property name="UserTel" type="String"  >
+			<column name="UserTel" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系邮箱 -->
+		<property name="UserMail" type="String"  >
+			<column name="UserMail" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 网址 -->
+		<property name="WebUrl" type="String"  >
+			<column name="WebUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- LOGO网址 -->
+		<property name="ImgUrl" type="String"  >
+			<column name="ImgUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否图片链接 -->
+		<property name="IsImage" type="Int32"  >
+			<column name="IsImage" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 排序数字，越小越向前 -->
+		<property name="SortId" type="Int32"  >
+			<column name="SortId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否推荐到首页 -->
+		<property name="IsRed" type="Int32"  >
+			<column name="IsRed" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否锁定，0正常1锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 添加时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 分类ID列表,用‘，’分割 -->
+		<property name="ClassIdList" type="String"  >
+			<column name="ClassIdList" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

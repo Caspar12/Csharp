@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_Activity, Zh.DAL.Define" table="T_Activity">
+		<id name="ActivityIndex" type="Decimal" unsaved-value="null">
+			<column name="ActivityIndex" length="9" sql-type="numeric" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 活动名称 -->
+		<property name="ActivityName" type="String"  >
+			<column name="ActivityName" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 活动发起人 /方 -->
+		<property name="ActivityPromoter" type="String"  >
+			<column name="ActivityPromoter" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 活动类型,自驾游,比赛 -->
+		<property name="ActivityType" type="String"  >
+			<column name="ActivityType" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 活动对象:团体,个人。 -->
+		<property name="ActivityObject" type="String"  >
+			<column name="ActivityObject" length="40" sql-type="nchar" not-null="false"/>
+		</property>
+        <!-- 活动发表时间,即发表这条信息的时间 -->
+		<property name="ActivityAddTime" type="DateTime"  >
+			<column name="ActivityAddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 活动起始时间 -->
+		<property name="ActivityBeginDate" type="DateTime"  >
+			<column name="ActivityBeginDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 活动结束时间 -->
+		<property name="ActivityEndDate" type="DateTime"  >
+			<column name="ActivityEndDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 活动地点 -->
+		<property name="ActivityArea" type="String"  >
+			<column name="ActivityArea" length="10" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 活动状态,新建、已审核、报名中、进行中、已完成 -->
+		<property name="ActivityState" type="String"  >
+			<column name="ActivityState" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 放在首页展示的图片url,仅一张 -->
+		<property name="MainPicture" type="String"  >
+			<column name="MainPicture" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 活动图片ID,关联图片表中的ID，可加载出N张图片 -->
+		<property name="ActivityPicuteID" type="Int32"  >
+			<column name="ActivityPicuteID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 活动介绍 -->
+		<property name="ActivityiIntroduce" type="String"  >
+			<column name="ActivityiIntroduce" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 活动路线,例如：济南 - 青岛 - 台湾 - 福州 - 济南 -->
+		<property name="ActivityPath" type="String"  >
+			<column name="ActivityPath" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 出发地 -->
+		<property name="DepartPlace" type="String"  >
+			<column name="DepartPlace" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 目的地 -->
+		<property name="DestinationPlace" type="String"  >
+			<column name="DestinationPlace" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 里程 -->
+		<property name="Mileage" type="String"  >
+			<column name="Mileage" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 道路类型,国道、其他 -->
+		<property name="RoadClass" type="String"  >
+			<column name="RoadClass" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 行程天数 -->
+		<property name="RouteDays" type="Decimal"  >
+			<column name="RouteDays" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 过路费 -->
+		<property name="RoadExpense" type="Decimal"  >
+			<column name="RoadExpense" length="8" sql-type="money" not-null="false"/>
+		</property>
+        <!-- 燃油费 -->
+		<property name="FuelExpense" type="Decimal"  >
+			<column name="FuelExpense" length="8" sql-type="money" not-null="false"/>
+		</property>
+        <!-- 其他费用 -->
+		<property name="OtherExpense" type="Decimal"  >
+			<column name="OtherExpense" length="8" sql-type="money" not-null="false"/>
+		</property>
+        <!-- 点击次数 -->
+		<property name="Click" type="Int32"  >
+			<column name="Click" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否允许评论,0不允许1允许 -->
+		<property name="IsMsg" type="Int32"  >
+			<column name="IsMsg" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否置顶;显示顺序 -->
+		<property name="IsTop" type="Int32"  >
+			<column name="IsTop" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否推荐;推荐栏 -->
+		<property name="IsRed" type="Int32"  >
+			<column name="IsRed" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否热门;显示活动图片 -->
+		<property name="IsHot" type="Int32"  >
+			<column name="IsHot" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否幻灯片; -->
+		<property name="IsSlide" type="Int32"  >
+			<column name="IsSlide" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+		<bag name="T_ActivityGuestItem" inverse="true" lazy="true" cascade="all">
+			<key column="ActivityIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_ActivityGuestItem, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Zh.DAL.Define.Entities.WeiXin_MerchantBIllNo, Zh.DAL.Define" table="WeiXin_MerchantBIllNo">
+    <composite-id>
+      <key-property name="WebApplicationId" type="Guid"  >
+        <column name="WebApplicationId" length="16" sql-type="uniqueidentifier" not-null="true" />
+      </key-property>
+      <key-property name="BillCreatedDate" type="DateTime" >
+        <column name="BillCreatedDate" length="8" sql-type="datetime" not-null="true" />
+      </key-property>
+      <key-property name="NumeroSign" type="int" >
+        <column name="NumeroSign" length="4" sql-type="int" not-null="true" />
+      </key-property>
+    </composite-id>
+
+  </class>
+</hibernate-mapping>

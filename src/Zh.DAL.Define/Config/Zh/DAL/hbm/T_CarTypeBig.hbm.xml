@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_CarTypeBig, Zh.DAL.Define" table="T_CarTypeBig">
+		<id name="CarTypeBigIndex" type="Int32" unsaved-value="null">
+			<column name="CarTypeBigIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 大车型名,例如,宝来,高尔夫 -->
+		<property name="CarTypeBigName" type="String"  >
+			<column name="CarTypeBigName" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 名称拼音码 -->
+		<property name="CarTypeBigSpell" type="String"  >
+			<column name="CarTypeBigSpell" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 大车型编码,此编码不做主键，只为查询方便而设 -->
+		<property name="CarTypeBigNumber" type="String"  >
+			<column name="CarTypeBigNumber" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所属品牌 -->
+		<property name="CarTypeBigBrand" type="Int32"  >
+			<column name="CarTypeBigBrand" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 最低精品收款比例 -->
+		<property name="MinimumBoutiProport" type="Decimal"  >
+			<column name="MinimumBoutiProport" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 最低订金金额 -->
+		<property name="MinimumDeposit" type="Decimal"  >
+			<column name="MinimumDeposit" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 大车型等级 -->
+		<property name="CarTypeBigLVIndex" type="Int32"  >
+			<column name="CarTypeBigLVIndex" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 细车没有找到对应的大车时默认使用的大车型 -->
+		<property name="IsDefaultUse" type="String"  >
+			<column name="IsDefaultUse" length="2" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 生产厂家 -->
+		<property name="Manufacturer" type="String"  >
+			<column name="Manufacturer" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 燃油类型 -->
+		<property name="FuelClass" type="String"  >
+			<column name="FuelClass" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 排量 -->
+		<property name="Displacement" type="String"  >
+			<column name="Displacement" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 排挡类型;自动,手动 -->
+		<property name="GearBox" type="String"  >
+			<column name="GearBox" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 颜色 -->
+		<property name="Color" type="String"  >
+			<column name="Color" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 长宽高;例如：100*50*20 -->
+		<property name="LWH" type="String"  >
+			<column name="LWH" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否销售 -->
+		<property name="IsSell" type="String"  >
+			<column name="IsSell" length="2" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 外观图片ID,根据图片ID，获取图片表的子表下的所有图片，下面图片ID用处相同 -->
+		<property name="OutsidepictureID" type="Int32"  >
+			<column name="OutsidepictureID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 内饰图片ID -->
+		<property name="InsidePictureID" type="Int32"  >
+			<column name="InsidePictureID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 空间图片ID -->
+		<property name="SpacePictureID" type="Int32"  >
+			<column name="SpacePictureID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 视频地址 -->
+		<property name="VideoUrl" type="String"  >
+			<column name="VideoUrl" length="200" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 点击次数 -->
+		<property name="Click" type="Int32"  >
+			<column name="Click" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否允许评论,0不允许1允许 -->
+		<property name="IsMsg" type="Int32"  >
+			<column name="IsMsg" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否置顶;显示顺序 -->
+		<property name="IsTop" type="Int32"  >
+			<column name="IsTop" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否推荐;推荐栏 -->
+		<property name="IsRed" type="Int32"  >
+			<column name="IsRed" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否热门;显示活动图片 -->
+		<property name="IsHot" type="Int32"  >
+			<column name="IsHot" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否幻灯片; -->
+		<property name="IsSlide" type="Int32"  >
+			<column name="IsSlide" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarBrand" class="Zh.DAL.Define.Entities.T_CarBrand, Zh.DAL.Define">
+			<column name="CarTypeBigBrand" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarTypeBigLv" class="Zh.DAL.Define.Entities.T_CarTypeBigLv, Zh.DAL.Define">
+			<column name="CarTypeBigLVIndex" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="T_CarType" inverse="true" lazy="true" cascade="all">
+			<key column="CarTypeBigIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_CarType, Zh.DAL.Define"/>
+		</bag>
+		<bag name="T_UsedCarBuy" inverse="true" lazy="true" cascade="all">
+			<key column="UsedCarTypeBigIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_UsedCarBuy, Zh.DAL.Define"/>
+		</bag>
+		<bag name="T_UsedCarSell" inverse="true" lazy="true" cascade="all">
+			<key column="UsedCarTypeBigIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_UsedCarSell, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_UsedCarBuy, Zh.DAL.Define" table="T_UsedCarBuy">
+		<id name="UsedCarBuyIndex" type="Decimal" unsaved-value="null">
+			<column name="UsedCarBuyIndex" length="9" sql-type="numeric" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 二手车求购标题,求购意向 -->
+		<property name="UsedCarBuyTitle" type="String"  >
+			<column name="UsedCarBuyTitle" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 所在省份,意向地区 -->
+		<property name="BuyProvince" type="String"  >
+			<column name="BuyProvince" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所在城市 -->
+		<property name="BuyCity" type="String"  >
+			<column name="BuyCity" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所在区,区域或街道 -->
+		<property name="BuyArea" type="String"  >
+			<column name="BuyArea" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 意向品牌 -->
+		<property name="UsedCarBrandIndex" type="Int32"  >
+			<column name="UsedCarBrandIndex" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 意向车型,大车型 -->
+		<property name="UsedCarTypeBigIndex" type="Int32"  >
+			<column name="UsedCarTypeBigIndex" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 使用年限,二手车年限,1年以下2年以下等用数字表示 -->
+		<property name="UsedCarYear" type="Int32"  >
+			<column name="UsedCarYear" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 车辆颜色 -->
+		<property name="UsedCarColor" type="String"  >
+			<column name="UsedCarColor" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 其他要求,100字以内 -->
+		<property name="OtherDemand" type="String"  >
+			<column name="OtherDemand" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 姓名,意向购车人姓名 -->
+		<property name="BuyerName" type="String"  >
+			<column name="BuyerName" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 性别 -->
+		<property name="BuyerSex" type="String"  >
+			<column name="BuyerSex" length="2" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 手机 -->
+		<property name="BuyerHandTel" type="String"  >
+			<column name="BuyerHandTel" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 性质,个人、商家 -->
+		<property name="BuyerKind" type="String"  >
+			<column name="BuyerKind" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否审核,0未审核1已审核 -->
+		<property name="IsAudting" type="Int32"  >
+			<column name="IsAudting" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 跟进状态,新建、跟进中、暂不处理、已完成 -->
+		<property name="TraceState" type="String"  >
+			<column name="TraceState" length="12" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 跟进人ID -->
+		<property name="TraceEmployeeID" type="Int32"  >
+			<column name="TraceEmployeeID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 分配时间,分配跟进员工的时间,如果被重新分配则取最后一次被分配的时间 -->
+		<property name="TraceAllotDate" type="DateTime"  >
+			<column name="TraceAllotDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarTypeBig" class="Zh.DAL.Define.Entities.T_CarTypeBig, Zh.DAL.Define">
+			<column name="UsedCarTypeBigIndex" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

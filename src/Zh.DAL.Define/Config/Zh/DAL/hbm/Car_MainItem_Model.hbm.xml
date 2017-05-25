@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem_Model, Zh.DAL.Define" table="Car_MainItem_Model">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 车型名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 排序 -->
+		<property name="Order" type="Int32"  >
+			<column name="`Order`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 显示在车型菜单 -->
+		<property name="IsShowInCarModelMenu" type="Boolean"  >
+			<column name="IsShowInCarModelMenu" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!-- 图片ID -->
+		<property name="ImageID" type="Guid"  >
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Common_Uploads" class="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define">
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="Car_MainItemToModel" inverse="true" lazy="true" cascade="all">
+			<key column="CarModelID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainItemToModel, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

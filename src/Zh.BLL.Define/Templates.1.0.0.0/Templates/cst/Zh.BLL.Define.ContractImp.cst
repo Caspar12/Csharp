@@ -1,0 +1,45 @@
+﻿
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Generates a C# class for use with NHibnate" %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the mapping file is based on" %>
+<%@ Property Name="Namespace" Type="System.String" Default="Zh.BLL.Define.Contracts.Imp" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Property Name="ClassName" Type="System.String" Default="" Optional="True" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Property Name="ForceId" Type="System.Boolean" Default="true" Category="Object" Description="Force Id for identity column" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Text.RegularExpressions" %>
+<%
+    string entityName = SourceTable.Name;
+    string className = GetClassName(SourceTable.Name.Replace("_","") + "Service");
+    string interfaceName = "I" + className;  
+    string dtoClassName = GetDtoClassName();
+%>
+/*
+ * Author: 陈志杭 Caspar 
+ * Contact: 279397942@qq.com qq:279397942
+ * Description: 逻辑层数据接口契约文件
+ * 文件由模板生成
+ */
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Zh.DAL.Define.Entities;
+using Zh.DAL.Base.Define;
+using Zh.DAL.Base.Define.Query;
+using Zh.BLL.Base.Define;
+using Zh.BLL.Define.Entities;
+
+namespace <%= Namespace %>
+{
+    public partial class <%= className %> : BaseService< <%=dtoClassName%>,<%=entityName%> >,<%=interfaceName %>
+    {
+        
+    }
+}
+<!-- #include file="Funcation.inc" -->
+<script runat="template">
+public string GetDtoClassName(){
+     return SourceTable.Name.Replace("_","") + "Dto";
+}
+</script>

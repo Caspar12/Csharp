@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem_Engine, Zh.DAL.Define" table="Car_MainItem_Engine">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 发动机型号 -->
+		<property name="Version" type="String"  >
+			<column name="Version" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 排量(mL) -->
+		<property name="OutputVolume" type="String"  >
+			<column name="OutputVolume" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 进气形式 -->
+		<property name="InputMethod" type="String"  >
+			<column name="InputMethod" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 气缸排列形式 -->
+		<property name="CylinderListStyle" type="String"  >
+			<column name="CylinderListStyle" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 气缸数(个) -->
+		<property name="CylinderCount" type="String"  >
+			<column name="CylinderCount" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 每缸气门数(个) -->
+		<property name="DoorOfCylinderCount" type="String"  >
+			<column name="DoorOfCylinderCount" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 压缩比 -->
+		<property name="CompressPercent" type="String"  >
+			<column name="CompressPercent" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 配气机构 -->
+		<property name="ValveTrain" type="String"  >
+			<column name="ValveTrain" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 缸径(mm) -->
+		<property name="CylinderDistance" type="String"  >
+			<column name="CylinderDistance" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 行程(mm) -->
+		<property name="MoveDistance" type="String"  >
+			<column name="MoveDistance" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最大马力(Ps) -->
+		<property name="MaxHorsePower" type="String"  >
+			<column name="MaxHorsePower" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最大功率(kw) -->
+		<property name="MaxPower" type="String"  >
+			<column name="MaxPower" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最大功率转速(rpm) -->
+		<property name="MaxRPM" type="String"  >
+			<column name="MaxRPM" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最大扭矩(N*m) -->
+		<property name="MaxNm" type="String"  >
+			<column name="MaxNm" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最大扭矩转速(rpm) -->
+		<property name="MaxRNM" type="String"  >
+			<column name="MaxRNM" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 发动机特有技术 -->
+		<property name="SpecialTech" type="String"  >
+			<column name="SpecialTech" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 燃料形式 -->
+		<property name="Fuel" type="String"  >
+			<column name="Fuel" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 燃油标号 -->
+		<property name="FuelVersion" type="String"  >
+			<column name="FuelVersion" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 供油方式 -->
+		<property name="FuelMethod" type="String"  >
+			<column name="FuelMethod" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 缸盖材料 -->
+		<property name="CylinderCoverMaterial" type="String"  >
+			<column name="CylinderCoverMaterial" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 缸体材料 -->
+		<property name="CylinderBodyMaterial" type="String"  >
+			<column name="CylinderBodyMaterial" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 环保标准 -->
+		<property name="EnvironmentalProtectionStandard" type="String"  >
+			<column name="EnvironmentalProtectionStandard" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

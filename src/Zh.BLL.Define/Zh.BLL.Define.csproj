@@ -1,0 +1,763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1DF389B-780A-43A6-9130-B66090DBC3A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.BLL.Define</RootNamespace>
+    <AssemblyName>Zh.BLL.Define</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\RefDLL\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zh.BLL.Base.Define">
+      <HintPath>..\Zh.BLL.Base.Define\bin\Debug\Zh.BLL.Base.Define.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.DAL.Base.Define">
+      <HintPath>..\Zh.DAL.Base.Define\bin\Debug\Zh.DAL.Base.Define.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.DAL.Base.NH">
+      <HintPath>..\RefDLL\Zh.DAL.Base.NH.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.Framework">
+      <HintPath>..\zh.framework\bin\Debug\Zh.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.WeiXin.BLL">
+      <HintPath>..\Zh.WeiXin.BLL\bin\Debug\Zh.WeiXin.BLL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseContextService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityACMatchService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityACScoreGuessRecordService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityACWinnerGuessRecordService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityAttentionService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityChampionGuessRecordService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityHistoryService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityLotteryMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityMainToUserService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityPrizeService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityTeamService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityUserExtendInfoService.cs" />
+    <Compile Include="Contracts\AutoCode\IActivityUserPrizeService.cs" />
+    <Compile Include="Contracts\AutoCode\IAdBannerService.cs" />
+    <Compile Include="Contracts\AutoCode\IAdsingleService.cs" />
+    <Compile Include="Contracts\AutoCode\IAdTemplateService.cs" />
+    <Compile Include="Contracts\AutoCode\IArticleMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IArticleMainToArticleService.cs" />
+    <Compile Include="Contracts\AutoCode\IArticleMainToBrandService.cs" />
+    <Compile Include="Contracts\AutoCode\IAuthAdministratorRoleRefService.cs" />
+    <Compile Include="Contracts\AutoCode\IAuthPermissionResourceRefService.cs" />
+    <Compile Include="Contracts\AutoCode\IAuthPermissionRoleRefService.cs" />
+    <Compile Include="Contracts\AutoCode\IAuthPermissionService.cs" />
+    <Compile Include="Contracts\AutoCode\IAuthResourceService.cs" />
+    <Compile Include="Contracts\AutoCode\IAuthRoleService.cs" />
+    <Compile Include="Contracts\AutoCode\IBBSCommentExtInfoService.cs" />
+    <Compile Include="Contracts\AutoCode\IBBSCommentService.cs" />
+    <Compile Include="Contracts\AutoCode\IBBSCommentSupportRecordService.cs" />
+    <Compile Include="Contracts\AutoCode\IBBSCommentTypeService.cs" />
+    <Compile Include="Contracts\AutoCode\IBookingCarInfoToActivityOrdersService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarAirConditionerAndRefrigeratorConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarAutoHomeRefService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarBrandImageService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarBrandService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarBrandToDistributorService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarColorService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarControlConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarDistributorImageService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarDistributorService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarDomainConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarEnquiryService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarExchangeService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarExternalConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarHighTechConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarImageService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarInternalConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarlightsConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainCommentService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainImageService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemBaseService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemBodyWorkService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemBrakingOfWheelService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemChassisSteeringService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemEngineService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemGearBoxService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemModelService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemSeriesService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemToExColorService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemToInColorService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainItemToModelService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainToStoreMainRefService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMainVideoService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarMultiMediaConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarOtherGoodCarService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarSeatConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarSecurityEquipService.cs" />
+    <Compile Include="Contracts\AutoCode\ICarWindowAndRearviewConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ICategoryMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IComAbstractLeftTableService.cs" />
+    <Compile Include="Contracts\AutoCode\IComAbstractLeftTableToRightTableRefService.cs" />
+    <Compile Include="Contracts\AutoCode\IComAbstractRightTableService.cs" />
+    <Compile Include="Contracts\AutoCode\IComClickService.cs" />
+    <Compile Include="Contracts\AutoCode\IComCountService.cs" />
+    <Compile Include="Contracts\AutoCode\IComDisplayInfoService.cs" />
+    <Compile Include="Contracts\AutoCode\IComDisplayTypeService.cs" />
+    <Compile Include="Contracts\AutoCode\IComMaxIdService.cs" />
+    <Compile Include="Contracts\AutoCode\ICommonAddressAreaService.cs" />
+    <Compile Include="Contracts\AutoCode\ICommonAddressCityService.cs" />
+    <Compile Include="Contracts\AutoCode\ICommonAddressProvinceService.cs" />
+    <Compile Include="Contracts\AutoCode\ICommonUploadsService.cs" />
+    <Compile Include="Contracts\AutoCode\IComObjectToTagService.cs" />
+    <Compile Include="Contracts\AutoCode\IComSiteObjectToTagService.cs" />
+    <Compile Include="Contracts\AutoCode\IComTagService.cs" />
+    <Compile Include="Contracts\AutoCode\IConfigHotCityService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXExplorationActivityMainService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXExplorationActivityOrderUserService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXLotteryHistoryService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXLotteryMainService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXLotteryPrizeService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXLotteryUserPrizeService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXRepairOrderService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXWeiXinApplicationService.cs" />
+    <Compile Include="Contracts\AutoCode\ICWXWeiXinMenuService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayHomePriceChartDistributorAdvertService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayHomePriceChartService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayHomePriceChartTypeService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayIndexAdvertService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayPhotoAlbumsService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayPhotoAlbumsToPhotosService.cs" />
+    <Compile Include="Contracts\AutoCode\IDisplayPhotoAlbumsTypeService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtAdbannerService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtAdministratorService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtAdvertisingService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtAllReviewsService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtArticleService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtChannelService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtContentsService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtDownloadsService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtFeedbackService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtLinksService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtMessageCountStaticService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtPicturesAlbumService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtPicturesExtensionService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtPicturesFieldService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtPicturesService.cs" />
+    <Compile Include="Contracts\AutoCode\IdtSystemLogService.cs" />
+    <Compile Include="Contracts\AutoCode\ILeagueInfoService.cs" />
+    <Compile Include="Contracts\AutoCode\IMaintImageService.cs" />
+    <Compile Include="Contracts\AutoCode\IMaintMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IMaintMaintItemService.cs" />
+    <Compile Include="Contracts\AutoCode\IMallAdvertisementService.cs" />
+    <Compile Include="Contracts\AutoCode\IMallGoodsImgService.cs" />
+    <Compile Include="Contracts\AutoCode\IMallGoodsService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberAccountService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberCarInfoService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberEmailUpdateHistoryService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberMessageReciverService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberMessageService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberProfileService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberProfileToSiteCarService.cs" />
+    <Compile Include="Contracts\AutoCode\IMemberProfileToSiteService.cs" />
+    <Compile Include="Contracts\AutoCode\IPluginsDataRefService.cs" />
+    <Compile Include="Contracts\AutoCode\IPrestigeImpressionService.cs" />
+    <Compile Include="Contracts\AutoCode\IPrestigePostCollectionService.cs" />
+    <Compile Include="Contracts\AutoCode\IPrestigePostImageService.cs" />
+    <Compile Include="Contracts\AutoCode\IPrestigePostService.cs" />
+    <Compile Include="Contracts\AutoCode\IPromotionActivityService.cs" />
+    <Compile Include="Contracts\AutoCode\IPromotionActivityToCarSalesPromitionService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairOrdersService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairSetService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairSetTodtFeedbackService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairSetToTCarServiceService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairSetToTCounterPartService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairSetTripDistanceService.cs" />
+    <Compile Include="Contracts\AutoCode\IRepairSetTripTimeService.cs" />
+    <Compile Include="Contracts\AutoCode\ISiteCarImageService.cs" />
+    <Compile Include="Contracts\AutoCode\ISmsMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IStoreCommentService.cs" />
+    <Compile Include="Contracts\AutoCode\IStoreMainBrandService.cs" />
+    <Compile Include="Contracts\AutoCode\IStoreMainGoodCarService.cs" />
+    <Compile Include="Contracts\AutoCode\IStoreMainImageService.cs" />
+    <Compile Include="Contracts\AutoCode\IStoreMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IStoreOrderDrivingTestService.cs" />
+    <Compile Include="Contracts\AutoCode\ISysCenterToSiteTableService.cs" />
+    <Compile Include="Contracts\AutoCode\ITActivityGuestItemService.cs" />
+    <Compile Include="Contracts\AutoCode\ITActivityService.cs" />
+    <Compile Include="Contracts\AutoCode\ITAdditionServiceService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceCategoryConnectCarBrandService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceCategoryService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceImageService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceOrderService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceOrderSmsRecordService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceRepairItemCommentService.cs" />
+    <Compile Include="Contracts\AutoCode\ITalkPriceRepairItemService.cs" />
+    <Compile Include="Contracts\AutoCode\Itarea2Service.cs" />
+    <Compile Include="Contracts\AutoCode\ItareaService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCarBrandService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCarItemBrandService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCarItemService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCarTypeBigLvService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCarTypeBigService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCarTypeService.cs" />
+    <Compile Include="Contracts\AutoCode\ItcityService.cs" />
+    <Compile Include="Contracts\AutoCode\ITCustomerService.cs" />
+    <Compile Include="Contracts\AutoCode\ITEmployeeService.cs" />
+    <Compile Include="Contracts\AutoCode\ITGuestContactService.cs" />
+    <Compile Include="Contracts\AutoCode\ITGuestService.cs" />
+    <Compile Include="Contracts\AutoCode\ITInfoManageService.cs" />
+    <Compile Include="Contracts\AutoCode\ITKeyManageContentService.cs" />
+    <Compile Include="Contracts\AutoCode\ITKeyManageService.cs" />
+    <Compile Include="Contracts\AutoCode\ITMemberLvService.cs" />
+    <Compile Include="Contracts\AutoCode\ITMessageCountService.cs" />
+    <Compile Include="Contracts\AutoCode\ITMessageRecordService.cs" />
+    <Compile Include="Contracts\AutoCode\ITNeedsService.cs" />
+    <Compile Include="Contracts\AutoCode\ITNoticeReciverService.cs" />
+    <Compile Include="Contracts\AutoCode\ITNoticeService.cs" />
+    <Compile Include="Contracts\AutoCode\ItprovinceService.cs" />
+    <Compile Include="Contracts\AutoCode\ITSendMessageService.cs" />
+    <Compile Include="Contracts\AutoCode\ITSMSListService.cs" />
+    <Compile Include="Contracts\AutoCode\ITSystemConfigService.cs" />
+    <Compile Include="Contracts\AutoCode\ITUsedCarBuyService.cs" />
+    <Compile Include="Contracts\AutoCode\ITUsedCarSellService.cs" />
+    <Compile Include="Contracts\AutoCode\IVideoMainService.cs" />
+    <Compile Include="Contracts\AutoCode\IVideoMainToVideoService.cs" />
+    <Compile Include="Contracts\AutoCode\IWebSiteService.cs" />
+    <Compile Include="Contracts\AutoCode\IWebSiteSkinColorService.cs" />
+    <Compile Include="Contracts\AutoCode\IWebSiteTemplateSkinService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinAccountToCenterAccountService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinActivityApplicantService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinActivityService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinArticlesService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinMenusArticlesRefService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinMenusService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinMerchantBIllNoService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinQRCodePromotionActivityAccountPointsHistoryService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinQRCodePromotionActivityAccountService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinQRCodePromotionActivityMemberFromAccountService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinQRCodeService.cs" />
+    <Compile Include="Contracts\AutoCode\IWeiXinWebSiteInfoService.cs" />
+    <Compile Include="Contracts\AutoCode\IComConfigMainService.cs" />
+    <Compile Include="Contracts\IComClickService.cs" />
+    <Compile Include="Contracts\IComConfigMainService.cs" />
+    <Compile Include="Contracts\IComCountService.cs" />
+    <Compile Include="Contracts\IComMaxIdService.cs" />
+    <Compile Include="Contracts\ICWXWeiXinApplicationService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityACMatchService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityACScoreGuessRecordService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityACWinnerGuessRecordService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityAttentionService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityChampionGuessRecordService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityHistoryService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityLotteryMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityMainToUserService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityPrizeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityTeamService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityUserExtendInfoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ActivityUserPrizeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AdBannerService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AdsingleService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AdTemplateService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ArticleMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ArticleMainToArticleService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ArticleMainToBrandService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AuthAdministratorRoleRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AuthPermissionResourceRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AuthPermissionRoleRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AuthPermissionService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AuthResourceService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\AuthRoleService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\BBSCommentExtInfoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\BBSCommentService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\BBSCommentSupportRecordService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\BBSCommentTypeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\BookingCarInfoToActivityOrdersService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarAirConditionerAndRefrigeratorConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarAutoHomeRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarBrandImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarBrandService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarBrandToDistributorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarColorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarControlConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarDistributorImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarDistributorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarDomainConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarEnquiryService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarExchangeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarExternalConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarHighTechConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarInternalConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarlightsConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainCommentService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemBaseService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemBodyWorkService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemBrakingOfWheelService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemChassisSteeringService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemEngineService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemGearBoxService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemModelService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemSeriesService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemToExColorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemToInColorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainItemToModelService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainToStoreMainRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMainVideoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarMultiMediaConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarOtherGoodCarService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarSeatConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarSecurityEquipService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CarWindowAndRearviewConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CategoryMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComAbstractLeftTableService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComAbstractLeftTableToRightTableRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComAbstractRightTableService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComClickService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComConfigMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComCountService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComDisplayInfoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComDisplayTypeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComMaxIdService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CommonAddressAreaService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CommonAddressCityService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CommonAddressProvinceService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CommonUploadsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComObjectToTagService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComSiteObjectToTagService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ComTagService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\ConfigHotCityService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXExplorationActivityMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXExplorationActivityOrderUserService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXLotteryHistoryService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXLotteryMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXLotteryPrizeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXLotteryUserPrizeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXRepairOrderService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXWeiXinApplicationService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\CWXWeiXinMenuService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayHomePriceChartDistributorAdvertService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayHomePriceChartService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayHomePriceChartTypeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayIndexAdvertService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayPhotoAlbumsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayPhotoAlbumsToPhotosService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\DisplayPhotoAlbumsTypeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtAdbannerService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtAdministratorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtAdvertisingService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtAllReviewsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtArticleService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtChannelService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtContentsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtDownloadsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtFeedbackService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtLinksService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtMessageCountStaticService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtPicturesAlbumService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtPicturesExtensionService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtPicturesFieldService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtPicturesService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\dtSystemLogService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\LeagueInfoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MaintImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MaintMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MaintMaintItemService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MallAdvertisementService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MallGoodsImgService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MallGoodsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberAccountService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberCarInfoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberEmailUpdateHistoryService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberMessageReciverService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberMessageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberProfileService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberProfileToSiteCarService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\MemberProfileToSiteService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PluginsDataRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PrestigeImpressionService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PrestigePostCollectionService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PrestigePostImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PrestigePostService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PromotionActivityService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\PromotionActivityToCarSalesPromitionService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairOrdersService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairSetService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairSetTodtFeedbackService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairSetToTCarServiceService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairSetToTCounterPartService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairSetTripDistanceService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\RepairSetTripTimeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\SiteCarImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\SmsMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\StoreCommentService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\StoreMainBrandService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\StoreMainGoodCarService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\StoreMainImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\StoreMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\StoreOrderDrivingTestService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\SysCenterToSiteTableService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TActivityGuestItemService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TActivityService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TAdditionServiceService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceCategoryConnectCarBrandService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceCategoryService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceImageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceOrderService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceOrderSmsRecordService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceRepairItemCommentService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TalkPriceRepairItemService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\tarea2Service.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\tareaService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCarBrandService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCarItemBrandService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCarItemService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCarTypeBigLvService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCarTypeBigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCarTypeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\tcityService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TCustomerService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TEmployeeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TGuestContactService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TGuestService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TInfoManageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TKeyManageContentService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TKeyManageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TMemberLvService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TMessageCountService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TMessageRecordService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TNeedsService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TNoticeReciverService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TNoticeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\tprovinceService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TSendMessageService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TSMSListService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TSystemConfigService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TUsedCarBuyService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\TUsedCarSellService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\VideoMainService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\VideoMainToVideoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WebSiteService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WebSiteSkinColorService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WebSiteTemplateSkinService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinAccountToCenterAccountService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinActivityApplicantService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinActivityService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinArticlesService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinMenusArticlesRefService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinMenusService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinMerchantBIllNoService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinQRCodeService.cs" />
+    <Compile Include="Contracts\Imp\AutoCode\WeiXinWebSiteInfoService.cs" />
+    <Compile Include="Contracts\Imp\Caches\DbAccessTokenCache.cs" />
+    <Compile Include="Contracts\Imp\ComClickService.cs" />
+    <Compile Include="Contracts\Imp\ComConfigMainService.cs" />
+    <Compile Include="Contracts\Imp\ComCountService.cs" />
+    <Compile Include="Contracts\Imp\ComMaxIdService.cs" />
+    <Compile Include="Contracts\Imp\CWXWeiXinApplicationService.cs" />
+    <Compile Include="Contracts\Imp\WeiXinMerchantBIllNoService.cs" />
+    <Compile Include="Contracts\Imp\WeiXinQRCodeService.cs" />
+    <Compile Include="Contracts\IWeiXinMerchantBIllNoService.cs" />
+    <Compile Include="Contracts\IWeiXinQRCodePromotionActivityAccountPointsHistoryService.cs" />
+    <Compile Include="Contracts\IWeiXinQRCodePromotionActivityAccountService.cs" />
+    <Compile Include="Contracts\IWeiXinQRCodePromotionActivityConfigService.cs" />
+    <Compile Include="Contracts\IWeiXinQRCodePromotionActivityMemberFromAccountService.cs" />
+    <Compile Include="Contracts\IWeiXinQRCodePromotionActivitySendRedPackService.cs" />
+    <Compile Include="Contracts\IWeiXinQRCodeService.cs" />
+    <Compile Include="Entities\AutoCode\ActivityACMatchDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityACScoreGuessRecordDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityACWinnerGuessRecordDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityAttentionDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityChampionGuessRecordDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityHistoryDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityLotteryMainDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityMainDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityMainToUserDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityPrizeDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityTeamDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityUserExtendInfoDto.cs" />
+    <Compile Include="Entities\AutoCode\ActivityUserPrizeDto.cs" />
+    <Compile Include="Entities\AutoCode\AdBannerDto.cs" />
+    <Compile Include="Entities\AutoCode\AdsingleDto.cs" />
+    <Compile Include="Entities\AutoCode\AdTemplateDto.cs" />
+    <Compile Include="Entities\AutoCode\ArticleMainDto.cs" />
+    <Compile Include="Entities\AutoCode\ArticleMainToArticleDto.cs" />
+    <Compile Include="Entities\AutoCode\ArticleMainToBrandDto.cs" />
+    <Compile Include="Entities\AutoCode\AuthAdministratorRoleRefDto.cs" />
+    <Compile Include="Entities\AutoCode\AuthPermissionDto.cs" />
+    <Compile Include="Entities\AutoCode\AuthPermissionResourceRefDto.cs" />
+    <Compile Include="Entities\AutoCode\AuthPermissionRoleRefDto.cs" />
+    <Compile Include="Entities\AutoCode\AuthResourceDto.cs" />
+    <Compile Include="Entities\AutoCode\AuthRoleDto.cs" />
+    <Compile Include="Entities\AutoCode\BBSCommentDto.cs" />
+    <Compile Include="Entities\AutoCode\BBSCommentExtInfoDto.cs" />
+    <Compile Include="Entities\AutoCode\BBSCommentSupportRecordDto.cs" />
+    <Compile Include="Entities\AutoCode\BBSCommentTypeDto.cs" />
+    <Compile Include="Entities\AutoCode\BookingCarInfoToActivityOrdersDto.cs" />
+    <Compile Include="Entities\AutoCode\CarAirConditionerAndRefrigeratorConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarAutoHomeRefDto.cs" />
+    <Compile Include="Entities\AutoCode\CarBrandDto.cs" />
+    <Compile Include="Entities\AutoCode\CarBrandImageDto.cs" />
+    <Compile Include="Entities\AutoCode\CarBrandToDistributorDto.cs" />
+    <Compile Include="Entities\AutoCode\CarColorDto.cs" />
+    <Compile Include="Entities\AutoCode\CarControlConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarDistributorDto.cs" />
+    <Compile Include="Entities\AutoCode\CarDistributorImageDto.cs" />
+    <Compile Include="Entities\AutoCode\CarDomainConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarEnquiryDto.cs" />
+    <Compile Include="Entities\AutoCode\CarExchangeDto.cs" />
+    <Compile Include="Entities\AutoCode\CarExternalConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarHighTechConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarImageDto.cs" />
+    <Compile Include="Entities\AutoCode\CarInternalConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarlightsConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainCommentDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainImageDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemBaseDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemBodyWorkDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemBrakingOfWheelDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemChassisSteeringDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemEngineDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemGearBoxDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemModelDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemSeriesDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemToExColorDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemToInColorDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainItemToModelDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainToStoreMainRefDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMainVideoDto.cs" />
+    <Compile Include="Entities\AutoCode\CarMultiMediaConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarOtherGoodCarDto.cs" />
+    <Compile Include="Entities\AutoCode\CarSeatConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CarSecurityEquipDto.cs" />
+    <Compile Include="Entities\AutoCode\CarWindowAndRearviewConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\CategoryMainDto.cs" />
+    <Compile Include="Entities\AutoCode\ComAbstractLeftTableDto.cs" />
+    <Compile Include="Entities\AutoCode\ComAbstractLeftTableToRightTableRefDto.cs" />
+    <Compile Include="Entities\AutoCode\ComAbstractRightTableDto.cs" />
+    <Compile Include="Entities\AutoCode\ComClickDto.cs" />
+    <Compile Include="Entities\AutoCode\ComConfigMainDto.cs" />
+    <Compile Include="Entities\AutoCode\ComCountDto.cs" />
+    <Compile Include="Entities\AutoCode\ComDisplayInfoDto.cs" />
+    <Compile Include="Entities\AutoCode\ComDisplayTypeDto.cs" />
+    <Compile Include="Entities\AutoCode\ComMaxIdDto.cs" />
+    <Compile Include="Entities\AutoCode\CommonAddressAreaDto.cs" />
+    <Compile Include="Entities\AutoCode\CommonAddressCityDto.cs" />
+    <Compile Include="Entities\AutoCode\CommonAddressProvinceDto.cs" />
+    <Compile Include="Entities\AutoCode\CommonUploadsDto.cs" />
+    <Compile Include="Entities\AutoCode\ComObjectToTagDto.cs" />
+    <Compile Include="Entities\AutoCode\ComSiteObjectToTagDto.cs" />
+    <Compile Include="Entities\AutoCode\ComTagDto.cs" />
+    <Compile Include="Entities\AutoCode\ConfigHotCityDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXExplorationActivityMainDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXExplorationActivityOrderUserDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXLotteryHistoryDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXLotteryMainDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXLotteryPrizeDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXLotteryUserPrizeDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXRepairOrderDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXWeiXinApplicationDto.cs" />
+    <Compile Include="Entities\AutoCode\CWXWeiXinMenuDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayHomePriceChartDistributorAdvertDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayHomePriceChartDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayHomePriceChartTypeDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayIndexAdvertDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayPhotoAlbumsDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayPhotoAlbumsToPhotosDto.cs" />
+    <Compile Include="Entities\AutoCode\DisplayPhotoAlbumsTypeDto.cs" />
+    <Compile Include="Entities\AutoCode\dtAdbannerDto.cs" />
+    <Compile Include="Entities\AutoCode\dtAdministratorDto.cs" />
+    <Compile Include="Entities\AutoCode\dtAdvertisingDto.cs" />
+    <Compile Include="Entities\AutoCode\dtAllReviewsDto.cs" />
+    <Compile Include="Entities\AutoCode\dtArticleDto.cs" />
+    <Compile Include="Entities\AutoCode\dtChannelDto.cs" />
+    <Compile Include="Entities\AutoCode\dtContentsDto.cs" />
+    <Compile Include="Entities\AutoCode\dtDownloadsDto.cs" />
+    <Compile Include="Entities\AutoCode\dtFeedbackDto.cs" />
+    <Compile Include="Entities\AutoCode\dtLinksDto.cs" />
+    <Compile Include="Entities\AutoCode\dtMessageCountStaticDto.cs" />
+    <Compile Include="Entities\AutoCode\dtPicturesAlbumDto.cs" />
+    <Compile Include="Entities\AutoCode\dtPicturesDto.cs" />
+    <Compile Include="Entities\AutoCode\dtPicturesExtensionDto.cs" />
+    <Compile Include="Entities\AutoCode\dtPicturesFieldDto.cs" />
+    <Compile Include="Entities\AutoCode\dtSystemLogDto.cs" />
+    <Compile Include="Entities\AutoCode\LeagueInfoDto.cs" />
+    <Compile Include="Entities\AutoCode\MaintImageDto.cs" />
+    <Compile Include="Entities\AutoCode\MaintMainDto.cs" />
+    <Compile Include="Entities\AutoCode\MaintMaintItemDto.cs" />
+    <Compile Include="Entities\AutoCode\MallAdvertisementDto.cs" />
+    <Compile Include="Entities\AutoCode\MallGoodsDto.cs" />
+    <Compile Include="Entities\AutoCode\MallGoodsImgDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberAccountDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberCarInfoDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberEmailUpdateHistoryDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberMessageDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberMessageReciverDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberProfileDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberProfileToSiteCarDto.cs" />
+    <Compile Include="Entities\AutoCode\MemberProfileToSiteDto.cs" />
+    <Compile Include="Entities\AutoCode\PluginsDataRefDto.cs" />
+    <Compile Include="Entities\AutoCode\PrestigeImpressionDto.cs" />
+    <Compile Include="Entities\AutoCode\PrestigePostCollectionDto.cs" />
+    <Compile Include="Entities\AutoCode\PrestigePostDto.cs" />
+    <Compile Include="Entities\AutoCode\PrestigePostImageDto.cs" />
+    <Compile Include="Entities\AutoCode\PromotionActivityDto.cs" />
+    <Compile Include="Entities\AutoCode\PromotionActivityToCarSalesPromitionDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairOrdersDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairSetDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairSetTodtFeedbackDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairSetToTCarServiceDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairSetToTCounterPartDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairSetTripDistanceDto.cs" />
+    <Compile Include="Entities\AutoCode\RepairSetTripTimeDto.cs" />
+    <Compile Include="Entities\AutoCode\SiteCarImageDto.cs" />
+    <Compile Include="Entities\AutoCode\SmsMainDto.cs" />
+    <Compile Include="Entities\AutoCode\StoreCommentDto.cs" />
+    <Compile Include="Entities\AutoCode\StoreMainBrandDto.cs" />
+    <Compile Include="Entities\AutoCode\StoreMainDto.cs" />
+    <Compile Include="Entities\AutoCode\StoreMainGoodCarDto.cs" />
+    <Compile Include="Entities\AutoCode\StoreMainImageDto.cs" />
+    <Compile Include="Entities\AutoCode\StoreOrderDrivingTestDto.cs" />
+    <Compile Include="Entities\AutoCode\SysCenterToSiteTableDto.cs" />
+    <Compile Include="Entities\AutoCode\TActivityDto.cs" />
+    <Compile Include="Entities\AutoCode\TActivityGuestItemDto.cs" />
+    <Compile Include="Entities\AutoCode\TAdditionServiceDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceCategoryConnectCarBrandDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceCategoryDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceImageDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceOrderDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceOrderSmsRecordDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceRepairItemCommentDto.cs" />
+    <Compile Include="Entities\AutoCode\TalkPriceRepairItemDto.cs" />
+    <Compile Include="Entities\AutoCode\tarea2Dto.cs" />
+    <Compile Include="Entities\AutoCode\tareaDto.cs" />
+    <Compile Include="Entities\AutoCode\TCarBrandDto.cs" />
+    <Compile Include="Entities\AutoCode\TCarItemBrandDto.cs" />
+    <Compile Include="Entities\AutoCode\TCarItemDto.cs" />
+    <Compile Include="Entities\AutoCode\TCarTypeBigDto.cs" />
+    <Compile Include="Entities\AutoCode\TCarTypeBigLvDto.cs" />
+    <Compile Include="Entities\AutoCode\TCarTypeDto.cs" />
+    <Compile Include="Entities\AutoCode\tcityDto.cs" />
+    <Compile Include="Entities\AutoCode\TCustomerDto.cs" />
+    <Compile Include="Entities\AutoCode\TEmployeeDto.cs" />
+    <Compile Include="Entities\AutoCode\TGuestContactDto.cs" />
+    <Compile Include="Entities\AutoCode\TGuestDto.cs" />
+    <Compile Include="Entities\AutoCode\TInfoManageDto.cs" />
+    <Compile Include="Entities\AutoCode\TKeyManageContentDto.cs" />
+    <Compile Include="Entities\AutoCode\TKeyManageDto.cs" />
+    <Compile Include="Entities\AutoCode\TMemberLvDto.cs" />
+    <Compile Include="Entities\AutoCode\TMessageCountDto.cs" />
+    <Compile Include="Entities\AutoCode\TMessageRecordDto.cs" />
+    <Compile Include="Entities\AutoCode\TNeedsDto.cs" />
+    <Compile Include="Entities\AutoCode\TNoticeDto.cs" />
+    <Compile Include="Entities\AutoCode\TNoticeReciverDto.cs" />
+    <Compile Include="Entities\AutoCode\tprovinceDto.cs" />
+    <Compile Include="Entities\AutoCode\TSendMessageDto.cs" />
+    <Compile Include="Entities\AutoCode\TSMSListDto.cs" />
+    <Compile Include="Entities\AutoCode\TSystemConfigDto.cs" />
+    <Compile Include="Entities\AutoCode\TUsedCarBuyDto.cs" />
+    <Compile Include="Entities\AutoCode\TUsedCarSellDto.cs" />
+    <Compile Include="Entities\AutoCode\VideoMainDto.cs" />
+    <Compile Include="Entities\AutoCode\VideoMainToVideoDto.cs" />
+    <Compile Include="Entities\AutoCode\WebSiteDto.cs" />
+    <Compile Include="Entities\AutoCode\WebSiteSkinColorDto.cs" />
+    <Compile Include="Entities\AutoCode\WebSiteTemplateSkinDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinAccountToCenterAccountDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinActivityApplicantDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinActivityDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinArticlesDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinMenusArticlesRefDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinMenusDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinMerchantBIllNoDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinQRCodeDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinQRCodePromotionActivityAccountDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinQRCodePromotionActivityAccountPointsHistoryDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinQRCodePromotionActivityMemberFromAccountDto.cs" />
+    <Compile Include="Entities\AutoCode\WeiXinWebSiteInfoDto.cs" />
+    <Compile Include="Entities\CreateSendCashRedPackListResult.cs" />
+    <Compile Include="Entities\CreateSendCashRedPackListResultItem.cs" />
+    <Compile Include="Entities\CWXWeiXinApplicationDto.cs" />
+    <Compile Include="Entities\GetFollowPulicWeiXinAccountPointsEnum.cs" />
+    <Compile Include="Entities\WeiXinQRCodeDto.cs" />
+    <Compile Include="Entities\WeiXinQRCodePromotionActivityAccountDto.cs" />
+    <Compile Include="Entities\WeiXinQRCodePromotionActivityAccountPointsHistoryDto.cs" />
+    <Compile Include="Entities\WeiXinQRCodePromotionActivityConfig.cs" />
+    <Compile Include="Entities\WeiXinWebSiteInfoDto.cs" />
+    <Compile Include="GenericContextService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContexts\ServiceContext.cs" />
+    <Compile Include="ServiceContexts\AutoCode\ServiceContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Zh\BLL\ApplicationContext\Override\Override.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\Zh\BLL\ApplicationContext\Zh.BLL.Define.apc.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\Zh\BLL\ApplicationContext\Zh.BLL.Define.Auto.apc.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\Zh\BLL\ApplicationContext\Zh.Net.Http.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zh.DAL.Define\Zh.DAL.Define.csproj">
+      <Project>{5C9A4DB1-BF52-45AC-82AF-B48172632FEB}</Project>
+      <Name>Zh.DAL.Define</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Prestige_Impression, Zh.DAL.Define" table="Prestige_Impression">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 印象类型(0-优点，1-缺点) -->
+		<property name="Type" type="Int32"  >
+			<column name="Type" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 印象内容 -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="128" sql-type="nvarchar" not-null="true" index="IX_Content"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="CreatedDate" type="DateTime"  >
+			<column name="CreatedDate" length="8" sql-type="datetime" not-null="true" index="IX_CreatedDate"/>
+		</property>
+        <!-- 会员ID -->
+		<property name="MemberID" type="Guid"  >
+			<column name="MemberID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 车款ID -->
+		<property name="CarItemID" type="Guid"  >
+			<column name="CarItemID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 车型ID -->
+		<property name="CarMainID" type="Guid"  >
+			<column name="CarMainID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!-- 会员账号信息 -->
+        <many-to-one update="false" insert="false" name="Member_Account" class="Zh.DAL.Define.Entities.Member_Account, Zh.DAL.Define">
+			<column name="MemberID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="CarItemID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Member_CarInfo, Zh.DAL.Define" table="Member_CarInfo">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 会员ID -->
+		<property name="MemberID" type="Guid"  >
+			<column name="MemberID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 车牌号 -->
+		<property name="CarNumber" type="String"  >
+			<column name="CarNumber" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 品牌ID -->
+		<property name="BrandID" type="Guid"  >
+			<column name="BrandID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 车型ID -->
+		<property name="CarMainID" type="Guid"  >
+			<column name="CarMainID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 车款ID -->
+		<property name="CarMainItemID" type="Guid"  >
+			<column name="CarMainItemID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!-- 会员账号信息 -->
+        <many-to-one update="false" insert="false" name="Member_Account" class="Zh.DAL.Define.Entities.Member_Account, Zh.DAL.Define">
+			<column name="MemberID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 车辆品牌 -->
+        <many-to-one update="false" insert="false" name="Car_Brand" class="Zh.DAL.Define.Entities.Car_Brand, Zh.DAL.Define">
+			<column name="BrandID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 车辆主表 -->
+        <many-to-one update="false" insert="false" name="Car_Main" class="Zh.DAL.Define.Entities.Car_Main, Zh.DAL.Define">
+			<column name="CarMainID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="CarMainItemID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+		<bag name="Booking_CarInfoToActivityOrders" inverse="true" lazy="true" cascade="all">
+			<key column="CarInfoId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Booking_CarInfoToActivityOrders, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Member_ProfileToSiteCar" inverse="true" lazy="true" cascade="all">
+			<key column="CarId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Member_ProfileToSiteCar, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Repair_Orders" inverse="true" lazy="true" cascade="all">
+			<key column="CarId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Repair_Orders, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

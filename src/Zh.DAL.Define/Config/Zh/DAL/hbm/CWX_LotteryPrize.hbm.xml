@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.CWX_LotteryPrize, Zh.DAL.Define" table="CWX_LotteryPrize">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="BeginChance" type="Decimal"  >
+			<column name="BeginChance" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="EndChance" type="Decimal"  >
+			<column name="EndChance" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="1024" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Count" type="Int32"  >
+			<column name="Count" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="LotteryMainId" type="Guid"  >
+			<column name="LotteryMainId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="IsNotPrize" type="Boolean"  >
+			<column name="IsNotPrize" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Sort" type="Int32"  >
+			<column name="Sort" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!-- 活动表 -->
+        <many-to-one update="false" insert="false" name="CWX_LotteryMain" class="Zh.DAL.Define.Entities.CWX_LotteryMain, Zh.DAL.Define">
+			<column name="LotteryMainId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+		<bag name="CWX_LotteryUserPrize" inverse="true" lazy="true" cascade="all">
+			<key column="PrizeId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.CWX_LotteryUserPrize, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

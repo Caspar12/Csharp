@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51731375-F4FD-4CB1-A719-48DE498B66AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.DAL.Imp.NH</RootNamespace>
+    <AssemblyName>Zh.DAL.Imp.NH</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime">
+      <HintPath>..\..\DLL\NHibernate\2.1.2.GA\Required_For_LazyLoading\Spring\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\DLL\NHibernate\2.1.2.GA\Required_For_LazyLoading\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\DLL\NHibernate\2.1.2.GA\Required_For_LazyLoading\Castle\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\DLL\NHibernate\2.1.2.GA\Required_For_LazyLoading\Castle\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\DLL\Spring.net\1.3.1\2.0\debug\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\..\DLL\Spring.net\1.3.1\2.0\debug\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate21">
+      <HintPath>..\..\DLL\Spring.net\1.3.1\2.0\debug\Spring.Data.NHibernate21.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\AutoCode\ActivityACMatchDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityACScoreGuessRecordDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityACWinnerGuessRecordDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityAttentionDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityChampionGuessRecordDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityHistoryDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityLotteryMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityMainToUserDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityPrizeDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityTeamDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityUserExtendInfoDao.cs" />
+    <Compile Include="Contracts\AutoCode\ActivityUserPrizeDao.cs" />
+    <Compile Include="Contracts\AutoCode\AdBannerDao.cs" />
+    <Compile Include="Contracts\AutoCode\AdsingleDao.cs" />
+    <Compile Include="Contracts\AutoCode\AdTemplateDao.cs" />
+    <Compile Include="Contracts\AutoCode\ArticleMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\ArticleMainToArticleDao.cs" />
+    <Compile Include="Contracts\AutoCode\ArticleMainToBrandDao.cs" />
+    <Compile Include="Contracts\AutoCode\AuthAdministratorRoleRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\AuthPermissionDao.cs" />
+    <Compile Include="Contracts\AutoCode\AuthPermissionResourceRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\AuthPermissionRoleRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\AuthResourceDao.cs" />
+    <Compile Include="Contracts\AutoCode\AuthRoleDao.cs" />
+    <Compile Include="Contracts\AutoCode\BBSCommentDao.cs" />
+    <Compile Include="Contracts\AutoCode\BBSCommentExtInfoDao.cs" />
+    <Compile Include="Contracts\AutoCode\BBSCommentSupportRecordDao.cs" />
+    <Compile Include="Contracts\AutoCode\BBSCommentTypeDao.cs" />
+    <Compile Include="Contracts\AutoCode\BookingCarInfoToActivityOrdersDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarAirConditionerAndRefrigeratorConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarAutoHomeRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarBrandDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarBrandImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarBrandToDistributorDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarColorDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarControlConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarDistributorDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarDistributorImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarDomainConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarEnquiryDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarExchangeDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarExternalConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarHighTechConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarInternalConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarlightsConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainCommentDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemBaseDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemBodyWorkDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemBrakingOfWheelDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemChassisSteeringDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemEngineDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemGearBoxDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemModelDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemSeriesDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemToExColorDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemToInColorDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainItemToModelDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainToStoreMainRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMainVideoDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarMultiMediaConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarOtherGoodCarDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarSeatConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarSecurityEquipDao.cs" />
+    <Compile Include="Contracts\AutoCode\CarWindowAndRearviewConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\CategoryMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComAbstractLeftTableDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComAbstractLeftTableToRightTableRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComAbstractRightTableDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComClickDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComConfigMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComCountDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComDisplayInfoDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComDisplayTypeDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComMaxIdDao.cs" />
+    <Compile Include="Contracts\AutoCode\CommonAddressAreaDao.cs" />
+    <Compile Include="Contracts\AutoCode\CommonAddressCityDao.cs" />
+    <Compile Include="Contracts\AutoCode\CommonAddressProvinceDao.cs" />
+    <Compile Include="Contracts\AutoCode\CommonUploadsDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComObjectToTagDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComSiteObjectToTagDao.cs" />
+    <Compile Include="Contracts\AutoCode\ComTagDao.cs" />
+    <Compile Include="Contracts\AutoCode\ConfigHotCityDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXExplorationActivityMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXExplorationActivityOrderUserDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXLotteryHistoryDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXLotteryMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXLotteryPrizeDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXLotteryUserPrizeDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXRepairOrderDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXWeiXinApplicationDao.cs" />
+    <Compile Include="Contracts\AutoCode\CWXWeiXinMenuDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayHomePriceChartDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayHomePriceChartDistributorAdvertDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayHomePriceChartTypeDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayIndexAdvertDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayPhotoAlbumsDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayPhotoAlbumsToPhotosDao.cs" />
+    <Compile Include="Contracts\AutoCode\DisplayPhotoAlbumsTypeDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtAdbannerDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtAdministratorDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtAdvertisingDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtAllReviewsDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtArticleDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtChannelDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtContentsDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtDownloadsDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtFeedbackDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtLinksDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtMessageCountStaticDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtPicturesAlbumDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtPicturesDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtPicturesExtensionDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtPicturesFieldDao.cs" />
+    <Compile Include="Contracts\AutoCode\dtSystemLogDao.cs" />
+    <Compile Include="Contracts\AutoCode\LeagueInfoDao.cs" />
+    <Compile Include="Contracts\AutoCode\MaintImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\MaintMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\MaintMaintItemDao.cs" />
+    <Compile Include="Contracts\AutoCode\MallAdvertisementDao.cs" />
+    <Compile Include="Contracts\AutoCode\MallGoodsDao.cs" />
+    <Compile Include="Contracts\AutoCode\MallGoodsImgDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberAccountDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberCarInfoDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberEmailUpdateHistoryDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberMessageDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberMessageReciverDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberProfileDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberProfileToSiteCarDao.cs" />
+    <Compile Include="Contracts\AutoCode\MemberProfileToSiteDao.cs" />
+    <Compile Include="Contracts\AutoCode\PluginsDataRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\PrestigeImpressionDao.cs" />
+    <Compile Include="Contracts\AutoCode\PrestigePostCollectionDao.cs" />
+    <Compile Include="Contracts\AutoCode\PrestigePostDao.cs" />
+    <Compile Include="Contracts\AutoCode\PrestigePostImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\PromotionActivityDao.cs" />
+    <Compile Include="Contracts\AutoCode\PromotionActivityToCarSalesPromitionDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairOrdersDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairSetDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairSetTodtFeedbackDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairSetToTCarServiceDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairSetToTCounterPartDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairSetTripDistanceDao.cs" />
+    <Compile Include="Contracts\AutoCode\RepairSetTripTimeDao.cs" />
+    <Compile Include="Contracts\AutoCode\SiteCarImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\SmsMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\StoreCommentDao.cs" />
+    <Compile Include="Contracts\AutoCode\StoreMainBrandDao.cs" />
+    <Compile Include="Contracts\AutoCode\StoreMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\StoreMainGoodCarDao.cs" />
+    <Compile Include="Contracts\AutoCode\StoreMainImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\StoreOrderDrivingTestDao.cs" />
+    <Compile Include="Contracts\AutoCode\SysCenterToSiteTableDao.cs" />
+    <Compile Include="Contracts\AutoCode\TActivityDao.cs" />
+    <Compile Include="Contracts\AutoCode\TActivityGuestItemDao.cs" />
+    <Compile Include="Contracts\AutoCode\TAdditionServiceDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceCategoryConnectCarBrandDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceCategoryDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceImageDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceOrderDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceOrderSmsRecordDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceRepairItemCommentDao.cs" />
+    <Compile Include="Contracts\AutoCode\TalkPriceRepairItemDao.cs" />
+    <Compile Include="Contracts\AutoCode\tarea2Dao.cs" />
+    <Compile Include="Contracts\AutoCode\tareaDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCarBrandDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCarItemBrandDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCarItemDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCarTypeBigDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCarTypeBigLvDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCarTypeDao.cs" />
+    <Compile Include="Contracts\AutoCode\tcityDao.cs" />
+    <Compile Include="Contracts\AutoCode\TCustomerDao.cs" />
+    <Compile Include="Contracts\AutoCode\TEmployeeDao.cs" />
+    <Compile Include="Contracts\AutoCode\TGuestContactDao.cs" />
+    <Compile Include="Contracts\AutoCode\TGuestDao.cs" />
+    <Compile Include="Contracts\AutoCode\TInfoManageDao.cs" />
+    <Compile Include="Contracts\AutoCode\TKeyManageContentDao.cs" />
+    <Compile Include="Contracts\AutoCode\TKeyManageDao.cs" />
+    <Compile Include="Contracts\AutoCode\TMemberLvDao.cs" />
+    <Compile Include="Contracts\AutoCode\TMessageCountDao.cs" />
+    <Compile Include="Contracts\AutoCode\TMessageRecordDao.cs" />
+    <Compile Include="Contracts\AutoCode\TNeedsDao.cs" />
+    <Compile Include="Contracts\AutoCode\TNoticeDao.cs" />
+    <Compile Include="Contracts\AutoCode\TNoticeReciverDao.cs" />
+    <Compile Include="Contracts\AutoCode\tprovinceDao.cs" />
+    <Compile Include="Contracts\AutoCode\TSendMessageDao.cs" />
+    <Compile Include="Contracts\AutoCode\TSMSListDao.cs" />
+    <Compile Include="Contracts\AutoCode\TSystemConfigDao.cs" />
+    <Compile Include="Contracts\AutoCode\TUsedCarBuyDao.cs" />
+    <Compile Include="Contracts\AutoCode\TUsedCarSellDao.cs" />
+    <Compile Include="Contracts\AutoCode\VideoMainDao.cs" />
+    <Compile Include="Contracts\AutoCode\VideoMainToVideoDao.cs" />
+    <Compile Include="Contracts\AutoCode\WebSiteDao.cs" />
+    <Compile Include="Contracts\AutoCode\WebSiteSkinColorDao.cs" />
+    <Compile Include="Contracts\AutoCode\WebSiteTemplateSkinDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinAccountToCenterAccountDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinActivityApplicantDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinActivityDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinArticlesDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinMenusArticlesRefDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinMenusDao.cs" />
+    <Compile Include="Contracts\AutoCode\WeiXinWebSiteInfoDao.cs" />
+    <Compile Include="Contracts\ComCountDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_Count.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zh.DAL.Base.Define\Zh.DAL.Base.Define.csproj">
+      <Project>{7AE60098-4DC6-4D34-B6AE-8C1CCDC13DC9}</Project>
+      <Name>Zh.DAL.Base.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Define\Zh.DAL.Define.csproj">
+      <Project>{5C9A4DB1-BF52-45AC-82AF-B48172632FEB}</Project>
+      <Name>Zh.DAL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zh.framework\Zh.Framework.csproj">
+      <Project>{BF031EF6-EDB8-4EC4-8F53-455E2F7BAC37}</Project>
+      <Name>Zh.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Zh\DAL\ApplicationContext\Zh.DAL.Imp.NH.apc.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_ConfigMain.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_AccountToCenterAccount.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_Activity.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_Activity_Applicant.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_Articles.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_Menus.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_Menus_Articles_Ref.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_QRCode.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_QRCodePromotionActivityAccount.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_QRCodePromotionActivityAccountPointsHistory.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_QRCodePromotionActivityMemberFromAccount.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WeiXin_WebSiteInfo.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_AC_Match.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_AC_ScoreGuessRecord.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_AC_WinnerGuessRecord.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_Attention.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_ChampionGuessRecord.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_History.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_LotteryMain.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_MainToUser.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_Prize.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_Team.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_UserExtendInfo.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Activity_UserPrize.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\AdBanner.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\AdTemplate.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Ad_single.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Article_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Article_MainToArticle.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Article_MainToBrand.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Auth_AdministratorRoleRef.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Auth_Permission.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Auth_PermissionResourceRef.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Auth_PermissionRoleRef.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Auth_Resource.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Auth_Role.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\BBS_Comment.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\BBS_CommentExtInfo.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\BBS_CommentSupportRecord.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\BBS_CommentType.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Booking_CarInfoToActivityOrders.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_AirConditionerAndRefrigeratorConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_AutoHome_Ref.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Brand.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_BrandImage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_BrandToDistributor.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Color.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_ControlConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Distributor.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_DistributorImage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Domain_Config.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Enquiry.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Exchange.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_ExternalConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_HighTechConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Image.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_InternalConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_lightsConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItemToExColor.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItemToInColor.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItemToModel.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_Base.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_BodyWork.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_BrakingOfWheel.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_ChassisSteering.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_Engine.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_GearBox.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_Model.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainItem_Series.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MainToStore_MainRef.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Main_Comment.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Main_Image.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_Main_Video.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_MultiMediaConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_OtherGoodCar.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_SeatConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_SecurityEquip.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Car_WindowAndRearviewConfig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Category_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Common_Address_Area.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Common_Address_City.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Common_Address_Province.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Common_Uploads.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_AbstractLeftTable.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_AbstractLeftTableToRightTableRef.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_AbstractRightTable.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_Click.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_DisplayInfo.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_DisplayType.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_MaxId.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_ObjectToTag.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_SiteObjectToTag.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Com_Tag.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Config_HotCity.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_ExplorationActivity_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_ExplorationActivity_OrderUser.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_LotteryHistory.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_LotteryMain.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_LotteryPrize.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_LotteryUserPrize.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_RepairOrder.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_WeiXinApplication.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\CWX_WeiXinMenu.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_HomePriceChart.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_HomePriceChartDistributorAdvert.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_HomePriceChartType.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_IndexAdvert.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_PhotoAlbums.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_PhotoAlbumsToPhotos.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Display_PhotoAlbumsType.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Adbanner.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Administrator.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Advertising.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_AllReviews.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Article.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Channel.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Contents.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Downloads.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Feedback.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Links.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_MessageCountStatic.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_Pictures.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_PicturesAlbum.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_PicturesExtension.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_PicturesField.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\dt_SystemLog.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\LeagueInfo.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Maint_Image.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Maint_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Maint_MaintItem.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Mall_Advertisement.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Mall_Goods.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Mall_GoodsImg.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\MemberMessage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\MemberMessageReciver.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Member_Account.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Member_CarInfo.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Member_EmailUpdateHistory.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Member_Profile.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Member_ProfileToSite.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Member_ProfileToSiteCar.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Plugins_Data_Ref.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Prestige_Impression.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Prestige_Post.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Prestige_PostCollection.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Prestige_PostImage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Promotion_Activity.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Promotion_Activity_To_CarSalesPromition.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_Orders.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_Set.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_SetTodt_Feedback.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_SetToT_CarService.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_SetToT_CounterPart.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_SetTripDistance.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Repair_SetTripTime.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Site_CarImage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Sms_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Store_Comment.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Store_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Store_MainBrand.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Store_MainGoodCar.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Store_MainImage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Store_OrderDrivingTest.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Sys_CenterToSiteTable.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_Category.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_CategoryConnectCarBrand.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_Image.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_Order.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_OrderSmsRecord.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_RepairItem.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\TalkPrice_RepairItemComment.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_Activity.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_ActivityGuestItem.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_AdditionService.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_CarBrand.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_CarItem.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_CarItemBrand.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_CarType.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_CarTypeBig.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_CarTypeBigLv.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_Customer.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_Employee.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_Guest.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_GuestContact.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_InfoManage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_KeyManage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_KeyManageContent.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_MemberLv.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_MessageCount.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_MessageRecord.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_Needs.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_Notice.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_NoticeReciver.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_SendMessage.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_SMSList.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_System_Config.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_UsedCarBuy.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\T_UsedCarSell.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Video_Main.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\Video_MainToVideo.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WebSite.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WebSiteSkinColor.hbm.xml" />
+    <EmbeddedResource Include="Config\Zh\DAL\hbm\WebSiteTemplateSkin.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

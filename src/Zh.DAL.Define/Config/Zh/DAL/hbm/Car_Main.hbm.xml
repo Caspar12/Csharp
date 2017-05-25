@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_Main, Zh.DAL.Define" table="Car_Main">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 显示名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 品牌ID -->
+		<property name="BrandID" type="Guid"  >
+			<column name="BrandID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 关注度 -->
+		<property name="AttantionRate" type="Int32"  >
+			<column name="AttantionRate" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 官网 -->
+		<property name="SiteUrl" type="String"  >
+			<column name="SiteUrl" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsShowFront" type="Boolean"  >
+			<column name="IsShowFront" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="WholeScore" type="Decimal"  >
+			<column name="WholeScore" length="5" sql-type="decimal" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="PrestigeCommentCount" type="Int32"  >
+			<column name="PrestigeCommentCount" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Introduction" type="String"  >
+			<column name="Introduction" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsShowInWeiXinGoodCar" type="Boolean"  >
+			<column name="IsShowInWeiXinGoodCar" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 车辆品牌 -->
+        <many-to-one update="false" insert="false" name="Car_Brand" class="Zh.DAL.Define.Entities.Car_Brand, Zh.DAL.Define">
+			<column name="BrandID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="Car_Main_Comment" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Main_Comment, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Main_Image" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Main_Image, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_MainToStore_MainRef" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainToStore_MainRef, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_Main_Video" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_Main_Video, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_OtherGoodCar" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_OtherGoodCar, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_OtherGoodCar2" inverse="true" lazy="true" cascade="all">
+			<key column="OtherGoodCarId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_OtherGoodCar, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Display_HomePriceChart" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Display_HomePriceChart, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Display_PhotoAlbums" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Display_PhotoAlbums, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Article_Main" inverse="true" lazy="true" cascade="all">
+			<key column="Car_MainID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Article_Main, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Car_MainItem" inverse="true" lazy="true" cascade="all">
+			<key column="MainID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Maint_Main" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Maint_Main, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Member_CarInfo" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Member_CarInfo, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Prestige_Post" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Prestige_Post, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Site_CarImage" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Site_CarImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="TalkPrice_RepairItem" inverse="true" lazy="true" cascade="all">
+			<key column="CarMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.TalkPrice_RepairItem, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,99 @@
+﻿
+<%@ CodeTemplate Language="C#" TargetLanguage="XML" Description="Generates a db<->class mapping file for use with NHibnate." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the mapping file is based on" %>
+<%@ Property Name="Namespace" Type="System.String" Default="Zh.DAL.Define.Entities" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Property Name="Assembly" Type="System.String" Default="Zh.DAL.Define" Category="Object" Description="The assembly that the class will be used in" %>
+<%@ Property Name="RemoveTablePrefix" Type="System.String" Default="tbl" Category="Object" Description="The prefix to remove from table names" %>
+<%@ Property Name="ForceId" Type="System.Boolean" Default="true" Category="Object" Description="Force Id for identity column" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Text.RegularExpressions" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class<%= ClassNameAtt(SourceTable) %> table="<%=SourceTable.Name%>">
+		<id<%= IdNameAtt(SourceTable) %><%= IdTypeAtt(SourceTable) %><%= IdUnsavedValueAtt(SourceTable) %>>
+		<% foreach(ColumnSchema column in SourceTable.PrimaryKey.MemberColumns) { %>
+			<column<%= ColumnNameAtt(column) %><%= ColumnLengthAtt(column) %><%= ColumnSqlTypeAtt(column) %><%= ColumnNotNullAtt(column) %><%= ColumnUniqueAtt(column) %><%= ColumnIndexAtt(SourceTable, column) %>/>
+		<% } %>
+        <% 
+            string generator = "native";
+            if(SourceTable.PrimaryKey.MemberColumns.Count > 1 || SourceTable.PrimaryKey.MemberColumns[0].SystemType == typeof(Guid)){
+                generator = "assigned";
+            }
+        %>     
+            <generator class="<%=generator%>" />        
+		</id>
+        <% //表属性begin %>
+        <% foreach(ColumnSchema column in SourceTable.NonPrimaryKeyColumns) { %>
+        <%
+            bool isIdentityColumn = ((bool)column.ExtendedProperties["CS_IsIdentity"].Value) == true;
+            var outputIdentityColumnAttr = isIdentityColumn ? string.Format("update=\"false\" insert=\"false\""):"";
+            %>
+        <!-- <%=column.Description%> -->
+		<property<%= PropertyNameAtt(column) %><%= PropertyTypeAtt(column) %> <%=outputIdentityColumnAttr%> >
+			<column<%= ColumnNameAtt(column) %><%= ColumnLengthAtt(column) %><%= ColumnSqlTypeAtt(column) %><%= ColumnNotNullAtt(column) %><%= ColumnUniqueAtt(column) %><%= ColumnIndexAtt(SourceTable, column) %>/>
+		</property>
+		<% } %>
+        <% //表属性end %>
+        
+        <% //父表属性begin %>
+		<% foreach(TableKeySchema foreignKey in SourceTable.ForeignKeys) { %>
+        <%            
+            string description = string.IsNullOrEmpty(foreignKey.Description) ? foreignKey.PrimaryKeyTable.Description : foreignKey.Description;
+        %>
+         <!-- <%=description%> -->
+        <many-to-one update="false" insert="false" name="<%=GetRepeatPropertyName(foreignKey.PrimaryKeyTable.Name,foreignKey.PrimaryKeyTable.Name)%>"<%= ManyToOneClassAtt(foreignKey) %>>
+			<% foreach(ColumnSchema column in foreignKey.ForeignKeyMemberColumns) { %>
+			<column<%= ColumnNameAtt(column) %><%= ColumnLengthAtt(column) %><%= ColumnSqlTypeAtt(column) %><%= ColumnNotNullAtt(column) %><%= ColumnUniqueAtt(column) %><%= ColumnIndexAtt(SourceTable, column) %>/>
+			<% } %>            
+		</many-to-one>
+        <% } %>
+        <% //父表属性end %>
+        
+        <% //子表属性begin %>
+        <% 
+           
+            List<TableKeySchema> primaryKeyOrderList = new List<TableKeySchema>();
+            foreach(TableKeySchema primaryKey in SourceTable.PrimaryKeys) { 
+                if(IsOneToOneTable2(primaryKey)){
+                    primaryKeyOrderList.Insert(0,primaryKey);   
+                }else{
+                    primaryKeyOrderList.Add(primaryKey);
+                }
+            }
+        %>        
+		<% foreach(TableKeySchema primaryKey in primaryKeyOrderList) { %>      
+            <%
+                string description = string.IsNullOrEmpty(primaryKey.Description) ? primaryKey.ForeignKeyTable.Description : primaryKey.Description;                
+                string foreignKeyClassName = primaryKey.ForeignKeyTable.Name;
+                string foreignKeyPropertyName = GetRepeatPropertyName(foreignKeyClassName,foreignKeyClassName); 
+                string foreignKeyClassFullName = string.Format("{0}.{1},{2}",this.Namespace,foreignKeyClassName,this.Assembly );           
+            %>
+            <% if(IsOneToOneTable2(primaryKey)) %>
+            <%{ %> 
+        <one-to-one name="<%=foreignKeyPropertyName%>"
+                class="<%=foreignKeyClassFullName%>"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+            <%} %>
+            <% else %>
+            <%{ %>
+		<bag name="<%= foreignKeyPropertyName%>" inverse="true" lazy="true" cascade="all">
+			<key<%= CollectionSelfKeyColumnAtt(primaryKey) %>/>
+			<one-to-many<%= CollectionOneToManyClassAtt(primaryKey)%>/>
+		</bag>
+            <%} %>
+		<% } %>
+        <% //子表属性end %>
+	 
+	</class>
+</hibernate-mapping>
+<!-- #include file="../Funcation.inc" -->
+<!-- #include file="Funcation2.cst" -->

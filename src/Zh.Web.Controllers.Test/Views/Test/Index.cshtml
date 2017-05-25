@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+<h2>Index</h2>
+
+<script>
+    $.ajax({
+        url: '/WebAPI/ComCount/Add',
+        data: { targetId: '7cf7fb27-7ff5-410a-bbb1-dc359c9cf17f', categoryId: 'good', table: 'ss' },
+        cache: false,
+        dataType: 'json',
+        type: 'get',
+        success: function (result) {
+            if (result.Success) {                
+                console.info(result.Data.Count);
+            }
+            else {
+                console.error(result.Message);
+            }
+        }
+    }); 
+    $.ajax({
+        url: '/WebAPI/ComCount/Find',
+        data: { targetId: '7cf7fb27-7ff5-410a-bbb1-dc359c9cf17f', table: 'ss' },
+        cache: false,
+        dataType: 'json',
+        type: 'get',
+        success: function (result) {
+            if (result.Success) {
+             
+            }
+            else {
+                console.error(result.Message);
+            }
+        }
+    });
+</script>

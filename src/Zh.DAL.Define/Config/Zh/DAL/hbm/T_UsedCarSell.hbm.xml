@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_UsedCarSell, Zh.DAL.Define" table="T_UsedCarSell">
+		<id name="UsedCarSellIndex" type="Decimal" unsaved-value="null">
+			<column name="UsedCarSellIndex" length="9" sql-type="numeric" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 所在省份 -->
+		<property name="SellProvince" type="String"  >
+			<column name="SellProvince" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所在城市 -->
+		<property name="SellCity" type="String"  >
+			<column name="SellCity" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所在区域 -->
+		<property name="SellArea" type="String"  >
+			<column name="SellArea" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车型品牌 -->
+		<property name="UsedCarBrand" type="Int32"  >
+			<column name="UsedCarBrand" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 车系 -->
+		<property name="UsedCarTypeBigIndex" type="Int32"  >
+			<column name="UsedCarTypeBigIndex" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 车型 -->
+		<property name="CarTypeIndex" type="Int32"  >
+			<column name="CarTypeIndex" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 颜色 -->
+		<property name="UsedCarColor" type="String"  >
+			<column name="UsedCarColor" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 首次上牌日期 -->
+		<property name="FirstCarNumberDate" type="DateTime"  >
+			<column name="FirstCarNumberDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 用途,非运营  运营  营转非  租赁 -->
+		<property name="UsedCarUseKind" type="String"  >
+			<column name="UsedCarUseKind" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 行驶里程 -->
+		<property name="UsedCarMileage" type="Int32"  >
+			<column name="UsedCarMileage" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 年审时间 -->
+		<property name="AudtingYearDate" type="DateTime"  >
+			<column name="AudtingYearDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 保险时间 -->
+		<property name="InsuranceDate" type="DateTime"  >
+			<column name="InsuranceDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 描述 -->
+		<property name="UsedCarIntroduction" type="String"  >
+			<column name="UsedCarIntroduction" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车型配置 -->
+		<property name="UsedCarConfig" type="String"  >
+			<column name="UsedCarConfig" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 出售价格 -->
+		<property name="SellPrice" type="Decimal"  >
+			<column name="SellPrice" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 是否带牌销售 -->
+		<property name="IsHaveNumberSell" type="Int32"  >
+			<column name="IsHaveNumberSell" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 是否维修保养记录 -->
+		<property name="IsMaintainLog" type="Int32"  >
+			<column name="IsMaintainLog" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 车况,类似新车  很好  一般 -->
+		<property name="UsedCarStatus" type="String"  >
+			<column name="UsedCarStatus" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 姓名,意向购车人姓名 -->
+		<property name="BuyerName" type="String"  >
+			<column name="BuyerName" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 性别 -->
+		<property name="BuyerSex" type="String"  >
+			<column name="BuyerSex" length="2" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 手机 -->
+		<property name="BuyerHandTel" type="String"  >
+			<column name="BuyerHandTel" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 有效期,信息有效期 -->
+		<property name="ValidityDate" type="DateTime"  >
+			<column name="ValidityDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 是否审核,0未审核1已审核 -->
+		<property name="IsAudting" type="Int32"  >
+			<column name="IsAudting" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 跟进状态,新建、跟进中、暂不处理、已完成 -->
+		<property name="TraceState" type="String"  >
+			<column name="TraceState" length="12" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 跟进人ID -->
+		<property name="TraceEmployeeID" type="Int32"  >
+			<column name="TraceEmployeeID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 跟进人名称 -->
+		<property name="TraceEmployeeName" type="String"  >
+			<column name="TraceEmployeeName" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 分配时间,分配跟进员工的时间,如果被重新分配则取最后一次被分配的时间 -->
+		<property name="TraceAllotDate" type="DateTime"  >
+			<column name="TraceAllotDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="PushTime" type="DateTime"  >
+			<column name="PushTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 发布来源,个人,经销商 -->
+		<property name="FromType" type="String"  >
+			<column name="FromType" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 时间戳 -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        <!-- 过户手续,齐全,不齐全 -->
+		<property name="ChangeProcedure" type="String"  >
+			<column name="ChangeProcedure" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 封面图片 -->
+		<property name="MainPicUrl" type="Int32"  >
+			<column name="MainPicUrl" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 其他图片 -->
+		<property name="OtherPicUrl" type="Int32"  >
+			<column name="OtherPicUrl" length="4" sql-type="int" not-null="false"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarType" class="Zh.DAL.Define.Entities.T_CarType, Zh.DAL.Define">
+			<column name="CarTypeIndex" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarTypeBig" class="Zh.DAL.Define.Entities.T_CarTypeBig, Zh.DAL.Define">
+			<column name="UsedCarTypeBigIndex" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_GuestContact, Zh.DAL.Define" table="T_GuestContact">
+		<id name="GuestContactIndex" type="Decimal" unsaved-value="null">
+			<column name="GuestContactIndex" length="9" sql-type="numeric" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 客户ID,0表示无客户信息,潜客跟进则使用此字段 -->
+		<property name="GuestIndex" type="Int32"  >
+			<column name="GuestIndex" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 业务ID,或上级接触,0表示无业务或上级接触,业务回访则使用此字段,潜客跟进则无业务上级 -->
+		<property name="OperationIndex" type="Decimal"  >
+			<column name="OperationIndex" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 接触类型,潜客跟进、二手车发布、二手车求购等,此字段和上面的业务ID字段可锁定某个业务 -->
+		<property name="ContactClass" type="String"  >
+			<column name="ContactClass" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 接触时间,本次跟进时间 -->
+		<property name="ContactTime" type="DateTime"  >
+			<column name="ContactTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 接触目的,跟进重点 -->
+		<property name="ContactAim" type="String"  >
+			<column name="ContactAim" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进人ID -->
+		<property name="EmployeeID" type="Int32"  >
+			<column name="EmployeeID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 根据人名称,根据人不一定在同一库中，因此可不用ID关联 -->
+		<property name="EmployeeName" type="String"  >
+			<column name="EmployeeName" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 下次接触时间 -->
+		<property name="ContactNextTime" type="DateTime"  >
+			<column name="ContactNextTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 下次接触目的 -->
+		<property name="ContactNextAim" type="String"  >
+			<column name="ContactNextAim" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 接触方式,电话、面访、传真、邮件、信函、会议、来访 -->
+		<property name="ContactType" type="String"  >
+			<column name="ContactType" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 接触前热度,热度数字越高代表机会越大 -->
+		<property name="ContactBeforeHot" type="String"  >
+			<column name="ContactBeforeHot" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 接触后热度,热度数字越高代表机会越大 -->
+		<property name="ContactAfterHot" type="String"  >
+			<column name="ContactAfterHot" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 报价内容 -->
+		<property name="PriceContent" type="String"  >
+			<column name="PriceContent" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 报价金额 -->
+		<property name="PriceValue" type="Decimal"  >
+			<column name="PriceValue" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 接触状态, -->
+		<property name="ContactState" type="String"  >
+			<column name="ContactState" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 接触结果,战败,成交 -->
+		<property name="ContactResult" type="String"  >
+			<column name="ContactResult" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 结果原因,可能更多的是战败原因 -->
+		<property name="ContactResultCause" type="String"  >
+			<column name="ContactResultCause" length="12" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户描述 -->
+		<property name="GuestSay" type="String"  >
+			<column name="GuestSay" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 接触费用,为0时就无所谓费用用途了 -->
+		<property name="ContactFee" type="Decimal"  >
+			<column name="ContactFee" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 费用用途,差旅/餐饮/礼品/公关 -->
+		<property name="ContactFeeUse" type="String"  >
+			<column name="ContactFeeUse" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否申请批示,0不申请,1申请 -->
+		<property name="IsApplyInstruction" type="Int32"  >
+			<column name="IsApplyInstruction" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 是否已回复批示,0未回复,1已回复，如果申请为0，则该字段无效 -->
+		<property name="IsReplyInstruction" type="Int32"  >
+			<column name="IsReplyInstruction" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 店号 -->
+		<property name="ShopID" type="String"  >
+			<column name="ShopID" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_Guest" class="Zh.DAL.Define.Entities.T_Guest, Zh.DAL.Define">
+			<column name="GuestIndex" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.AdTemplate, Zh.DAL.Define" table="AdTemplate">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!--  -->
+		<property name="AdBannerID" type="Guid"  >
+			<column name="AdBannerID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="TemplateName" type="String"  >
+			<column name="TemplateName" length="50" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Layout" type="Int32"  >
+			<column name="Layout" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Order" type="Int32"  >
+			<column name="`Order`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="AdBanner" class="Zh.DAL.Define.Entities.AdBanner, Zh.DAL.Define">
+			<column name="AdBannerID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+		<bag name="Ad_single" inverse="true" lazy="true" cascade="all">
+			<key column="TemplateID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Ad_single, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

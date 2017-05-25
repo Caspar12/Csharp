@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Member_ProfileToSiteCar, Zh.DAL.Define" table="Member_ProfileToSiteCar">
+		<id name="Id" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="Id" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 会员站点信息ID -->
+		<property name="ProfileToSiteID" type="Guid"  >
+			<column name="ProfileToSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 车辆ID -->
+		<property name="CarId" type="Guid"  >
+			<column name="CarId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 默认车辆 -->
+		<property name="IsDefault" type="Boolean"  >
+			<column name="IsDefault" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        
+         <!-- 会员车辆信息 -->
+        <many-to-one update="false" insert="false" name="Member_CarInfo" class="Zh.DAL.Define.Entities.Member_CarInfo, Zh.DAL.Define">
+			<column name="CarId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 会员开通站点信息 -->
+        <many-to-one update="false" insert="false" name="Member_ProfileToSite" class="Zh.DAL.Define.Entities.Member_ProfileToSite, Zh.DAL.Define">
+			<column name="ProfileToSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

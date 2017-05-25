@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Activity_UserPrize, Zh.DAL.Define" table="Activity_UserPrize">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 网点ID -->
+		<property name="ShopID" type="String"  >
+			<column name="ShopID" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="MobilePhone" type="String"  >
+			<column name="MobilePhone" length="32" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="PrizeId" type="Guid"  >
+			<column name="PrizeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="SiteAccountId" type="Int32"  >
+			<column name="SiteAccountId" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="CreatedDate" type="DateTime"  >
+			<column name="CreatedDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="State" type="Int32"  >
+			<column name="`State`" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="PrizeContent" type="String"  >
+			<column name="PrizeContent" length="1024" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Prize" type="Int32"  >
+			<column name="Prize" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="UseDate" type="DateTime"  >
+			<column name="UseDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        
+         <!-- 活动奖品表 -->
+        <many-to-one update="false" insert="false" name="Activity_Prize" class="Zh.DAL.Define.Entities.Activity_Prize, Zh.DAL.Define">
+			<column name="PrizeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_Guest" class="Zh.DAL.Define.Entities.T_Guest, Zh.DAL.Define">
+			<column name="SiteAccountId" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

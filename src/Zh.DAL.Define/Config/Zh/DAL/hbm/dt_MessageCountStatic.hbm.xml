@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_MessageCountStatic, Zh.DAL.Define" table="dt_MessageCountStatic">
+		<id name="id" type="Int32" unsaved-value="null">
+			<column name="id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 店名 -->
+		<property name="shopid" type="String"  >
+			<column name="shopid" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 增加条数 -->
+		<property name="messagecount" type="Int32"  >
+			<column name="messagecount" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 剩余条数 -->
+		<property name="sumcount" type="Int32"  >
+			<column name="sumcount" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 操作日期 -->
+		<property name="opdate" type="DateTime"  >
+			<column name="opdate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="pay_amout" type="Decimal"  >
+			<column name="pay_amout" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

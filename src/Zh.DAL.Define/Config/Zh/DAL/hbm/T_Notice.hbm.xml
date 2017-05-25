@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_Notice, Zh.DAL.Define" table="T_Notice">
+		<id name="id" type="Int32" unsaved-value="null">
+			<column name="id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 标题 -->
+		<property name="title" type="String"  >
+			<column name="title" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="addTime" type="DateTime"  >
+			<column name="addTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 发布人 -->
+		<property name="author" type="String"  >
+			<column name="author" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 公告内容 -->
+		<property name="notice" type="String"  >
+			<column name="notice" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 是否置顶 -->
+		<property name="isTop" type="Int32"  >
+			<column name="isTop" length="4" sql-type="int" not-null="false"/>
+		</property>
+        
+        
+		<bag name="T_NoticeReciver" inverse="true" lazy="true" cascade="all">
+			<key column="NoticeID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_NoticeReciver, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

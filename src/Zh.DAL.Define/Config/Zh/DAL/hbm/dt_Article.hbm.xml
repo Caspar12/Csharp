@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Article, Zh.DAL.Define" table="dt_Article">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 所属类别 -->
+		<property name="ClassId" type="Int32"  >
+			<column name="ClassId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 文章标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 原文作者 -->
+		<property name="Author" type="String"  >
+			<column name="Author" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文章来源 -->
+		<property name="Form" type="String"  >
+			<column name="Form" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 关健字 -->
+		<property name="Keyword" type="String"  >
+			<column name="Keyword" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文章摘要 -->
+		<property name="Zhaiyao" type="String"  >
+			<column name="Zhaiyao" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文章导读 -->
+		<property name="Daodu" type="String"  >
+			<column name="Daodu" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文章图片 -->
+		<property name="ImgUrl" type="String"  >
+			<column name="ImgUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文章内容 -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 点击次数 -->
+		<property name="Click" type="Int32"  >
+			<column name="Click" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否允许评论,0不允许1允许 -->
+		<property name="IsMsg" type="Int32"  >
+			<column name="IsMsg" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否置顶 -->
+		<property name="IsTop" type="Int32"  >
+			<column name="IsTop" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否推荐 -->
+		<property name="IsRed" type="Int32"  >
+			<column name="IsRed" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否热门 -->
+		<property name="IsHot" type="Int32"  >
+			<column name="IsHot" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否幻灯片 -->
+		<property name="IsSlide" type="Int32"  >
+			<column name="IsSlide" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

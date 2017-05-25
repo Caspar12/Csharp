@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Video_MainToVideo, Zh.DAL.Define" table="Video_MainToVideo">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!--  -->
+		<property name="VideoID" type="Int32"  >
+			<column name="VideoID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Video_MainID" type="Guid"  >
+			<column name="Video_MainID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="WebSiteID" type="Guid"  >
+			<column name="WebSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Video_Main" class="Zh.DAL.Define.Entities.Video_Main, Zh.DAL.Define">
+			<column name="Video_MainID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="WebSite" class="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define">
+			<column name="WebSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

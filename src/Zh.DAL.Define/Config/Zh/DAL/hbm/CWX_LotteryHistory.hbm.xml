@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.CWX_LotteryHistory, Zh.DAL.Define" table="CWX_LotteryHistory">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!--  -->
+		<property name="LotteryMainId" type="Guid"  >
+			<column name="LotteryMainId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="MobilePhone" type="String"  >
+			<column name="MobilePhone" length="52" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="MemberId" type="Guid"  >
+			<column name="MemberId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        
+         <!-- 活动表 -->
+        <many-to-one update="false" insert="false" name="CWX_LotteryMain" class="Zh.DAL.Define.Entities.CWX_LotteryMain, Zh.DAL.Define">
+			<column name="LotteryMainId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_Needs, Zh.DAL.Define" table="T_Needs">
+		<id name="NeedsIndex" type="Int32" unsaved-value="null">
+			<column name="NeedsIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 留言表ID -->
+		<property name="FeedbackID" type="Int32"  >
+			<column name="FeedbackID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否需要,0不需要,1需要，其他为保存内容 -->
+		<property name="IsNeed" type="String"  >
+			<column name="IsNeed" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

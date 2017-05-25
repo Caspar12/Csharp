@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E691BD7B-6C70-4F81-9E3A-6A3043D74E38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.BLL.Imp.WeiXin</RootNamespace>
+    <AssemblyName>Zh.BLL.Imp.WeiXin</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zh.BLL.Base.Define, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\RefDLL\Zh.BLL.Base.Define.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.Comp.QRCode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\RefDLL\Zh.Comp.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.DAL.Base.Define, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\RefDLL\Zh.DAL.Base.Define.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.DAL.Base.NH, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\RefDLL\Zh.DAL.Base.NH.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\RefDLL\Zh.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Zh.Net.Http, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\RefDLL\Zh.Net.Http.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caches\DbAccessTokenCache.cs" />
+    <Compile Include="WeiXinQRCodePromotionActivityAccountPointsHistoryService.cs" />
+    <Compile Include="WeiXinQRCodePromotionActivityAccountService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeiXinQRCodePromotionActivityConfigService.cs" />
+    <Compile Include="WeiXinQRCodePromotionActivityMemberFromAccountService.cs" />
+    <Compile Include="WeiXinQRCodePromotionActivitySendRedPackService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zh.BLL.Define\Zh.BLL.Define.csproj">
+      <Project>{E1DF389B-780A-43A6-9130-B66090DBC3A7}</Project>
+      <Name>Zh.BLL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Define\Zh.DAL.Define.csproj">
+      <Project>{5C9A4DB1-BF52-45AC-82AF-B48172632FEB}</Project>
+      <Name>Zh.DAL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\project\all_project\c_sharp\project\Zh.WeiXin.BLL\Zh.WeiXin.BLL.csproj">
+      <Project>{7335CBE5-C774-4FF6-99AE-800495F07B30}</Project>
+      <Name>Zh.WeiXin.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="apiclient_cert.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

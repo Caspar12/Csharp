@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Article_MainToArticle, Zh.DAL.Define" table="Article_MainToArticle">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!--  -->
+		<property name="ArticleID" type="Int32"  >
+			<column name="ArticleID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Article_MainID" type="Guid"  >
+			<column name="Article_MainID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="WebSiteID" type="Guid"  >
+			<column name="WebSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!-- 文章表 -->
+        <many-to-one update="false" insert="false" name="Article_Main" class="Zh.DAL.Define.Entities.Article_Main, Zh.DAL.Define">
+			<column name="Article_MainID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="WebSite" class="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define">
+			<column name="WebSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Activity_ChampionGuessRecord, Zh.DAL.Define" table="Activity_ChampionGuessRecord">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 用户ID -->
+		<property name="UserID" type="Int32"  >
+			<column name="UserID" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 冠军队伍ID -->
+		<property name="WinnerID" type="Guid"  >
+			<column name="WinnerID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 网点ID -->
+		<property name="ShopID" type="String"  >
+			<column name="ShopID" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="GuessTime" type="DateTime"  >
+			<column name="GuessTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        
+         <!-- 队伍 -->
+        <many-to-one update="false" insert="false" name="Activity_Team" class="Zh.DAL.Define.Entities.Activity_Team, Zh.DAL.Define">
+			<column name="WinnerID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 活动用户信息扩展表 -->
+        <many-to-one update="false" insert="false" name="Activity_UserExtendInfo" class="Zh.DAL.Define.Entities.Activity_UserExtendInfo, Zh.DAL.Define">
+			<column name="UserID" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

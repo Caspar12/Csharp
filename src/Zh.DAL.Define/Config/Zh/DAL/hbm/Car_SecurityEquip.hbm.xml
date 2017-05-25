@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_SecurityEquip, Zh.DAL.Define" table="Car_SecurityEquip">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 主驾驶座安全气囊 -->
+		<property name="HasMainAirBag" type="Boolean"  >
+			<column name="HasMainAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 辅驾驶座安全气囊 -->
+		<property name="HasSubsidiaryAirBag" type="Boolean"  >
+			<column name="HasSubsidiaryAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前排侧安全气囊 -->
+		<property name="HasFrontSideAirBag" type="Boolean"  >
+			<column name="HasFrontSideAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排侧安全气囊 -->
+		<property name="HasBackSideAirBag" type="Boolean"  >
+			<column name="HasBackSideAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前排头部安全气囊 -->
+		<property name="HasFrontHeadAirBag" type="Boolean"  >
+			<column name="HasFrontHeadAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排头部安全气囊 -->
+		<property name="HasBackHeadAirBag" type="Boolean"  >
+			<column name="HasBackHeadAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 膝部气囊 -->
+		<property name="HasKneeAirBag" type="Boolean"  >
+			<column name="HasKneeAirBag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 胎压监测装置 -->
+		<property name="HasTireMonitorDevice" type="Boolean"  >
+			<column name="HasTireMonitorDevice" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 零胎压继续行驶 -->
+		<property name="HasZeroTirePressureGoing" type="Boolean"  >
+			<column name="HasZeroTirePressureGoing" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 安全带未系提示 -->
+		<property name="HasUnlinkLifeBeltTips" type="Boolean"  >
+			<column name="HasUnlinkLifeBeltTips" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- ISOFIX儿童座椅接口 -->
+		<property name="HasISOFIXChildSeatInterface" type="Boolean"  >
+			<column name="HasISOFIXChildSeatInterface" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 发动机电子防盗 -->
+		<property name="HasEngineAntiTheftSystem" type="Boolean"  >
+			<column name="HasEngineAntiTheftSystem" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车内中控锁 -->
+		<property name="HasInCarControlLock" type="Boolean"  >
+			<column name="HasInCarControlLock" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 遥控钥匙 -->
+		<property name="HasRemoteKey" type="Boolean"  >
+			<column name="HasRemoteKey" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 无钥匙启动系统 -->
+		<property name="HasNoKeyStartSystem" type="Boolean"  >
+			<column name="HasNoKeyStartSystem" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 无钥匙进入系统 -->
+		<property name="HasNoKeyEnterSystem" type="Boolean"  >
+			<column name="HasNoKeyEnterSystem" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

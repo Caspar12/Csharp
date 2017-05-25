@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Display_HomePriceChartDistributorAdvert, Zh.DAL.Define" table="Display_HomePriceChartDistributorAdvert">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 经销商Id -->
+		<property name="DistributorID" type="Guid"  >
+			<column name="DistributorID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 排序 -->
+		<property name="Sort" type="Int32"  >
+			<column name="Sort" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="TypeId" type="Guid"  >
+			<column name="TypeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CityId" type="Int32"  >
+			<column name="CityId" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsShowNew" type="Boolean"  >
+			<column name="IsShowNew" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 车辆经销商 -->
+        <many-to-one update="false" insert="false" name="Car_Distributor" class="Zh.DAL.Define.Entities.Car_Distributor, Zh.DAL.Define">
+			<column name="DistributorID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 市区 -->
+        <many-to-one update="false" insert="false" name="Common_Address_City" class="Zh.DAL.Define.Entities.Common_Address_City, Zh.DAL.Define">
+			<column name="CityId" length="4" sql-type="int" not-null="false"/>
+		</many-to-one>
+         <!-- 首页报价类型表 -->
+        <many-to-one update="false" insert="false" name="Display_HomePriceChartType" class="Zh.DAL.Define.Entities.Display_HomePriceChartType, Zh.DAL.Define">
+			<column name="TypeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

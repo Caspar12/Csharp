@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Article_Main, Zh.DAL.Define" table="Article_Main">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 文章ID，对应分站点文章ID -->
+		<property name="Identity" type="Int32"  >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 完整Url -->
+		<property name="Url" type="String"  >
+			<column name="Url" length="2048" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 文章标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 0:新闻,1:新车,2:促销 -->
+		<property name="Type" type="Int32"  >
+			<column name="Type" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 排序 -->
+		<property name="Order" type="Int32"  >
+			<column name="`Order`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Daodu" type="String"  >
+			<column name="Daodu" length="500" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="ImageID" type="Guid"  >
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsHot" type="Boolean"  >
+			<column name="IsHot" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="IsHeadNews" type="Boolean"  >
+			<column name="IsHeadNews" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="AddDate" type="DateTime"  >
+			<column name="AddDate" length="3" sql-type="date" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="WebSiteID" type="Guid"  >
+			<column name="WebSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="IsCenterSite" type="Boolean"  >
+			<column name="IsCenterSite" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="MainIdentity" type="Int32" update="false" insert="false" >
+			<column name="MainIdentity" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="16" sql-type="text" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="PriceRange" type="String"  >
+			<column name="PriceRange" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="CarName" type="String"  >
+			<column name="CarName" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Article_MainToBrandID" type="Guid"  >
+			<column name="Article_MainToBrandID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Car_MainID" type="Guid"  >
+			<column name="Car_MainID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Article_MainToBrand" class="Zh.DAL.Define.Entities.Article_MainToBrand, Zh.DAL.Define">
+			<column name="Article_MainToBrandID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!-- 车辆主表 -->
+        <many-to-one update="false" insert="false" name="Car_Main" class="Zh.DAL.Define.Entities.Car_Main, Zh.DAL.Define">
+			<column name="Car_MainID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Common_Uploads" class="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define">
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="WebSite" class="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define">
+			<column name="WebSiteID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+		<bag name="Article_MainToArticle" inverse="true" lazy="true" cascade="all">
+			<key column="Article_MainID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Article_MainToArticle, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

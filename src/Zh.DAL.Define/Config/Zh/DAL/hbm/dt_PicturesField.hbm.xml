@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_PicturesField, Zh.DAL.Define" table="dt_PicturesField">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 字段标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 字段说明 -->
+		<property name="FieldRemark" type="String"  >
+			<column name="FieldRemark" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 字段类型 -->
+		<property name="FieldType" type="String"  >
+			<column name="FieldType" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否可以为空 -->
+		<property name="IsNull" type="Boolean"  >
+			<column name="IsNull" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!-- 排序数字 -->
+		<property name="SortId" type="Int32"  >
+			<column name="SortId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+		<bag name="dt_PicturesExtension" inverse="true" lazy="true" cascade="all">
+			<key column="FieldId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.dt_PicturesExtension, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

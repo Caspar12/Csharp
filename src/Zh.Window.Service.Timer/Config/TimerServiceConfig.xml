@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<TimerServiceConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisplayName>4S集群网定时任务服务</DisplayName>
+  <Description>4S集群网定时任务服务</Description>
+  <ServiceName>TimerService</ServiceName>
+</TimerServiceConfig>

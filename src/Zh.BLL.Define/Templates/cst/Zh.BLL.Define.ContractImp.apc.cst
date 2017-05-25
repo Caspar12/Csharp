@@ -1,0 +1,35 @@
+﻿
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Generates a C# class for use with NHibnate" %>
+<%@ Property Name="Tables" Type="SchemaExplorer.TableSchemaCollection" Default="" Optional="False" Category=""%> 
+<%@ Property Name="ContractsNamespace" Type="System.String" Default="Zh.BLL.Define.Contracts" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Property Name="AssemblyName" Type="System.String" Default="Zh.BLL.Define"  Category="Object" Description="Assembly Name" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Text.RegularExpressions" %>
+<%foreach(var table in Tables) %>
+<%{ %>
+    <%
+        string entityName = table.Name;
+        string className = table.Name.Replace("_","") + "Service";
+        string classFullName = ContractsNamespace + ".Imp." + className;
+        string classAssemblyFullName = classFullName + "," + AssemblyName;
+        string interfaceName = "I" + className;   
+        string IfFullName = ContractsNamespace + "." + interfaceName;
+    
+    %>
+    <!-- <%=table.Name%>逻辑层 begin -->
+    <object name="<%=IfFullName%>"
+          parent="TxProxyConfigurationTemplate" >
+    <property name="Target" >
+      <object id="<%=classFullName%>"
+         type="<%=classAssemblyFullName%>"
+         parent="Zh.BLL.Base.Define.BaseService">
+      </object>
+    </property>
+    </object>
+    <!-- <%=table.Name%>逻辑层 end -->
+    
+<%} %> 
+ 

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_DistributorImage, Zh.DAL.Define" table="Car_DistributorImage">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ImageId" type="Guid"  >
+			<column name="ImageId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="DistributorId" type="Guid"  >
+			<column name="DistributorId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!-- 车辆经销商 -->
+        <many-to-one update="false" insert="false" name="Car_Distributor" class="Zh.DAL.Define.Entities.Car_Distributor, Zh.DAL.Define">
+			<column name="DistributorId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Common_Uploads" class="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define">
+			<column name="ImageId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

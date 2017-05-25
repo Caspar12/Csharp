@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_Employee, Zh.DAL.Define" table="T_Employee">
+		<id name="EmployeeID" type="Int32" unsaved-value="null">
+			<column name="EmployeeID" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 员工姓名 -->
+		<property name="EmployeeName" type="String"  >
+			<column name="EmployeeName" length="5" sql-type="nchar" not-null="true"/>
+		</property>
+        <!-- 职位 -->
+		<property name="EmployeePost" type="String"  >
+			<column name="EmployeePost" length="10" sql-type="nchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+		<bag name="T_ActivityGuestItem" inverse="true" lazy="true" cascade="all">
+			<key column="TraceEmployeeID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_ActivityGuestItem, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

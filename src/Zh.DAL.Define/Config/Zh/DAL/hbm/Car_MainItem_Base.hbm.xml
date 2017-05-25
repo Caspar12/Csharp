@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem_Base, Zh.DAL.Define" table="Car_MainItem_Base">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 发动机 -->
+		<property name="Engine" type="String"  >
+			<column name="Engine" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车身结构 -->
+		<property name="BodyWork" type="String"  >
+			<column name="BodyWork" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 最高车速 -->
+		<property name="MaxSpeed" type="String"  >
+			<column name="MaxSpeed" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 官方0-100km/h加速(s) -->
+		<property name="OfficialSpeedUp" type="String"  >
+			<column name="OfficialSpeedUp" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 实测试0-100km/h加速(s) -->
+		<property name="RealTestSpeedUp" type="String"  >
+			<column name="RealTestSpeedUp" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 实测试0-100km/h制动(M) -->
+		<property name="RealTestBraking" type="String"  >
+			<column name="RealTestBraking" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 实测油耗(L/100KM) -->
+		<property name="RealTestOilConsumption" type="String"  >
+			<column name="RealTestOilConsumption" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 认证车主平均油耗(L/100km) -->
+		<property name="ConfirmdriverAvgOilConsumption" type="String"  >
+			<column name="ConfirmdriverAvgOilConsumption" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 工信部综合油耗 -->
+		<property name="OilComsumptionOfMIIT" type="String"  >
+			<column name="OilComsumptionOfMIIT" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 整车质保 -->
+		<property name="QualityAssuranceOfCar" type="String"  >
+			<column name="QualityAssuranceOfCar" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

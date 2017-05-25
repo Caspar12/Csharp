@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_CarTypeBigLv, Zh.DAL.Define" table="T_CarTypeBigLv">
+		<id name="CarTypeBigLVIndex" type="Int32" unsaved-value="null">
+			<column name="CarTypeBigLVIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 等级名称,微型 小型 紧凑型 中型 中大型 豪华 MPV SUV 跑车 面包车 -->
+		<property name="CarTypeBigLVName" type="String"  >
+			<column name="CarTypeBigLVName" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 加权系数,系数或率都以百分比计，例如百分80则此字段填写80 -->
+		<property name="AddQuotiety" type="Decimal"  >
+			<column name="AddQuotiety" length="9" sql-type="numeric" not-null="false"/>
+		</property>
+        <!-- 备注 -->
+		<property name="Remark" type="String"  >
+			<column name="Remark" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+		<bag name="T_CarTypeBig" inverse="true" lazy="true" cascade="all">
+			<key column="CarTypeBigLVIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_CarTypeBig, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

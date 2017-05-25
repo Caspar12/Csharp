@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_Customer, Zh.DAL.Define" table="T_Customer">
+		<id name="CustomerIndex" type="Int32" unsaved-value="null">
+			<column name="CustomerIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 品牌所属类别 -->
+		<property name="BrandType" type="String"  >
+			<column name="BrandType" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 品牌名称 -->
+		<property name="BrandName" type="String"  >
+			<column name="BrandName" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所属省/直辖市 -->
+		<property name="Province" type="String"  >
+			<column name="Province" length="15" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所属市/区 -->
+		<property name="City" type="String"  >
+			<column name="City" length="15" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 网址链接 -->
+		<property name="Url" type="String"  >
+			<column name="Url" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 企业名称 -->
+		<property name="CompanyName" type="String"  >
+			<column name="CompanyName" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 企业地址 -->
+		<property name="CompanyAddress" type="String"  >
+			<column name="CompanyAddress" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 企业简称 -->
+		<property name="CompanyShortName" type="String"  >
+			<column name="CompanyShortName" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 销售电话 -->
+		<property name="SaleTel" type="String"  >
+			<column name="SaleTel" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 服务电话 -->
+		<property name="ServerTel" type="String"  >
+			<column name="ServerTel" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 保险电话 -->
+		<property name="InsuranceTel" type="String"  >
+			<column name="InsuranceTel" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 合作开始时间 -->
+		<property name="CooperationStartTime" type="DateTime"  >
+			<column name="CooperationStartTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 合作结束时间 -->
+		<property name="CooperationEndTime" type="DateTime"  >
+			<column name="CooperationEndTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        <!-- 传真 -->
+		<property name="Fax" type="String"  >
+			<column name="Fax" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 邮箱 -->
+		<property name="Email" type="String"  >
+			<column name="Email" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 电话 -->
+		<property name="Tel" type="String"  >
+			<column name="Tel" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 获得荣誉 -->
+		<property name="honour" type="String"  >
+			<column name="honour" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进方式 -->
+		<property name="FollowWay" type="String"  >
+			<column name="FollowWay" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进内容 -->
+		<property name="FollowContent" type="String"  >
+			<column name="FollowContent" length="500" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进后状态 -->
+		<property name="FollowAfterState" type="String"  >
+			<column name="FollowAfterState" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 状态 -->
+		<property name="State" type="String"  >
+			<column name="`State`" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 网站名称 -->
+		<property name="WebsiteName" type="String"  >
+			<column name="WebsiteName" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- QQ -->
+		<property name="QQ" type="String"  >
+			<column name="QQ" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系人 -->
+		<property name="Contact" type="String"  >
+			<column name="Contact" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系人电话 -->
+		<property name="ContactPhone" type="String"  >
+			<column name="ContactPhone" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 店号 -->
+		<property name="ShopID" type="String"  >
+			<column name="ShopID" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 数据库名称 -->
+		<property name="DatabaseName" type="String"  >
+			<column name="DatabaseName" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

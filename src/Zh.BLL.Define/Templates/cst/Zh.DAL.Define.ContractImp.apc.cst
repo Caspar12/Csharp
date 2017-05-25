@@ -1,0 +1,38 @@
+﻿
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Generates a C# class for use with NHibnate" %>
+<%@ Property Name="Tables" Type="SchemaExplorer.TableSchemaCollection" Default="" Optional="False" Category=""%> 
+<%@ Property Name="ContractsNamespace" Type="System.String" Default="Zh.DAL.Define.Contracts" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Property Name="ContractImpNamespace" Type="System.String" Default="Zh.DAL.Define.Contracts.Imp" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Property Name="AssemblyName" Type="System.String" Default="Zh.DAL.Define"  Category="Object" Description="Assembly Name" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Text.RegularExpressions" %>
+<objects xmlns="http://www.springframework.net"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.net
+        http://www.springframework.net/xsd/spring-objects.xsd"
+          > 
+<%foreach(var table in Tables) %>
+<%{ %>
+    <%
+        string entityName = table.Name;
+        string className = table.Name.Replace("_","") + "Dao";
+        string classFullName = ContractImpNamespace + "."  + className;
+        string classAssemblyFullName = classFullName + "," + AssemblyName;
+        string interfaceName = "I" + className;   
+        string IfFullName = ContractsNamespace + "." + interfaceName;
+    
+    %>
+    <!-- <%=table.Name%>数据访问接口 begin -->
+  <object id="<%=IfFullName%>"
+          parent="Zh.DAL.Define.Contracts.BaseDao"
+          type="<%=classAssemblyFullName%>"
+         
+          singleton="false">
+  </object>
+    <!-- <%=table.Name%>数据访问接口 end -->
+    
+<%} %> 
+ </objects>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WebSiteTemplateSkin, Zh.DAL.Define" table="WebSiteTemplateSkin">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!--  -->
+		<property name="SkinName" type="String"  >
+			<column name="SkinName" length="100" sql-type="varchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="SkinChineseName" type="String"  >
+			<column name="SkinChineseName" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="SortID" type="Int32"  >
+			<column name="SortID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        
+        
+		<bag name="WebSiteSkinColor" inverse="true" lazy="true" cascade="all">
+			<key column="SkinID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WebSiteSkinColor, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

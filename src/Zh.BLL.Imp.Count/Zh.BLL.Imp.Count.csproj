@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4AB7CA4-2C17-4B29-AFF4-59C6F3BF8420}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.BLL.Imp.Count</RootNamespace>
+    <AssemblyName>Zh.BLL.Imp.Count</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComCountService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zh.BLL.Base.Define\Zh.BLL.Base.Define.csproj">
+      <Project>{19B3296A-D468-4DF8-AD18-35FE63F7E23E}</Project>
+      <Name>Zh.BLL.Base.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.BLL.Define\Zh.BLL.Define.csproj">
+      <Project>{E1DF389B-780A-43A6-9130-B66090DBC3A7}</Project>
+      <Name>Zh.BLL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Base.Define\Zh.DAL.Base.Define.csproj">
+      <Project>{7AE60098-4DC6-4D34-B6AE-8C1CCDC13DC9}</Project>
+      <Name>Zh.DAL.Base.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Define\Zh.DAL.Define.csproj">
+      <Project>{5C9A4DB1-BF52-45AC-82AF-B48172632FEB}</Project>
+      <Name>Zh.DAL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zh.framework\Zh.Framework.csproj">
+      <Project>{BF031EF6-EDB8-4EC4-8F53-455E2F7BAC37}</Project>
+      <Name>Zh.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

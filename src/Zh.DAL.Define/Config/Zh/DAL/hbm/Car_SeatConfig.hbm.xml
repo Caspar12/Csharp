@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_SeatConfig, Zh.DAL.Define" table="Car_SeatConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 真皮/仿皮座椅 -->
+		<property name="IsLeatherSeat" type="Boolean"  >
+			<column name="IsLeatherSeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 运动风格座椅 -->
+		<property name="IsSportStyleSeat" type="Boolean"  >
+			<column name="IsSportStyleSeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 座椅高低调节 -->
+		<property name="HasAdjustSeatHeight" type="Boolean"  >
+			<column name="HasAdjustSeatHeight" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 腰部支撑调节 -->
+		<property name="HasLumbarSupportAdjustment" type="Boolean"  >
+			<column name="HasLumbarSupportAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 肩部支撑调节 -->
+		<property name="HasShoulderSupportAdjustment" type="Boolean"  >
+			<column name="HasShoulderSupportAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 主驾驶座电动调节 -->
+		<property name="HasMainSeatElectricAdjustment" type="Boolean"  >
+			<column name="HasMainSeatElectricAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 副驾驶座电动调节 -->
+		<property name="HasSubsidiarySeatElectricAdjustment" type="Boolean"  >
+			<column name="HasSubsidiarySeatElectricAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 第二排靠背角度调节 -->
+		<property name="HasSecondLineBackrestAdjustment" type="Boolean"  >
+			<column name="HasSecondLineBackrestAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 第二排座椅移动 -->
+		<property name="HasSecondLinePositionAdjustment" type="Boolean"  >
+			<column name="HasSecondLinePositionAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排座椅电动调节 -->
+		<property name="HasBackLineElectricSeatAdjustment" type="Boolean"  >
+			<column name="HasBackLineElectricSeatAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 电动座椅记忆 -->
+		<property name="HasElectricSeatMemory" type="Boolean"  >
+			<column name="HasElectricSeatMemory" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前排座椅加热 -->
+		<property name="HasFrontSeatHeat" type="Boolean"  >
+			<column name="HasFrontSeatHeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排座椅加热 -->
+		<property name="HasBackSeatHeat" type="Boolean"  >
+			<column name="HasBackSeatHeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前排座椅通风 -->
+		<property name="HasFrontAirSeat" type="Boolean"  >
+			<column name="HasFrontAirSeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排座椅通风 -->
+		<property name="HasBackAirSeat" type="Boolean"  >
+			<column name="HasBackAirSeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前排座椅按摩 -->
+		<property name="HasFrontMassageArmchair" type="Boolean"  >
+			<column name="HasFrontMassageArmchair" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排座椅通风 -->
+		<property name="HasBackMassageArmchair" type="Boolean"  >
+			<column name="HasBackMassageArmchair" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排座椅放倒方式 -->
+		<property name="BackLineSeatDownMethod" type="String"  >
+			<column name="BackLineSeatDownMethod" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 第三排座椅 -->
+		<property name="ThirdSeat" type="Boolean"  >
+			<column name="ThirdSeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前中央扶手 -->
+		<property name="FrontCenterHandRail" type="Boolean"  >
+			<column name="FrontCenterHandRail" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后中央扶手 -->
+		<property name="BackCenterHandRail" type="Boolean"  >
+			<column name="BackCenterHandRail" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排杯架 -->
+		<property name="BackLineCupHolder" type="Boolean"  >
+			<column name="BackLineCupHolder" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

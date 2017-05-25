@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.BBS_Comment, Zh.DAL.Define" table="BBS_Comment">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 评论内容 -->
+		<property name="Comment" type="String"  >
+			<column name="Comment" length="16" sql-type="text" not-null="true"/>
+		</property>
+        <!-- 会员Id -->
+		<property name="MemberId" type="Guid"  >
+			<column name="MemberId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 评论类开型Id -->
+		<property name="CommentTypeId" type="Guid"  >
+			<column name="CommentTypeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 评论对象Id -->
+		<property name="CommentObjectId" type="Guid"  >
+			<column name="CommentObjectId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 评论时间 -->
+		<property name="CreatedDate" type="DateTime"  >
+			<column name="CreatedDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CommentParentID" type="Guid"  >
+			<column name="CommentParentID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        
+         <!-- 评论类型表 -->
+        <many-to-one update="false" insert="false" name="BBS_CommentType" class="Zh.DAL.Define.Entities.BBS_CommentType, Zh.DAL.Define">
+			<column name="CommentTypeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 会员账号信息 -->
+        <many-to-one update="false" insert="false" name="Member_Account" class="Zh.DAL.Define.Entities.Member_Account, Zh.DAL.Define">
+			<column name="MemberId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+        <one-to-one name="BBS_CommentExtInfo"
+                class="Zh.DAL.Define.Entities.BBS_CommentExtInfo,Zh.DAL.Define"                                  
+                cascade="all"              
+                constrained="true"                           
+                fetch="select"                                
+                
+                access="property"
+        />    
+		<bag name="BBS_CommentSupportRecord" inverse="true" lazy="true" cascade="all">
+			<key column="CommentId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.BBS_CommentSupportRecord, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

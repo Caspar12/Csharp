@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_Activity_Applicant, Zh.DAL.Define" table="WeiXin_Activity_Applicant">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Phone" type="String"  >
+			<column name="Phone" length="32" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="32" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="OpenId" type="String"  >
+			<column name="OpenId" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ActivityId" type="Guid"  >
+			<column name="ActivityId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CreatedDate" type="DateTime"  >
+			<column name="CreatedDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="State" type="Int32"  >
+			<column name="`State`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!-- 微活动报名表 -->
+        <many-to-one update="false" insert="false" name="WeiXin_Activity" class="Zh.DAL.Define.Entities.WeiXin_Activity, Zh.DAL.Define">
+			<column name="ActivityId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

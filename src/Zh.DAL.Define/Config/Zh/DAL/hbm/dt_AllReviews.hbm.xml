@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_AllReviews, Zh.DAL.Define" table="dt_AllReviews">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 所属评论频道栏目 -->
+		<property name="KindId" type="Int32"  >
+			<column name="KindId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 所属评论信息ID -->
+		<property name="ParentId" type="Int32"  >
+			<column name="ParentId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 评论用户 -->
+		<property name="UserName" type="String"  >
+			<column name="UserName" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 星级 -->
+		<property name="Grade" type="Int32"  >
+			<column name="Grade" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 评论内容 -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="3000" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 是否锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 评论时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

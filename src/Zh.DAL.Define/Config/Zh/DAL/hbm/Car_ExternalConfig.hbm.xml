@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_ExternalConfig, Zh.DAL.Define" table="Car_ExternalConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 电动天窗 -->
+		<property name="PowerSunroof" type="Boolean"  >
+			<column name="PowerSunroof" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 全景天窗 -->
+		<property name="PanoramicSunroof" type="Boolean"  >
+			<column name="PanoramicSunroof" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 运动外观套件 -->
+		<property name="SportAppearancePackag" type="Boolean"  >
+			<column name="SportAppearancePackag" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 铝金轮圈 -->
+		<property name="AluminumAlloyWheels" type="Boolean"  >
+			<column name="AluminumAlloyWheels" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 电动吸合门 -->
+		<property name="ElectricSuctionDoor" type="Boolean"  >
+			<column name="ElectricSuctionDoor" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 侧滑门 -->
+		<property name="SlidingDoor" type="String"  >
+			<column name="SlidingDoor" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 电动后备厢 -->
+		<property name="ElectricTrunk" type="Boolean"  >
+			<column name="ElectricTrunk" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

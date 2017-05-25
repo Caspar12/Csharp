@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_lightsConfig, Zh.DAL.Define" table="Car_lightsConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 氙气大灯 -->
+		<property name="HasXenonHeadlights" type="Boolean"  >
+			<column name="HasXenonHeadlights" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- LED大灯 -->
+		<property name="HasLEDHeadlights" type="Boolean"  >
+			<column name="HasLEDHeadlights" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 日间行车灯 -->
+		<property name="HasDaytimeDrivinglights" type="Boolean"  >
+			<column name="HasDaytimeDrivinglights" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="HasAutoHeadlights" type="Boolean"  >
+			<column name="HasAutoHeadlights" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="HasSteeringHeadlights" type="Boolean"  >
+			<column name="HasSteeringHeadlights" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前雾灯 -->
+		<property name="HasFrontFogLamp" type="Boolean"  >
+			<column name="HasFrontFogLamp" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 大灯高度可调 -->
+		<property name="IsHeadlightsHeightAdjustment" type="Boolean"  >
+			<column name="IsHeadlightsHeightAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 大灯清洗装置 -->
+		<property name="HasHeadlightsCleanEquip" type="Boolean"  >
+			<column name="HasHeadlightsCleanEquip" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车内氛围灯 -->
+		<property name="HasInteriorAtmosphereLamp" type="Boolean"  >
+			<column name="HasInteriorAtmosphereLamp" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

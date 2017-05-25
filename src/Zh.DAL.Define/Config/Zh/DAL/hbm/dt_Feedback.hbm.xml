@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Feedback, Zh.DAL.Define" table="dt_Feedback">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 用户昵称 -->
+		<property name="UserName" type="String"  >
+			<column name="UserName" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系电话 -->
+		<property name="UserTel" type="String"  >
+			<column name="UserTel" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 联系QQ -->
+		<property name="UserQQ" type="String"  >
+			<column name="UserQQ" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 留言内容 -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 是否审核，0已跟进1未跟进 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 留言时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 回复内容 -->
+		<property name="ReContent" type="String"  >
+			<column name="ReContent" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 回复时间 -->
+		<property name="ReTime" type="DateTime"  >
+			<column name="ReTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="false"/>
+		</property>
+        <!-- 性别(2012-06-26添加) -->
+		<property name="Sex" type="String"  >
+			<column name="Sex" length="2" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 地址 -->
+		<property name="Address" type="String"  >
+			<column name="Address" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 手机号 -->
+		<property name="UserHandTel" type="String"  >
+			<column name="UserHandTel" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 邮箱 -->
+		<property name="Email" type="String"  >
+			<column name="Email" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 购买时间 -->
+		<property name="BuyTime" type="DateTime"  >
+			<column name="BuyTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 留言标题 -->
+		<property name="Buyer" type="String"  >
+			<column name="Buyer" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 客户需求描述 -->
+		<property name="GuestDescribe" type="String"  >
+			<column name="GuestDescribe" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 留言类型 -->
+		<property name="Type" type="String"  >
+			<column name="Type" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 故障描述 -->
+		<property name="Stoppage" type="String"  >
+			<column name="Stoppage" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车牌号 -->
+		<property name="CarNumber" type="String"  >
+			<column name="CarNumber" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车辆品牌 -->
+		<property name="CarBrand" type="String"  >
+			<column name="CarBrand" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 驱动形式 -->
+		<property name="Drive" type="String"  >
+			<column name="Drive" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车辆颜色 -->
+		<property name="CarColor" type="String"  >
+			<column name="CarColor" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 保险公司 -->
+		<property name="InsuranceCommpany" type="String"  >
+			<column name="InsuranceCommpany" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 投保日期 -->
+		<property name="InsuranceDate" type="DateTime"  >
+			<column name="InsuranceDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 上牌日期 -->
+		<property name="RegistrationDate" type="DateTime"  >
+			<column name="RegistrationDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 跟进描述 -->
+		<property name="Followup" type="String"  >
+			<column name="Followup" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进类型,电话、短信、上门 -->
+		<property name="FollowType" type="String"  >
+			<column name="FollowType" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进后状态,需求明确,需求不明确,进入内部管理,错误单 -->
+		<property name="FollowAfter" type="String"  >
+			<column name="FollowAfter" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 跟进时间 -->
+		<property name="FollowTime" type="DateTime"  >
+			<column name="FollowTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

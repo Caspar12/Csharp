@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Store_Main, Zh.DAL.Define" table="Store_Main">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增ID -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 活动名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Description" type="String"  >
+			<column name="Description" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Contact" type="String"  >
+			<column name="Contact" length="1024" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Address" type="String"  >
+			<column name="Address" length="1024" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Longitude" type="Decimal"  >
+			<column name="Longitude" length="13" sql-type="decimal" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Latitude" type="Decimal"  >
+			<column name="Latitude" length="13" sql-type="decimal" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="ImageUrl" type="String"  >
+			<column name="ImageUrl" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="LevelId" type="Guid"  >
+			<column name="LevelId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="TypeId" type="Guid"  >
+			<column name="TypeId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="WeiXinQRCodeImageUrl" type="String"  >
+			<column name="WeiXinQRCodeImageUrl" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="BrandId" type="Guid"  >
+			<column name="BrandId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Contacter" type="String"  >
+			<column name="Contacter" length="128" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="ContacterPhone" type="String"  >
+			<column name="ContacterPhone" length="128" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+        
+		<bag name="Car_MainToStore_MainRef" inverse="true" lazy="true" cascade="all">
+			<key column="StoreMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Car_MainToStore_MainRef, Zh.DAL.Define"/>
+		</bag>
+		<bag name="CWX_RepairOrder" inverse="true" lazy="true" cascade="all">
+			<key column="StoreMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.CWX_RepairOrder, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Store_MainBrand" inverse="true" lazy="true" cascade="all">
+			<key column="StoreMainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Store_MainBrand, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Store_MainGoodCar" inverse="true" lazy="true" cascade="all">
+			<key column="MainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Store_MainGoodCar, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Store_MainImage" inverse="true" lazy="true" cascade="all">
+			<key column="MainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Store_MainImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Store_OrderDrivingTest" inverse="true" lazy="true" cascade="all">
+			<key column="MainId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Store_OrderDrivingTest, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_CarItem, Zh.DAL.Define" table="T_CarItem">
+		<id name="CarItemIndex" type="Int32" unsaved-value="null">
+			<column name="CarItemIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 用品分类:内饰用品,外饰改装,汽车配件,影音电子,GPS导航仪,美容保养,清洗用品 -->
+		<property name="CarItemClass" type="String"  >
+			<column name="CarItemClass" length="500" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 用品名称 -->
+		<property name="CArItemName" type="String"  >
+			<column name="CArItemName" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 名称拼音码 -->
+		<property name="CarItemSpell" type="String"  >
+			<column name="CarItemSpell" length="10" sql-type="nchar" not-null="true"/>
+		</property>
+        <!-- 全景展示图,列表显示使用,规格限定? -->
+		<property name="MainPicUrl" type="Int32"  >
+			<column name="MainPicUrl" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 详细展示图 -->
+		<property name="OtherPicUrl" type="Int32"  >
+			<column name="OtherPicUrl" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 商品品牌 -->
+		<property name="CarItemBrand" type="Int32"  >
+			<column name="CarItemBrand" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 参考市场价 -->
+		<property name="MarketPrice" type="Decimal"  >
+			<column name="MarketPrice" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!-- 商城价格 -->
+		<property name="OurPrice" type="Decimal"  >
+			<column name="OurPrice" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!-- 销售数量,生成热销产品 -->
+		<property name="SaleCount" type="Int32"  >
+			<column name="SaleCount" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 品牌故事 -->
+		<property name="BrandStory" type="String"  >
+			<column name="BrandStory" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 其他说明 -->
+		<property name="Remark" type="String"  >
+			<column name="Remark" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarItemBrand" class="Zh.DAL.Define.Entities.T_CarItemBrand, Zh.DAL.Define">
+			<column name="CarItemBrand" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

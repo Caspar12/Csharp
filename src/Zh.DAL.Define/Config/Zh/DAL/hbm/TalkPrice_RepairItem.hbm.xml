@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.TalkPrice_RepairItem, Zh.DAL.Define" table="TalkPrice_RepairItem">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Description" type="String"  >
+			<column name="Description" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Price" type="Decimal"  >
+			<column name="Price" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="SalePrice" type="Decimal"  >
+			<column name="SalePrice" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CarMainId" type="Guid"  >
+			<column name="CarMainId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ImageUrl" type="String"  >
+			<column name="ImageUrl" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="strPrice" type="String"  >
+			<column name="strPrice" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="strSalePrice" type="String"  >
+			<column name="strSalePrice" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 车辆主表 -->
+        <many-to-one update="false" insert="false" name="Car_Main" class="Zh.DAL.Define.Entities.Car_Main, Zh.DAL.Define">
+			<column name="CarMainId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+		<bag name="TalkPrice_RepairItemComment" inverse="true" lazy="true" cascade="all">
+			<key column="RepairItemId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.TalkPrice_RepairItemComment, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

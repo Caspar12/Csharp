@@ -1,0 +1,50 @@
+﻿<script runat="template">
+public bool IsOneToOneTable2(TableKeySchema primaryKey)
+{
+	if (primaryKey.PrimaryKeyMemberColumns[0].IsPrimaryKeyMember)
+	{	
+        if(primaryKey.ForeignKeyMemberColumns[0].IsPrimaryKeyMember){
+            return true;
+        }
+	}
+	return false;
+}
+Dictionary<string,int> PropertyNameDict = new Dictionary<string,int>(); 
+public string GetRepeatPropertyName(string currentClassName,string propertyName){
+    
+    if(SourceTable.Name == currentClassName){
+        if(PropertyNameDict.ContainsKey(propertyName) == false){
+            PropertyNameDict.Add(propertyName,1);
+        }
+    }
+    
+    if(PropertyNameDict.ContainsKey(propertyName)){
+        int value = PropertyNameDict[propertyName] + 1;
+        PropertyNameDict[propertyName] = value;
+        propertyName = propertyName + value.ToString();
+    }
+    else{
+        PropertyNameDict.Add(propertyName,1);
+    }
+    return propertyName;
+}
+Dictionary<string,int> PropertyNameDict2 = new Dictionary<string,int>(); 
+public string GetRepeatPropertyName2(string className,string currentClassName,string propertyName){
+    
+    if(className == currentClassName){
+        if(PropertyNameDict.ContainsKey(propertyName) == false){
+            PropertyNameDict.Add(propertyName,1);
+        }
+    }
+    
+    if(PropertyNameDict.ContainsKey(propertyName)){
+        int value = PropertyNameDict[propertyName] + 1;
+        PropertyNameDict[propertyName] = value;
+        propertyName = propertyName + value.ToString();
+    }
+    else{
+        PropertyNameDict.Add(propertyName,1);
+    }
+    return propertyName;
+}
+</script>

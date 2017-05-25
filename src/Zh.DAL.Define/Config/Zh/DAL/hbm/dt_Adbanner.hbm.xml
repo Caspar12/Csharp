@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Adbanner, Zh.DAL.Define" table="dt_Adbanner">
+		<id name="id" type="Int32" unsaved-value="null">
+			<column name="id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 广告位ID -->
+		<property name="Aid" type="Int32"  >
+			<column name="Aid" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 广告条名称 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 开始时间 -->
+		<property name="StartTime" type="DateTime"  >
+			<column name="StartTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 到期时间 -->
+		<property name="EndTime" type="DateTime"  >
+			<column name="EndTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 广告地址 -->
+		<property name="AdUrl" type="String"  >
+			<column name="AdUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 链接地址 -->
+		<property name="LinkUrl" type="String"  >
+			<column name="LinkUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 备注说明 -->
+		<property name="AdRemark" type="String"  >
+			<column name="AdRemark" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!-- 排序数字，越小越向前 -->
+		<property name="SortId" type="Int32"  >
+			<column name="SortId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 状态，0正常，1暂停 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="dt_Advertising" class="Zh.DAL.Define.Entities.dt_Advertising, Zh.DAL.Define">
+			<column name="Aid" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

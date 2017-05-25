@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF031EF6-EDB8-4EC4-8F53-455E2F7BAC37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.Framework</RootNamespace>
+    <AssemblyName>Zh.Framework</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\DLL\Spring.net\1.3.1\2.0\release\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\DLL\Json.net\Bin\Net20\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp, Version=0.64.3890.29348, Culture=neutral, PublicKeyToken=20de82c62b055c88, processorArchitecture=MSIL">
+      <HintPath>..\packages\SevenZipSharp.0.64\lib\SevenZipSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.20711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\..\DLL\Spring.net\1.3.1\2.0\release\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\Entities\CacheDto.cs" />
+    <Compile Include="Cache\Helpers\CacheCollectionHelper.cs" />
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\Imp\AbstractCache.cs" />
+    <Compile Include="Cache\Imp\FileCache.cs" />
+    <Compile Include="Cache\Imp\HttpRuntimeCache.cs" />
+    <Compile Include="Cache\Imp\MemoryCache.cs" />
+    <Compile Include="Entities\ApiResult.cs" />
+    <Compile Include="Entities\ExecResult.cs" />
+    <Compile Include="Entities\Funcation.cs" />
+    <Compile Include="Entities\GenericApiPageResult.cs" />
+    <Compile Include="Entities\GenericApiResult.cs" />
+    <Compile Include="Entities\GenericExecResult.cs" />
+    <Compile Include="Entities\GenericPageResult.cs" />
+    <Compile Include="Exceptions\BaseException.cs" />
+    <Compile Include="Exceptions\ErrorValidationException.cs" />
+    <Compile Include="Exceptions\NotInLengthRangeException.cs" />
+    <Compile Include="Helpers\ConfigFileHelper.cs" />
+    <Compile Include="Helpers\ConstantConfigHelper.cs" />
+    <Compile Include="Helpers\ConstantLangHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\DictionaryHelper.cs" />
+    <Compile Include="Helpers\EncryptHelper.cs" />
+    <Compile Include="Helpers\EntitiesHelper.cs" />
+    <Compile Include="Helpers\ExternDLLHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\GZipHelper.cs" />
+    <Compile Include="Helpers\ReflectorHelper.cs" />
+    <Compile Include="Helpers\SingletonHelper.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Helpers\ValidCodeHelper.cs" />
+    <Compile Include="Helpers\WebHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\Impls\HttpContextCurrentSession.cs" />
+    <Compile Include="Session\Impls\MemorySession.cs" />
+    <Compile Include="Session\ISession.cs" />
+    <Compile Include="Tools\AppContextTool\IAppContext.cs" />
+    <Compile Include="Tools\AppContextTool\Imp\AppContextImp.cs" />
+    <Compile Include="Tools\ConfigTool\IConfigTool.cs" />
+    <Compile Include="Tools\ConfigTool\Imp\XmlConfigToolImp.cs" />
+    <Compile Include="Tools\ConfigTool\IXmlConfigTool.cs" />
+    <Compile Include="Tools\CryptogramTool\ICryptogramTool.cs" />
+    <Compile Include="Tools\CryptogramTool\Imp\CryptogramToolImp.cs" />
+    <Compile Include="Tools\DirectoryTool\Imp\DirectoryToolImp.cs" />
+    <Compile Include="Tools\DirectoryTool\IDirectoryTool.cs" />
+    <Compile Include="Tools\EntityTool\EntityMapper.cs" />
+    <Compile Include="Tools\IocTool\IIocTool.cs" />
+    <Compile Include="Tools\IocTool\Imp\BaseIocSpringToolImp.cs" />
+    <Compile Include="Tools\IocTool\Imp\IocLoader.cs" />
+    <Compile Include="Tools\QRCodeTool\IQRCode.cs" />
+    <Compile Include="Tools\SerializeTool\IJsonSerializeTool.cs" />
+    <Compile Include="Tools\SerializeTool\Imp\JsonSerializeTool.cs" />
+    <Compile Include="Tools\SerializeTool\Imp\XmlSerializeToolImp.cs" />
+    <Compile Include="Tools\SerializeTool\ISerializeTool.cs" />
+    <Compile Include="Tools\SerializeTool\IXmlSerializeTool.cs" />
+    <Compile Include="Tools\ToolFactory.cs" />
+    <Compile Include="Tools\CalenderTool\CalenderToolImp.cs" />
+    <Compile Include="Tools\CalenderTool\ICalenderTool.cs" />
+    <Compile Include="Tools\EntityTool\BindingTool\NVCollectionBinder\INVCollectionBinder.cs" />
+    <Compile Include="Tools\EntityTool\BindingTool\NVCollectionBinder\NVCollectionBinderImp.cs" />
+    <Compile Include="Tools\EntityTool\EntityToolImp.cs" />
+    <Compile Include="Tools\EntityTool\IEntityTool.cs" />
+    <Compile Include="Tools\FileTool\FileToolImp.cs" />
+    <Compile Include="Tools\FileTool\IFileTool.cs" />
+    <Compile Include="Tools\LanguageTool\ILanguageTool.cs" />
+    <Compile Include="Tools\LanguageTool\LanguageToolImp.cs" />
+    <Compile Include="Tools\LogTool\ILogTool.cs" />
+    <Compile Include="Tools\LogTool\LogToolImp.cs" />
+    <Compile Include="Tools\MoneyTool\FractionShowType.cs" />
+    <Compile Include="Tools\MoneyTool\IMoneyTool.cs" />
+    <Compile Include="Tools\MoneyTool\MoneyToolImp.cs" />
+    <Compile Include="Tools\ProgramTool\IProgramTool.cs" />
+    <Compile Include="Tools\ProgramTool\Imp\ProgramToolImp.cs" />
+    <Compile Include="Tools\ValidatorTool\ValidatorToolImp.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\AbstractImp.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Email.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Mobile.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\NotEmpty.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Equal.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Ge.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Le.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Lt.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Empty.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\NVCollectionValidator\IFieldChain.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\NVCollectionValidator\IValidatorChain.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\IValidator.cs" />
+    <Compile Include="Tools\ValidatorTool\IValidatorTool.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\Imp\Gt.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\NVCollectionValidator\NVCollectionValidatorImp.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\ValidatorHelper.cs" />
+    <Compile Include="Tools\ValidatorTool\Validator\ValidatorSet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Zh\Framework\ApplicationContextIocLoader\IocLoader.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\Zh\Framework\ApplicationContext\Override\Override.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\Zh\Framework\ApplicationContext\Zh.Framework.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

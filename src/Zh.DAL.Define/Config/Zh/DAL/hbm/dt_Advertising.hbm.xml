@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Advertising, Zh.DAL.Define" table="dt_Advertising">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 广告位名称 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 广告位类型 -->
+		<property name="AdType" type="Int32"  >
+			<column name="AdType" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 广告位说明 -->
+		<property name="AdRemark" type="String"  >
+			<column name="AdRemark" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 显示广告数 -->
+		<property name="AdNum" type="Int32"  >
+			<column name="AdNum" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 广告位价格 -->
+		<property name="AdPrice" type="Decimal"  >
+			<column name="AdPrice" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!-- 广告位宽度 -->
+		<property name="AdWidth" type="Int32"  >
+			<column name="AdWidth" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 广告位高度 -->
+		<property name="AdHeight" type="Int32"  >
+			<column name="AdHeight" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 链接目标，新窗口、原窗口 -->
+		<property name="AdTarget" type="String"  >
+			<column name="AdTarget" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+		<bag name="dt_Adbanner" inverse="true" lazy="true" cascade="all">
+			<key column="Aid"/>
+			<one-to-many class="Zh.DAL.Define.Entities.dt_Adbanner, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

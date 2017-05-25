@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_CarType, Zh.DAL.Define" table="T_CarType">
+		<id name="CarTypeIndex" type="Int32" unsaved-value="null">
+			<column name="CarTypeIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 细车型名,比如：exi MT -->
+		<property name="CarTypeName" type="String"  >
+			<column name="CarTypeName" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 拼音码 -->
+		<property name="CarTypeSpell" type="String"  >
+			<column name="CarTypeSpell" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 所属大车型,大车型,比如：宝来 -->
+		<property name="CarTypeBigIndex" type="Int32"  >
+			<column name="CarTypeBigIndex" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 车型代码,用于国家的公告,上牌时用于登记。一个大车型可能对应多个细车型代码 -->
+		<property name="CarTypeModel" type="String"  >
+			<column name="CarTypeModel" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 生产代码 -->
+		<property name="YieldID" type="String"  >
+			<column name="YieldID" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 排量 -->
+		<property name="Displacement" type="String"  >
+			<column name="Displacement" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 变速箱,手动、自动、无极变速、手自一体 -->
+		<property name="GearBox" type="String"  >
+			<column name="GearBox" length="10" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车型限价 -->
+		<property name="LimitPrice" type="Decimal"  >
+			<column name="LimitPrice" length="9" sql-type="decimal" not-null="false"/>
+		</property>
+        <!-- 车辆经销价 -->
+		<property name="DistriPrice" type="Decimal"  >
+			<column name="DistriPrice" length="9" sql-type="decimal" not-null="true"/>
+		</property>
+        <!-- 上市时间 -->
+		<property name="ListingDate" type="DateTime"  >
+			<column name="ListingDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 停产日期 -->
+		<property name="StopDate" type="DateTime"  >
+			<column name="StopDate" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 颜色,是否要将年份/颜色/排量/变速箱提取出来单独建表? -->
+		<property name="Color" type="String"  >
+			<column name="Color" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 说明 -->
+		<property name="Remark" type="String"  >
+			<column name="Remark" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 点击次数，用于构建关注车型排行榜 -->
+		<property name="ClickCount" type="Int32"  >
+			<column name="ClickCount" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_CarTypeBig" class="Zh.DAL.Define.Entities.T_CarTypeBig, Zh.DAL.Define">
+			<column name="CarTypeBigIndex" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+        
+		<bag name="T_UsedCarSell" inverse="true" lazy="true" cascade="all">
+			<key column="CarTypeIndex"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_UsedCarSell, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

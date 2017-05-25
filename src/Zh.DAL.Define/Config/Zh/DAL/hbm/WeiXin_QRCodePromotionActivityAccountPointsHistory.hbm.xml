@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityAccountPointsHistory, Zh.DAL.Define" table="WeiXin_QRCodePromotionActivityAccountPointsHistory">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 参加二维码推广活动用户信Id -->
+		<property name="WeiXinQRCodePromotionActivityAccountId" type="Guid"  >
+			<column name="WeiXinQRCodePromotionActivityAccountId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 消费积分 -->
+		<property name="UsePoints" type="Int32"  >
+			<column name="UsePoints" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 备注 -->
+		<property name="Remark" type="String"  >
+			<column name="Remark" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 消费前积分 -->
+		<property name="BeforePoints" type="Int32"  >
+			<column name="BeforePoints" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 消费后积分 -->
+		<property name="AfterPoints" type="Int32"  >
+			<column name="AfterPoints" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 兑换金钱 -->
+		<property name="ExchangeMoney" type="Decimal"  >
+			<column name="ExchangeMoney" length="9" sql-type="decimal" not-null="false"/>
+		</property>
+        <!-- 创建时间 -->
+		<property name="CreatedDate" type="DateTime"  >
+			<column name="CreatedDate" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 扫码微信OpenId -->
+		<property name="MemberOpenId" type="String"  >
+			<column name="MemberOpenId" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 微信参加二维码推广活动用户信息表 -->
+        <many-to-one update="false" insert="false" name="WeiXin_QRCodePromotionActivityAccount" class="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityAccount, Zh.DAL.Define">
+			<column name="WeiXinQRCodePromotionActivityAccountId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_InternalConfig, Zh.DAL.Define" table="Car_InternalConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 真皮方向盘 -->
+		<property name="LeatherSteeringWheel" type="Boolean"  >
+			<column name="LeatherSteeringWheel" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 方向盘调节 -->
+		<property name="SteeringAdjust" type="String"  >
+			<column name="SteeringAdjust" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 方向盘电动调节 -->
+		<property name="ElectricSteeringAdjust" type="Boolean"  >
+			<column name="ElectricSteeringAdjust" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 多功能方向盘 -->
+		<property name="MultifunctionalSteering" type="Boolean"  >
+			<column name="MultifunctionalSteering" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 方向盘换档 -->
+		<property name="SteeringShift" type="Boolean"  >
+			<column name="SteeringShift" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 方向盘加热 -->
+		<property name="SteeringHeat" type="Boolean"  >
+			<column name="SteeringHeat" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 定速巡航 -->
+		<property name="CruiseControl" type="Boolean"  >
+			<column name="CruiseControl" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 前驻车雷达 -->
+		<property name="FrontParkingRadar" type="Boolean"  >
+			<column name="FrontParkingRadar" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后驻车雷达 -->
+		<property name="BackParkingRadar" type="Boolean"  >
+			<column name="BackParkingRadar" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 倒车视频影像 -->
+		<property name="ReverseCarVideo" type="Boolean"  >
+			<column name="ReverseCarVideo" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 行车电脑显示屏 -->
+		<property name="DrivingComputerDisplayScreen" type="Boolean"  >
+			<column name="DrivingComputerDisplayScreen" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- HUD抬头数字显示 -->
+		<property name="HUD" type="Boolean"  >
+			<column name="HUD" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

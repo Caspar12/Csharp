@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem_BrakingOfWheel, Zh.DAL.Define" table="Car_MainItem_BrakingOfWheel">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 前制动器类型 -->
+		<property name="FrontBrakingType" type="String"  >
+			<column name="FrontBrakingType" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 后制动器类型 -->
+		<property name="BackBrakingType" type="String"  >
+			<column name="BackBrakingType" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 驻车制动器类型 -->
+		<property name="HoldBrakingType" type="String"  >
+			<column name="HoldBrakingType" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 前轮胎规格 -->
+		<property name="FrontWheelSpecifications" type="String"  >
+			<column name="FrontWheelSpecifications" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 后轮胎规格 -->
+		<property name="BackWheelSpecifications" type="String"  >
+			<column name="BackWheelSpecifications" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 备胎规格 -->
+		<property name="SpareWheelSpecifications" type="String"  >
+			<column name="SpareWheelSpecifications" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

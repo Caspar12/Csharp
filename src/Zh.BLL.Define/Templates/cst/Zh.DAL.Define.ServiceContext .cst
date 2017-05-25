@@ -1,0 +1,64 @@
+﻿
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Generates a C# class for use with NHibnate" %>
+<%@ Property Name="Tables" Type="SchemaExplorer.TableSchemaCollection" Default="" Optional="False" Category=""%> 
+<%@ Property Name="Namespace" Type="System.String" Default="Zh.BLL.Define.ServiceContexts" Category="Object" Description="The class namespace that the mapping file should use" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Text.RegularExpressions" %>
+<%
+   
+    
+%>
+/*
+ * Author: 陈志杭 Caspar 
+ * Contact: 279397942@qq.com qq:279397942
+ * Description: 逻辑层接口集合Context文件
+ * 文件由模板生成,请不要直接修改文件,如需修改请创建一个对应的partial文件
+ */
+using System;
+using System.Collections;
+using Zh.DAL.Define.Entities;
+using Zh.DAL.Define;
+using Zh.DAL.Define.Contracts;
+using Zh.Framework.Tools.IocTool;
+using Zh.BLL.Define.Contracts;
+namespace <%= Namespace %>
+{
+    /// <summary>
+    /// 逻辑层接口集合
+    /// </summary>
+    public partial class ServiceContext
+    {
+        /// <summary>
+        /// 契约接口IoC接口
+        /// </summary>
+        IIocTool BLLIocTool = Zh.Framework.Tools.ToolFactory.BLLIoc;
+        <% foreach(TableSchema tableSchema in this.Tables) %>
+        <%{ %>
+        <%
+            string interfaceName = "I" + tableSchema.Name.Replace("_","")  + "Service";
+            string propertyName = interfaceName;
+            string fieldName = "_" + propertyName;
+            string description = string.Format("{0}({1})表逻辑契约接口",tableSchema.Name,tableSchema.Description);
+        %>
+        
+        <%=interfaceName %> <%=fieldName %>;
+        /// <summary>
+        /// <%=description%>
+        /// </summary>
+        public <%=interfaceName %> <%=propertyName %> { 
+            get 
+            {
+                if(<%=fieldName %> == null)
+                {
+                    <%=fieldName %> = this.BLLIocTool.Get<<%=interfaceName %>>();
+                }
+                return <%=fieldName %>;
+            }
+        }
+        <%} %>
+    }
+}

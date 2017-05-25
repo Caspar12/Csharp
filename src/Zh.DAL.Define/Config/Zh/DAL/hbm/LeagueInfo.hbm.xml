@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.LeagueInfo, Zh.DAL.Define" table="LeagueInfo">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 4S店全称 -->
+		<property name="ShopName" type="String"  >
+			<column name="ShopName" length="500" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 地址 -->
+		<property name="Address" type="String"  >
+			<column name="Address" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 联系人 -->
+		<property name="Linker" type="String"  >
+			<column name="Linker" length="20" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 部门 -->
+		<property name="Department" type="String"  >
+			<column name="Department" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 职位 -->
+		<property name="Position" type="String"  >
+			<column name="Position" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 手机 -->
+		<property name="MobilePhone" type="String"  >
+			<column name="MobilePhone" length="50" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 固话 -->
+		<property name="TelPhone" type="String"  >
+			<column name="TelPhone" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 邮箱 -->
+		<property name="Email" type="String"  >
+			<column name="Email" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 提交时间 -->
+		<property name="SubmitTime" type="DateTime"  >
+			<column name="SubmitTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!-- 是否跟进 -->
+		<property name="FeedBackState" type="Int32"  >
+			<column name="FeedBackState" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 跟进时间 -->
+		<property name="FeedBackTime" type="DateTime"  >
+			<column name="FeedBackTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!-- 备注 -->
+		<property name="Remark" type="String"  >
+			<column name="Remark" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

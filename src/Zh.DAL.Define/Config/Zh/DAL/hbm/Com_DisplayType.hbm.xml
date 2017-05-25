@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Com_DisplayType, Zh.DAL.Define" table="Com_DisplayType">
+		<id name="ID" type="String" unsaved-value="null">
+			<column name="ID" length="64" sql-type="nvarchar" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 类型名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="64" sql-type="nvarchar" not-null="true"/>
+		</property>
+        
+        
+		<bag name="Com_DisplayInfo" inverse="true" lazy="true" cascade="all">
+			<key column="DisplayTypeId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Com_DisplayInfo, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

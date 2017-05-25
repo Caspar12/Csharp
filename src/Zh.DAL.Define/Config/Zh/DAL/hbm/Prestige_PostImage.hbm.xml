@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Prestige_PostImage, Zh.DAL.Define" table="Prestige_PostImage">
+		<id name="ImageID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 帖子ID -->
+		<property name="PostID" type="Guid"  >
+			<column name="PostID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="Common_Uploads" class="Zh.DAL.Define.Entities.Common_Uploads, Zh.DAL.Define">
+			<column name="ImageID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+         <!-- 车辆口碑帖子 -->
+        <many-to-one update="false" insert="false" name="Prestige_Post" class="Zh.DAL.Define.Entities.Prestige_Post, Zh.DAL.Define">
+			<column name="PostID" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

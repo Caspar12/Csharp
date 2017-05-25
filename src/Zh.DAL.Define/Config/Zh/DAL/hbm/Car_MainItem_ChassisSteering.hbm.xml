@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MainItem_ChassisSteering, Zh.DAL.Define" table="Car_MainItem_ChassisSteering">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 驱动方式 -->
+		<property name="DriveMethod" type="String"  >
+			<column name="DriveMethod" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 四驱形式 -->
+		<property name="FourDriveMethod" type="String"  >
+			<column name="FourDriveMethod" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 中央差速器结构 -->
+		<property name="CentralDifferentialStructure" type="String"  >
+			<column name="CentralDifferentialStructure" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 前悬架类型 -->
+		<property name="FrontSuspensionType" type="String"  >
+			<column name="FrontSuspensionType" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 后悬架类型 -->
+		<property name="BackSuspensionType" type="String"  >
+			<column name="BackSuspensionType" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 助力类型 -->
+		<property name="AssistancePowerType" type="String"  >
+			<column name="AssistancePowerType" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 车体结构 -->
+		<property name="BodyWorkStructure" type="String"  >
+			<column name="BodyWorkStructure" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

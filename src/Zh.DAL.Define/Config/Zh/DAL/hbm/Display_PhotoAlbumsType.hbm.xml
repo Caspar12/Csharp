@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Display_PhotoAlbumsType, Zh.DAL.Define" table="Display_PhotoAlbumsType">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 相册名称 -->
+		<property name="Name" type="String"  >
+			<column name="Name" length="256" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 排序 -->
+		<property name="Sort" type="Int32"  >
+			<column name="Sort" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 显示在首页 -->
+		<property name="IsShowIndexPage" type="Boolean"  >
+			<column name="IsShowIndexPage" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!-- 显示在列表页 -->
+		<property name="IsShowTypeListPage" type="Boolean"  >
+			<column name="IsShowTypeListPage" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="IndexShowType" type="Int32"  >
+			<column name="IndexShowType" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+        
+		<bag name="Display_PhotoAlbums" inverse="true" lazy="true" cascade="all">
+			<key column="PhotoAlbumsTypeId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Display_PhotoAlbums, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

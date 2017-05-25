@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_MultiMediaConfig, Zh.DAL.Define" table="Car_MultiMediaConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- GPS导航系统 -->
+		<property name="HasGPS" type="Boolean"  >
+			<column name="HasGPS" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 定位互动服务 -->
+		<property name="HasGPSInteractionService" type="Boolean"  >
+			<column name="HasGPSInteractionService" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 中控台彩色大屏 -->
+		<property name="HasCenterControlMultiColorDisplay" type="Boolean"  >
+			<column name="HasCenterControlMultiColorDisplay" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 内置硬盘 -->
+		<property name="HasInternalDisk" type="Boolean"  >
+			<column name="HasInternalDisk" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 蓝牙 -->
+		<property name="HasBlueTooth" type="Boolean"  >
+			<column name="HasBlueTooth" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车载电话 -->
+		<property name="HasCarPhone" type="Boolean"  >
+			<column name="HasCarPhone" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车载电视 -->
+		<property name="HasCarTV" type="Boolean"  >
+			<column name="HasCarTV" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后排液晶 -->
+		<property name="HasBackLineLCD" type="Boolean"  >
+			<column name="HasBackLineLCD" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 外接音源接口(AUX/USB/IPOD等) -->
+		<property name="HasAuxilityVoice" type="Boolean"  >
+			<column name="HasAuxilityVoice" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- cd支持mp3/wma -->
+		<property name="IsCDSupportMP3OrWMA" type="Boolean"  >
+			<column name="IsCDSupportMP3OrWMA" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 多媒体系统 -->
+		<property name="MultiMediaSytem" type="String"  >
+			<column name="MultiMediaSytem" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 扬声器数量 -->
+		<property name="SounderCount" type="String"  >
+			<column name="SounderCount" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

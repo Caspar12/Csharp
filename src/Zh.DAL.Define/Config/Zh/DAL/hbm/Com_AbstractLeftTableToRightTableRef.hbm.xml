@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Com_AbstractLeftTableToRightTableRef, Zh.DAL.Define" table="Com_AbstractLeftTableToRightTableRef">
+		<id name="Id" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="Id" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 左关系表Id -->
+		<property name="LeftId" type="Guid"  >
+			<column name="LeftId" length="16" sql-type="uniqueidentifier" not-null="true" index="IX_LeftId"/>
+		</property>
+        <!-- 右关系表Id -->
+		<property name="RightId" type="Guid"  >
+			<column name="RightId" length="16" sql-type="uniqueidentifier" not-null="true" index="IX_RightId"/>
+		</property>
+        <!-- 排序 -->
+		<property name="Sort" type="Int32"  >
+			<column name="Sort" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 创建时间 -->
+		<property name="CreatedDatetime" type="DateTime"  >
+			<column name="CreatedDatetime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        
+         <!-- 抽象左表 -->
+        <many-to-one update="false" insert="false" name="Com_AbstractLeftTable" class="Zh.DAL.Define.Entities.Com_AbstractLeftTable, Zh.DAL.Define">
+			<column name="LeftId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+         <!-- 抽象右表 -->
+        <many-to-one update="false" insert="false" name="Com_AbstractRightTable" class="Zh.DAL.Define.Entities.Com_AbstractRightTable, Zh.DAL.Define">
+			<column name="RightId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

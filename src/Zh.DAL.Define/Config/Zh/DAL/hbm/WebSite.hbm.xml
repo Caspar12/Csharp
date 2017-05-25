@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define" table="WebSite">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!--  -->
+		<property name="WebSiteName" type="String"  >
+			<column name="WebSiteName" length="500" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="WebSiteUrl" type="String"  >
+			<column name="WebSiteUrl" length="1024" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="ShopId" type="String"  >
+			<column name="ShopId" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CompanyName" type="String"  >
+			<column name="CompanyName" length="500" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="DbCon" type="String"  >
+			<column name="DbCon" length="2048" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="TermInfo" type="String"  >
+			<column name="TermInfo" length="16" sql-type="text" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="DataBaseName" type="String"  >
+			<column name="DataBaseName" length="200" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="DistributorID" type="Guid"  >
+			<column name="DistributorID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="InitPwd" type="String"  >
+			<column name="InitPwd" length="64" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Order" type="Int32"  >
+			<column name="`Order`" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Longitude" type="String"  >
+			<column name="Longitude" length="32" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Latitude" type="String"  >
+			<column name="Latitude" length="32" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="CNZZSiteId" type="String"  >
+			<column name="CNZZSiteId" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="SkinColorID" type="Guid"  >
+			<column name="SkinColorID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        
+         <!-- 车辆经销商 -->
+        <many-to-one update="false" insert="false" name="Car_Distributor" class="Zh.DAL.Define.Entities.Car_Distributor, Zh.DAL.Define">
+			<column name="DistributorID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="WebSiteSkinColor" class="Zh.DAL.Define.Entities.WebSiteSkinColor, Zh.DAL.Define">
+			<column name="SkinColorID" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="Article_Main" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Article_Main, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Article_MainToArticle" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Article_MainToArticle, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Promotion_Activity_To_CarSalesPromition" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Promotion_Activity_To_CarSalesPromition, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Promotion_Activity" inverse="true" lazy="true" cascade="all">
+			<key column="SiteID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Promotion_Activity, Zh.DAL.Define"/>
+		</bag>
+		<bag name="T_NoticeReciver" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.T_NoticeReciver, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Video_MainToVideo" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteID"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Video_MainToVideo, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Member_ProfileToSite" inverse="true" lazy="true" cascade="all">
+			<key column="SiteId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Member_ProfileToSite, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Repair_Orders" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Repair_Orders, Zh.DAL.Define"/>
+		</bag>
+		<bag name="Site_CarImage" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.Site_CarImage, Zh.DAL.Define"/>
+		</bag>
+		<bag name="WeiXin_WebSiteInfo" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WeiXin_WebSiteInfo, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

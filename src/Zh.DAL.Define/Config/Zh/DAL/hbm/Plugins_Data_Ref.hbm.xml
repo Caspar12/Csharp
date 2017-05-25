@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Plugins_Data_Ref, Zh.DAL.Define" table="Plugins_Data_Ref">
+		<id name="ID" type="Int32" unsaved-value="null">
+			<column name="ID" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 第三方ID -->
+		<property name="PluginsID" type="String"  >
+			<column name="PluginsID" length="128" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 分类ID -->
+		<property name="CategoryID" type="String"  >
+			<column name="CategoryID" length="128" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 第三方数据ID -->
+		<property name="PluginsItemID" type="String"  >
+			<column name="PluginsItemID" length="128" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 系统数据ID -->
+		<property name="ItemID" type="String"  >
+			<column name="ItemID" length="128" sql-type="nvarchar" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

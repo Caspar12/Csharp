@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_KeyManageContent, Zh.DAL.Define" table="T_KeyManageContent">
+		<id name="ContentIndex" type="Int32" unsaved-value="null">
+			<column name="ContentIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 位置ID -->
+		<property name="PositionID" type="Int32"  >
+			<column name="PositionID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 类别名称 -->
+		<property name="TypeID" type="Int32"  >
+			<column name="TypeID" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 图片Url -->
+		<property name="ImgUrl" type="String"  >
+			<column name="ImgUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 链接 -->
+		<property name="Link" type="String"  >
+			<column name="Link" length="150" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        <!-- 是否显示在首页，0不允许，1允许 -->
+		<property name="IsShow" type="Int32"  >
+			<column name="IsShow" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

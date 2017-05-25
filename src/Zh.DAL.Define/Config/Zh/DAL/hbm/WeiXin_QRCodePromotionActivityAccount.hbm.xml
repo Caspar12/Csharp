@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityAccount, Zh.DAL.Define" table="WeiXin_QRCodePromotionActivityAccount">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 微信关联WebAppId -->
+		<property name="WebApplicationId" type="Guid"  >
+			<column name="WebApplicationId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!-- 微信OpenId -->
+		<property name="OpenId" type="String"  >
+			<column name="OpenId" length="255" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 二维码Id -->
+		<property name="QRCodeId" type="Guid"  >
+			<column name="QRCodeId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!-- 活动积分 -->
+		<property name="Points" type="Int32"  >
+			<column name="Points" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!-- 微信二维码信息表 -->
+        <many-to-one update="false" insert="false" name="WeiXin_QRCode" class="Zh.DAL.Define.Entities.WeiXin_QRCode, Zh.DAL.Define">
+			<column name="QRCodeId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="WeiXin_QRCodePromotionActivityAccountPointsHistory" inverse="true" lazy="true" cascade="all">
+			<key column="WeiXinQRCodePromotionActivityAccountId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityAccountPointsHistory, Zh.DAL.Define"/>
+		</bag>
+		<bag name="WeiXin_QRCodePromotionActivityMemberFromAccount" inverse="true" lazy="true" cascade="all">
+			<key column="WeiXinQRCodePromotionActivityAccountId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WeiXin_QRCodePromotionActivityMemberFromAccount, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

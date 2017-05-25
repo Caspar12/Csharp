@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC95C37B-C216-4291-B6A8-C6275BB75DD4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zh.Comp.Router.Test</RootNamespace>
+    <AssemblyName>Zh.Comp.Router.Test</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zh.BLL.Base.Define\Zh.BLL.Base.Define.csproj">
+      <Project>{19B3296A-D468-4DF8-AD18-35FE63F7E23E}</Project>
+      <Name>Zh.BLL.Base.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.BLL.Define\Zh.BLL.Define.csproj">
+      <Project>{E1DF389B-780A-43A6-9130-B66090DBC3A7}</Project>
+      <Name>Zh.BLL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.BLL.Imp.Count\Zh.BLL.Imp.Count.csproj">
+      <Project>{C4AB7CA4-2C17-4B29-AFF4-59C6F3BF8420}</Project>
+      <Name>Zh.BLL.Imp.Count</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.Comp.Router.Web\Zh.Comp.Router.Web.csproj">
+      <Project>{A31DFEF1-A7F2-4EC9-8FE5-75054468E09A}</Project>
+      <Name>Zh.Comp.Router.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.Comp.Router\Zh.Comp.Router.csproj">
+      <Project>{AA0CB76C-AD52-48BF-A93E-77905244A3D8}</Project>
+      <Name>Zh.Comp.Router</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Base.Define\Zh.DAL.Base.Define.csproj">
+      <Project>{7AE60098-4DC6-4D34-B6AE-8C1CCDC13DC9}</Project>
+      <Name>Zh.DAL.Base.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Base.NH\Zh.DAL.Base.NH.csproj">
+      <Project>{37AE74CA-42C5-49E3-BA94-837D7FA501B1}</Project>
+      <Name>Zh.DAL.Base.NH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.DAL.Define\Zh.DAL.Define.csproj">
+      <Project>{5C9A4DB1-BF52-45AC-82AF-B48172632FEB}</Project>
+      <Name>Zh.DAL.Define</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zh.framework\Zh.Framework.csproj">
+      <Project>{BF031EF6-EDB8-4EC4-8F53-455E2F7BAC37}</Project>
+      <Name>Zh.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zh.Web.Base\Zh.Web.Base.csproj">
+      <Project>{549EB837-9C12-4CE3-9D10-F5BB358D123C}</Project>
+      <Name>Zh.Web.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Zh\BLL\ApplicationContext\Override\Override.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Zh\BLL\ApplicationContext\Zh.Comp.Router.apc.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

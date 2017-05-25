@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_SystemLog, Zh.DAL.Define" table="dt_SystemLog">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!--  -->
+		<property name="UserName" type="String"  >
+			<column name="UserName" length="50" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.dt_Downloads, Zh.DAL.Define" table="dt_Downloads">
+		<id name="Id" type="Int32" unsaved-value="null">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 文件标题 -->
+		<property name="Title" type="String"  >
+			<column name="Title" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 所属类别 -->
+		<property name="ClassId" type="Int32"  >
+			<column name="ClassId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 预览图片 -->
+		<property name="ImgUrl" type="String"  >
+			<column name="ImgUrl" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文件类型 -->
+		<property name="FileType" type="String"  >
+			<column name="FileType" length="30" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 文件大小 -->
+		<property name="FileSize" type="Int32"  >
+			<column name="FileSize" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 文件路径 -->
+		<property name="FilePath" type="String"  >
+			<column name="FilePath" length="250" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 浏览数量 -->
+		<property name="Click" type="Int32"  >
+			<column name="Click" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 下载次数 -->
+		<property name="DownNum" type="Int32"  >
+			<column name="DownNum" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 详细说明 -->
+		<property name="Content" type="String"  >
+			<column name="Content" length="16" sql-type="ntext" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsMsg" type="Int32"  >
+			<column name="IsMsg" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否推荐 -->
+		<property name="IsRed" type="Int32"  >
+			<column name="IsRed" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 是否锁定 -->
+		<property name="IsLock" type="Int32"  >
+			<column name="IsLock" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 发布时间 -->
+		<property name="AddTime" type="DateTime"  >
+			<column name="AddTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="true"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

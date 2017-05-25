@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.WeiXin_WebSiteInfo, Zh.DAL.Define" table="WeiXin_WebSiteInfo">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 应用ID -->
+		<property name="AppID" type="String"  >
+			<column name="AppID" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 应用密钥 -->
+		<property name="AppSecret" type="String"  >
+			<column name="AppSecret" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- Token -->
+		<property name="Token" type="String"  >
+			<column name="Token" length="1024" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!-- 开启微商店功能 -->
+		<property name="IsOpen" type="Boolean"  >
+			<column name="IsOpen" length="1" sql-type="bit" not-null="true"/>
+		</property>
+        <!-- AccessToken -->
+		<property name="AccessToken" type="String"  >
+			<column name="AccessToken" length="2048" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 更新时间 -->
+		<property name="AccessTokenUpdateDateTime" type="DateTime"  >
+			<column name="AccessTokenUpdateDateTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="LogoUrl" type="String"  >
+			<column name="LogoUrl" length="2048" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="TemplateSkin" type="String"  >
+			<column name="TemplateSkin" length="256" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="WebSiteId" type="Guid"  >
+			<column name="WebSiteId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsSelected" type="Boolean"  >
+			<column name="IsSelected" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="WeiXinName" type="String"  >
+			<column name="WeiXinName" length="512" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="IsWeiXinValid" type="Boolean"  >
+			<column name="IsWeiXinValid" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!--  -->
+        <many-to-one update="false" insert="false" name="WebSite" class="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define">
+			<column name="WebSiteId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+        
+		<bag name="WeiXin_Menus" inverse="true" lazy="true" cascade="all">
+			<key column="WebSiteInfoId"/>
+			<one-to-many class="Zh.DAL.Define.Entities.WeiXin_Menus, Zh.DAL.Define"/>
+		</bag>
+	 
+	</class>
+</hibernate-mapping>

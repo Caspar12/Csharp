@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.T_SendMessage, Zh.DAL.Define" table="T_SendMessage">
+		<id name="SendMessageIndex" type="Int32" unsaved-value="null">
+			<column name="SendMessageIndex" length="4" sql-type="int" not-null="true" unique="true"/>
+            <generator class="native" />        
+		</id>
+        <!-- 手机号 -->
+		<property name="PhoneNumber" type="String"  >
+			<column name="PhoneNumber" length="20" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 短信内容 -->
+		<property name="MessageContant" type="String"  >
+			<column name="MessageContant" length="255" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!-- 发送时间 -->
+		<property name="SendTime" type="DateTime"  >
+			<column name="SendTime" length="8" sql-type="datetime" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Stamp" type="Byte[]"  >
+			<column name="Stamp" length="8" sql-type="timestamp" not-null="false"/>
+		</property>
+        
+        
+	 
+	</class>
+</hibernate-mapping>

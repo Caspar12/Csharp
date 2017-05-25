@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Car_AirConditionerAndRefrigeratorConfig, Zh.DAL.Define" table="Car_AirConditionerAndRefrigeratorConfig">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 空调控制方式(0:自动,1:手动) -->
+		<property name="AirConditionerControlMethod" type="Int32"  >
+			<column name="AirConditionerControlMethod" length="4" sql-type="int" not-null="false"/>
+		</property>
+        <!-- 后排独立空调 -->
+		<property name="HasBackLineIndependentAirConfitioner" type="Boolean"  >
+			<column name="HasBackLineIndependentAirConfitioner" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 后座出风口 -->
+		<property name="HasBackLineAirOutlet" type="Boolean"  >
+			<column name="HasBackLineAirOutlet" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 温度分区控制 -->
+		<property name="HasTemperatureDivideControl" type="Boolean"  >
+			<column name="HasTemperatureDivideControl" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车内空气调节 -->
+		<property name="HasAirAdjustment" type="Boolean"  >
+			<column name="HasAirAdjustment" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        <!-- 车载冰箱 -->
+		<property name="HasCarRefrigerator" type="Boolean"  >
+			<column name="HasCarRefrigerator" length="1" sql-type="bit" not-null="false"/>
+		</property>
+        
+         <!-- 指定车辆表 -->
+        <many-to-one update="false" insert="false" name="Car_MainItem" class="Zh.DAL.Define.Entities.Car_MainItem, Zh.DAL.Define">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>

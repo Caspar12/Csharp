@@ -1,0 +1,2 @@
+TimerService.exe uninstall
+pause

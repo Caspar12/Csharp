@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Zh.DAL.Define.Entities.Repair_Orders, Zh.DAL.Define" table="Repair_Orders">
+		<id name="ID" type="Guid" unsaved-value="00000000-0000-0000-0000-000000000000">
+			<column name="ID" length="16" sql-type="uniqueidentifier" not-null="true" unique="true"/>
+            <generator class="assigned" />        
+		</id>
+        <!-- 自增Id -->
+		<property name="Identity" type="Int32" update="false" insert="false" >
+			<column name="`Identity`" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!-- 站点Id -->
+		<property name="WebSiteId" type="Guid"  >
+			<column name="WebSiteId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="ShopId" type="String"  >
+			<column name="ShopId" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CreatedTime" type="DateTime"  >
+			<column name="CreatedTime" length="8" sql-type="datetime" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CarNumber" type="String"  >
+			<column name="CarNumber" length="100" sql-type="nvarchar" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="CarId" type="Guid"  >
+			<column name="CarId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Balance" type="Decimal"  >
+			<column name="Balance" length="9" sql-type="decimal" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="Payment" type="Decimal"  >
+			<column name="Payment" length="9" sql-type="decimal" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="TypeId" type="Int32"  >
+			<column name="TypeId" length="4" sql-type="int" not-null="true"/>
+		</property>
+        <!--  -->
+		<property name="YYID" type="String"  >
+			<column name="YYID" length="100" sql-type="nvarchar" not-null="false"/>
+		</property>
+        <!--  -->
+		<property name="GuestIndex" type="Int32"  >
+			<column name="GuestIndex" length="4" sql-type="int" not-null="true"/>
+		</property>
+        
+         <!-- 会员车辆信息 -->
+        <many-to-one update="false" insert="false" name="Member_CarInfo" class="Zh.DAL.Define.Entities.Member_CarInfo, Zh.DAL.Define">
+			<column name="CarId" length="16" sql-type="uniqueidentifier" not-null="false"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="T_Guest" class="Zh.DAL.Define.Entities.T_Guest, Zh.DAL.Define">
+			<column name="GuestIndex" length="4" sql-type="int" not-null="true"/>
+		</many-to-one>
+         <!--  -->
+        <many-to-one update="false" insert="false" name="WebSite" class="Zh.DAL.Define.Entities.WebSite, Zh.DAL.Define">
+			<column name="WebSiteId" length="16" sql-type="uniqueidentifier" not-null="true"/>
+		</many-to-one>
+        
+	 
+	</class>
+</hibernate-mapping>
