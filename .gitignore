@@ -60,3 +60,5 @@
 /src/Zh.WeiXin.UI.Web.Test/obj
 /src/Zh.Window.Service.Timer/bin
 /src/Zh.Window.Service.Timer/obj
+/src/Zh.EntityFrameworkEx/obj
+/src/Zh.EntityFrameworkEx/bin
