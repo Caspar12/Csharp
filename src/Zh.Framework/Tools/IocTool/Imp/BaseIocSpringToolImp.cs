@@ -43,6 +43,7 @@ namespace Zh.Framework.Tools.IocTool.Imp
                     xmlFiles.AddRange(files);
                 }
             }
+
             _Context = new XmlApplicationContext(xmlFiles.ToArray());
         }
         public BaseIocSpringToolImp(IApplicationContext context)
@@ -88,16 +89,20 @@ namespace Zh.Framework.Tools.IocTool.Imp
                 }
             }
 
-            if (r == null)
-            {
-                throw new Exception(string.Format(ConstantLangHelper.ERROR_NO_THAT_PARAM_TYPE, typeof(T).FullName));
-            }
-
             return (T)r;
 
         }
 
 
+        public T GetIfNullThrowException<T>() where T : class
+        {
+            T instance = Get<T>();
+            if (instance == null)
+            {
+                throw new Exception(string.Format(ConstantLangHelper.ERROR_NO_THAT_PARAM_TYPE, typeof(T).FullName));
+            }
+            return instance;
+        }
 
         public T Get<T>() where T : class
         {

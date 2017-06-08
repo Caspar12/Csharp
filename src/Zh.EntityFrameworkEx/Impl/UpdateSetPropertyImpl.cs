@@ -21,7 +21,7 @@ namespace Zh.EntityFrameworkEx.Impl
         public UpdateSetPropertyImpl(DbContext dbContext, object idValue)
         {
             TEntity entity = new TEntity();
-            EntityFrameworkHelper.setPrimaryKeyPropertyValue<TEntity>(entity, idValue);
+            EntityFrameworkHelper.SetPrimaryKeyPropertyValue<TEntity>(entity, idValue);
             this.Init(dbContext, entity);
         }
         private void Init(DbContext dbContext, TEntity entity)
@@ -29,6 +29,16 @@ namespace Zh.EntityFrameworkEx.Impl
 
             this._DbContext = dbContext;
             this._Entity = entity;
+            var localEntity = this._DbContext.Set<TEntity>().Local.Where(p => EntityFrameworkHelper.EqualsPrimaryKeys(p, this._Entity)).FirstOrDefault();
+            if (localEntity != null)
+            {
+                this._Entity = localEntity;
+            }
+            else
+            {
+                this._DbContext.Set<TEntity>().Attach(this._Entity);
+            }
+           
         }
 
         public void SaveChanges()
@@ -42,8 +52,6 @@ namespace Zh.EntityFrameworkEx.Impl
             dbPropertyEntry.OriginalValue = dbPropertyEntry.CurrentValue;
             dbPropertyEntry.CurrentValue = value;
             dbPropertyEntry.IsModified = true;
-            dbPropertyEntry.EntityEntry.State = EntityState.Modified;
-
             return this;
         }
     }

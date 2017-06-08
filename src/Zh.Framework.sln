@@ -72,6 +72,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.DAL.EntityFramework.Exte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.DAL.EntityFramework.ExtendTests", "Zh.DAL.EntityFramework.ExtendTests\Zh.DAL.EntityFramework.ExtendTests.csproj", "{508CBD26-BE5F-4A6F-AF8E-685BC12C4985}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.EntityFrameworkEx", "Zh.EntityFrameworkEx\Zh.EntityFrameworkEx.csproj", "{B8B9F2AA-226B-499A-B75A-16A9E977B48D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.Web.Mvc.Framework", "Zh.Web.Mvc.Framework\Zh.Web.Mvc.Framework.csproj", "{16280F0C-5B0B-4699-884B-F3915C61AFAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.Web.Mvc.Framework.Test", "Zh.Web.Mvc.Framework.Test\Zh.Web.Mvc.Framework.Test.csproj", "{B9DB9255-0064-4802-9592-CA8AB9078C79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -348,6 +354,42 @@ Global
 		{508CBD26-BE5F-4A6F-AF8E-685BC12C4985}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{508CBD26-BE5F-4A6F-AF8E-685BC12C4985}.Release|x86.ActiveCfg = Release|Any CPU
 		{508CBD26-BE5F-4A6F-AF8E-685BC12C4985}.Release|x86.Build.0 = Release|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Debug|x86.Build.0 = Debug|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8B9F2AA-226B-499A-B75A-16A9E977B48D}.Release|x86.Build.0 = Release|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Debug|x86.Build.0 = Debug|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Release|x86.ActiveCfg = Release|Any CPU
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD}.Release|x86.Build.0 = Release|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Debug|x86.Build.0 = Debug|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|x86.ActiveCfg = Release|Any CPU
+		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -376,6 +418,8 @@ Global
 		{E691BD7B-6C70-4F81-9E3A-6A3043D74E38} = {A7102297-08DB-46E6-A493-0F9DF69411E9}
 		{C8293889-8CB0-40EC-9205-8BF0C53FB5B7} = {8763C93F-BB5D-46BF-B15D-AA8B5392D0C7}
 		{508CBD26-BE5F-4A6F-AF8E-685BC12C4985} = {8763C93F-BB5D-46BF-B15D-AA8B5392D0C7}
+		{16280F0C-5B0B-4699-884B-F3915C61AFAD} = {5258CF33-E45D-4EC7-8EBE-A80C8DBDC507}
+		{B9DB9255-0064-4802-9592-CA8AB9078C79} = {8763C93F-BB5D-46BF-B15D-AA8B5392D0C7}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Zh.Framework1.vsmdi

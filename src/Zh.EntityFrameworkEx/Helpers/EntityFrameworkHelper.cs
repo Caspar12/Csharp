@@ -49,7 +49,7 @@ namespace Zh.EntityFrameworkEx.Utils
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="entity"></param>
         /// <param name="idValue"></param>
-        public static void setPrimaryKeyPropertyValue<TEntity>(TEntity entity, object idValue)
+        public static void SetPrimaryKeyPropertyValue<TEntity>(TEntity entity, object idValue)
         {
             List<PropertyInfo> propertyInfos = GetPrimaryKeyPropertyInfos<TEntity>();
             if (propertyInfos.Count <= 0)
@@ -64,6 +64,36 @@ namespace Zh.EntityFrameworkEx.Utils
             PropertyInfo propertyInfo = propertyInfos[0];
 
             propertyInfo.SetValue(entity, idValue, null);
+        }
+        /// <summary>
+        /// 判断对象所有主键是否相等
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="o1"></param>
+        /// <param name="o2"></param>
+        /// <returns></returns>
+        public static bool EqualsPrimaryKeys<TEntity>(TEntity o1, TEntity o2)
+        {
+            List<PropertyInfo> primaryPropertyInfos = GetPrimaryKeyPropertyInfos<TEntity>();
+
+            if (primaryPropertyInfos.Count <= 0)
+            {
+                throw new Exception("搜索不到主键属性");
+            }
+
+            foreach (var primaryPropertyInfo in primaryPropertyInfos)
+            {
+                var v1 = primaryPropertyInfo.GetValue(o1, null);
+                var v2 = primaryPropertyInfo.GetValue(o2, null);
+
+                if (v1 == null && v2 == null) continue;
+                if (v1 != null && v2 == null) return false;
+                if (v1 == null && v2 != null) return false;
+                if (v1.Equals(v2) == false) return false;
+            }
+
+            return true;
+
         }
     }
 }

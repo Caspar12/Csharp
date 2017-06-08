@@ -79,7 +79,7 @@
       <Project>{5C9A4DB1-BF52-45AC-82AF-B48172632FEB}</Project>
       <Name>Zh.DAL.Define</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\project\all_project\c_sharp\project\Zh.WeiXin.BLL\Zh.WeiXin.BLL.csproj">
+    <ProjectReference Include="..\Zh.WeiXin.BLL\Zh.WeiXin.BLL.csproj">
       <Project>{7335CBE5-C774-4FF6-99AE-800495F07B30}</Project>
       <Name>Zh.WeiXin.BLL</Name>
     </ProjectReference>

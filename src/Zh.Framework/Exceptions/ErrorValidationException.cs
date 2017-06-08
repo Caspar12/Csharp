@@ -11,9 +11,9 @@ namespace Zh.Framework.Exceptions
         public ErrorValidationException(string message) : base(message) { }
         public ErrorValidationException(string message, Exception innerException) : base(message, innerException) { }
 
-        public ErrorValidationException(string message, int hResult) : base(message)
+        public ErrorValidationException(string message, int code) : base(message)
         {
-            this.HResult = hResult;
+            this.Code = code;
         }
     }
 }
