@@ -145,6 +145,23 @@ namespace Zh.Framework.Tools.IocTool.Imp
             return r;
 
         }
+
+        public List<T> GetList<T>() where T : class
+        {
+            var arr = Context.GetObjectsOfType(typeof(T));
+
+            List<T> result = new List<T>(arr.Count);
+
+            if (arr.Count > 0)
+            {
+                foreach (System.Collections.DictionaryEntry i in arr)
+                {
+                    result.Add(i.Value as T);
+                }
+            }
+            return result;
+        }
+
         public string Name { get; set; }
     }
 }

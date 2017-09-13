@@ -8,21 +8,10 @@ namespace Zh.Framework.Tools.SerializeTool.Imp
 {
     public class JsonSerializeTool : IJsonSerializeTool
     {
-        IFileTool _FileHelper = null;
-        IFileTool FileHelper
-        {
-            get
-            {
-                if (_FileHelper == null)
-                {
-                    _FileHelper = new FileToolImp();
-                }
-                return _FileHelper;
-            }
-        }
+
         public T DeserializeFromFile<T>(string pFileFullName)
         {
-            var content = FileHelper.ReadFromFile(pFileFullName);
+            var content = File.ReadAllText(pFileFullName);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(content);
         }
 
@@ -39,7 +28,7 @@ namespace Zh.Framework.Tools.SerializeTool.Imp
         public void SerializeToFile(object pObj, string pFileFullName)
         {
             var content = SerializeToString(pObj);
-            FileHelper.WriteToFile(pFileFullName, content);
+            File.WriteAllText(pFileFullName, content);
         }
 
         public string SerializeToString(object pObj)

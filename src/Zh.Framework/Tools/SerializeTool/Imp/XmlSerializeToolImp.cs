@@ -21,13 +21,7 @@ namespace Zh.Framework.Tools.SerializeTool.Imp
         }
 
 
-        IFileTool _IFileTool;
 
-        IFileTool GetFileTool()
-        {
-            if (_IFileTool != null) return _IFileTool;
-            return new FileToolImp();
-        }
         /// <summary>
         /// 反序列化
         /// </summary>
@@ -47,7 +41,7 @@ namespace Zh.Framework.Tools.SerializeTool.Imp
                 var content = SerializeToString(pType.Assembly.CreateInstance(pType.FullName));
                 File.WriteAllText(pFileFullName, content);
             }
-            var tContent = GetFileTool().ReadFromFile(pFileFullName);
+            var tContent = File.ReadAllText(pFileFullName);
             var result = DeserializeFromString(pType, tContent);
             return result;
 

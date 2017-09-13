@@ -8,6 +8,8 @@ namespace Zh.Framework.Tools.IocTool
     {
         T Get<T>() where T : class;
 
+        List<T> GetList<T>() where T : class;
+
         T GetIfNullThrowException<T>() where T : class;
 
         T Get<T>(string id) where T : class;
