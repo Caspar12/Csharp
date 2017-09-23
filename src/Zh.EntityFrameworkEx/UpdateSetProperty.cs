@@ -23,5 +23,9 @@ namespace Zh.EntityFrameworkEx
         /// 调用关联的DbContext的SaveChanges方法
         /// </summary>
         void SaveChanges();
+        /// <summary>
+        /// 获取实体对象实例
+        /// </summary>
+        TEntity Entity { get; }
     }
 }

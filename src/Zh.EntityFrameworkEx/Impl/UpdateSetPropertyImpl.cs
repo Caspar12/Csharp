@@ -14,6 +14,16 @@ namespace Zh.EntityFrameworkEx.Impl
     {
         private DbContext _DbContext;
         private TEntity _Entity;
+
+
+        TEntity UpdateSetProperty<TEntity>.Entity
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public UpdateSetPropertyImpl(DbContext dbContext, TEntity entity)
         {
             this.Init(dbContext, entity);
@@ -38,7 +48,7 @@ namespace Zh.EntityFrameworkEx.Impl
             {
                 this._DbContext.Set<TEntity>().Attach(this._Entity);
             }
-           
+
         }
 
         public void SaveChanges()

@@ -78,6 +78,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.Web.Mvc.Framework", "Zh.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.Web.Mvc.Framework.Test", "Zh.Web.Mvc.Framework.Test\Zh.Web.Mvc.Framework.Test.csproj", "{B9DB9255-0064-4802-9592-CA8AB9078C79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.Comp.DataValidator", "Zh.Comp.DataValidator\Zh.Comp.DataValidator.csproj", "{D7106299-2579-4D71-95D3-35CF40C8C0A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zh.Comp.DataValidatorTests", "Zh.Comp.DataValidatorTests\Zh.Comp.DataValidatorTests.csproj", "{5D34305F-F62D-4947-9FC6-8635D570075B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -390,6 +394,30 @@ Global
 		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|x86.ActiveCfg = Release|Any CPU
 		{B9DB9255-0064-4802-9592-CA8AB9078C79}.Release|x86.Build.0 = Release|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6}.Release|x86.Build.0 = Release|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D34305F-F62D-4947-9FC6-8635D570075B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -420,6 +448,7 @@ Global
 		{508CBD26-BE5F-4A6F-AF8E-685BC12C4985} = {8763C93F-BB5D-46BF-B15D-AA8B5392D0C7}
 		{16280F0C-5B0B-4699-884B-F3915C61AFAD} = {5258CF33-E45D-4EC7-8EBE-A80C8DBDC507}
 		{B9DB9255-0064-4802-9592-CA8AB9078C79} = {8763C93F-BB5D-46BF-B15D-AA8B5392D0C7}
+		{D7106299-2579-4D71-95D3-35CF40C8C0A6} = {9B79800B-3F08-43ED-8E9B-EF930CA12B2E}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Zh.Framework1.vsmdi
